@@ -71,7 +71,7 @@ Based on the data provided, we can have three general views: One for specific cl
 
 Basic MVP will have the following design:
 
-![MVP Mockup]("/assets/mvp-mockup")
+![MVP Mockup](/assets/mvp-mockup.png)
 
 Reference-style: 
 
