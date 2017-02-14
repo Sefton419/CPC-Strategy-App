@@ -73,8 +73,31 @@ Basic MVP will have the following design:
 
 ![MVP Mockup](/assets/mvp-mockup.png)
 
-Reference-style: 
+##Component Heirarchy 
 
+```
+app-container
+	|
+	| --- header
+	|		|
+	|		|--- title
+	|		|
+	|		|--- search
+	|
+	|
+	| --- sidebar
+	|		|
+	|		|--- buttons-container
+	|       		|
+	|               |--- button
+	|
+	|
+	| --- list-container
+			|
+			|--- list
+					|
+					|--- list-item
+```
 
 
 
