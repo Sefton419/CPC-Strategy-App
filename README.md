@@ -31,48 +31,39 @@ Please submit here: http://app.greenhouse.io/tests/e0a44d6b197459300ce3669c2b308
 
 The JSON data provided contains several clients with the following properties:
 
-`
+```
 client_id: NUMBER 
-
 client_name: STRING  
-`
+```
 
 Each client contains a products attribute with an array of one-to-several products, each containing the following properties:
 
-`
+```
 product_id: NUMBER
-
 product_name: STRING
-
 product_asin: STRING
-
 product_image_url: STRING
 
-`
+```
 
 Each product contains a keywords attribute with an array of keywords with the following properties:
 
-`
+```
 keyword_id: NUMBER
-
 keyword_name: STRING
-
 keyword_country: STRING
 
-`
+```
 
 Each keyword contains a ranks attribute with an array of rankings, each containing the following properties:
 
-`
+```
 rank_id: NUMBER
-
 rank_position: NUMBER
-
 rank_page: NUMBER
-
 rank_date: STRING
 
-`
+```
 
 
 
