@@ -43,16 +43,14 @@ product_id: NUMBER
 product_name: STRING
 product_asin: STRING
 product_image_url: STRING
-
 ```
 
-Each product contains a keywords attribute with an array of keywords with the following properties:
+Each product contains a keywords attribute with an array of keywords, each containing the following properties:
 
 ```
 keyword_id: NUMBER
 keyword_name: STRING
 keyword_country: STRING
-
 ```
 
 Each keyword contains a ranks attribute with an array of rankings, each containing the following properties:
@@ -62,8 +60,13 @@ rank_id: NUMBER
 rank_position: NUMBER
 rank_page: NUMBER
 rank_date: STRING
-
 ```
+
+##Synopsis
+
+Based on the data provided, we can have three general views: One for specific clients, one for specific products, one for specific keywords. Organizing data in these three categories follows the given structure of the provided data, and will allow the user to interact with the data in the most meaningful way.
+
+
 
 
 
