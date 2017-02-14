@@ -67,6 +67,14 @@ rank_date: STRING
 Based on the data provided, we can have three general views: One for specific clients, one for specific products, one for specific keywords. Organizing data in these three categories follows the given structure of the provided data, and will allow the user to interact with the data in the most meaningful way.
 
 
+##MVP
+
+Basic MVP will have the following design:
+
+![MVP Mockup]("/assets/mvp-mockup")
+
+Reference-style: 
+
 
 
 
