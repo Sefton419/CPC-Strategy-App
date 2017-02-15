@@ -65,11 +65,6 @@
 	_reactDom2.default.render(_react2.default.createElement(
 	  'div',
 	  null,
-	  _react2.default.createElement(
-	    'h1',
-	    null,
-	    'this is app'
-	  ),
 	  _react2.default.createElement(_appContainer2.default, null)
 	), document.getElementById('app'));
 
@@ -29420,13 +29415,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var styles = {
-	  container: {
-	    flex: 1,
-	    display: 'flex',
-	    flexDirection: 'column',
-	    justifyContent: 'flex-start',
-	    height: '100%'
-	  }
+	  container: {}
 	};
 
 	var AppContainer = function (_Component) {
@@ -29465,15 +29454,18 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { style: styles.container },
+	        { className: 'container-fluid', style: styles.container },
 	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'this is appContainer'
+	          'div',
+	          { className: 'row' },
+	          _react2.default.createElement(_header2.default, null)
 	        ),
-	        _react2.default.createElement(_header2.default, null),
-	        _react2.default.createElement(_sidebar2.default, null),
-	        _react2.default.createElement(_listContainer2.default, { data: this.state.data })
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'row' },
+	          _react2.default.createElement(_sidebar2.default, null),
+	          _react2.default.createElement(_listContainer2.default, { data: this.state.data })
+	        )
 	      );
 	    }
 	  }]);
@@ -30988,18 +30980,22 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	var styles = {
+	  header: {
+	    color: 'white',
+	    background: 'black',
+	    height: 75
+	  }
+	};
+
 	var Header = function Header() {
 
 	  // methods and variables go here...
 
 	  return _react2.default.createElement(
 	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'this is Header'
-	    )
+	    { className: 'col-md-12', style: styles.header },
+	    'CPC Strategy'
 	  );
 	};
 
@@ -31025,18 +31021,19 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	var styles = {
+	  'sidebar': {
+	    backgroundColor: '#f7f7f9'
+	  }
+	};
+
 	var Sidebar = function Sidebar(props) {
 
 	  // method and variable go here...
 
 	  return _react2.default.createElement(
 	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'this is Sidebar'
-	    ),
+	    { className: 'col-md-2', style: styles.sidebar },
 	    _react2.default.createElement(_buttonsContainer2.default, null)
 	  );
 	};
@@ -31059,6 +31056,12 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	var styles = {
+	  sidebarButtons: {
+	    width: '100%'
+	  }
+	};
+
 	var ButtonsContainer = function ButtonsContainer(props) {
 
 	  // method and variables pertaining to clicking buttons in child components
@@ -31067,9 +31070,19 @@
 	    'div',
 	    null,
 	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'this is ButtonsContainer'
+	      'button',
+	      { style: styles.sidebarButtons },
+	      'Companies'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { style: styles.sidebarButtons },
+	      'Products'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { style: styles.sidebarButtons },
+	      'Keywords'
 	    )
 	  );
 	};
@@ -31096,16 +31109,15 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	var styles = {
+	  listContainer: {}
+	};
+
 	var ListContainer = function ListContainer(props) {
 
 	  return _react2.default.createElement(
 	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'this is ListContainer'
-	    ),
+	    { className: 'col-md-8', id: 'listContainer', style: styles.listContainer },
 	    _react2.default.createElement('div', null),
 	    _react2.default.createElement(_list2.default, { data: props })
 	  );
@@ -31152,11 +31164,6 @@
 	  return _react2.default.createElement(
 	    'div',
 	    null,
-	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'this is List'
-	    ),
 	    _react2.default.createElement(_CompanyListItem2.default, null),
 	    _react2.default.createElement(_ProductListItem2.default, null),
 	    _react2.default.createElement(_KeywordListItem2.default, null),
@@ -31184,15 +31191,7 @@
 
 	var CompanyListItem = function CompanyListItem(props) {
 
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'this is CompanyListItem'
-	    )
-	  );
+	  return _react2.default.createElement('div', null);
 	};
 
 	exports.default = CompanyListItem;
@@ -31215,15 +31214,7 @@
 
 	var ProductListItem = function ProductListItem(props) {
 
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'this is ProductListItem'
-	    )
-	  );
+	  return _react2.default.createElement('div', null);
 	};
 
 	exports.default = ProductListItem;
@@ -31246,15 +31237,7 @@
 
 	var KeywordListItem = function KeywordListItem(props) {
 
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'this is KeywordListItem'
-	    )
-	  );
+	  return _react2.default.createElement('div', null);
 	};
 
 	exports.default = KeywordListItem;

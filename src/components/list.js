@@ -11,7 +11,6 @@ const List = () => {
 
   return (
     <div>
-      <h1>this is List</h1>
       <CompanyListItem />
       <ProductListItem />
       <KeywordListItem />

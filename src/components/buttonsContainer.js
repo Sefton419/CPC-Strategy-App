@@ -1,12 +1,21 @@
 import React from 'react';
 
+const styles = {
+  sidebarButtons: {
+    width: '100%', 
+  }
+}
+
 const ButtonsContainer = (props) => {
 
   // method and variables pertaining to clicking buttons in child components
 
     return (
       <div>
-        <h1>this is ButtonsContainer</h1>
+        <button style={styles.sidebarButtons}>Companies</button>
+        <button style={styles.sidebarButtons}>Products</button>
+        <button style={styles.sidebarButtons}>Keywords</button>
+
       </div>
     )
 

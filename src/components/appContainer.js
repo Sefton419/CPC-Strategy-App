@@ -6,13 +6,7 @@ import Sidebar from './sidebar.js';
 import ListContainer from './listContainer.js';
 
 const styles = {
-  container: {
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    height: '100%',
-  }
+  container: {}
 };
 
 class AppContainer extends Component {
@@ -42,11 +36,14 @@ class AppContainer extends Component {
 
   render() {
     return (
-      <div style={styles.container}>
-        <h1>this is appContainer</h1>
-        <Header />
-        <Sidebar />
-        <ListContainer data={this.state.data}/>
+      <div className="container-fluid" style={styles.container}>
+        <div className="row">
+          <Header />
+        </div>
+        <div className="row">
+          <Sidebar />
+          <ListContainer data={this.state.data}/>
+        </div>
       </div>
     )
   }
