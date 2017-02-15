@@ -62,7 +62,7 @@ rank_page: NUMBER
 rank_date: STRING
 ```
 
-##Synopsis
+##App organization based on data
 
 Based on the data provided, we can have three general views: One for specific clients, one for specific products, one for specific keywords. Organizing data in these three categories follows the given structure of the provided data, and will allow the user to interact with the data in the most meaningful way.
 
@@ -73,30 +73,39 @@ Basic MVP will have the following design:
 
 ![MVP Mockup](/assets/mvp-mockup.png)
 
-##Component Heirarchy 
+##Component Heirarchy with key *JSX elements*
 
 ```
-app-container
+app.js
 	|
-	| --- header
+	| --- header.js
 	|		|
-	|		|--- title
+	|		|--- *title*
 	|		|
-	|		|--- search
+	|		|--- *search*
 	|
 	|
-	| --- sidebar
+	| --- sidebar.js
 	|		|
-	|		|--- buttons-container
+	|		|--- buttonsContainer.js
 	|       		|
-	|               |--- button
+	|               |--- *companiesButton*
+	|               |
+	|               |--- *productsButton*
+	|               |
+	|               |--- *keywordsButton*
 	|
 	|
-	| --- list-container
-			|
-			|--- list
-					|
-					|--- list-item
+	| --- listContainer.js
+	|		|
+	|		|--- list.js
+	|				|
+	|				|--- companyListItem.js
+	|				|
+	|				|--- productListItem.js
+	|				|
+	|				|--- keywordListItem.js
+							
 ```
 
 
