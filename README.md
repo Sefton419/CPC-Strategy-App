@@ -76,7 +76,7 @@ Basic MVP will have the following design:
 ##Component Heirarchy with key *JSX elements*
 
 ```
-app.js
+appContainer.js
 	|
 	| --- header.js
 	|		|
