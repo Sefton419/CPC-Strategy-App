@@ -105,6 +105,8 @@ appContainer.js
 	|				|--- productListItem.js
 	|				|
 	|				|--- keywordListItem.js
+	|               |
+	|               |--- loading.js
 							
 ```
 

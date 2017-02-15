@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 
-class Sidebar extends Component {
-  render() {
-    return (
-      <div>
-        <h1>this is Sidebar</h1>
-      </div>
-    )
-  }
+import ButtonsContainer from './buttonsContainer.js'
+
+const Sidebar = (props) => {
+
+  // method and variable go here...
+  
+  return (
+    <div>
+      <h1>this is Sidebar</h1>
+      <ButtonsContainer />
+    </div>
+  )
 }
 
 export default Sidebar;

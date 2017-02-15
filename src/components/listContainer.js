@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import List from './list.js'
 
-class ListContainer extends Component {
-  render() {
-    return (
-      <div>
-        <h1>this is ListContainer</h1>
-        <List />
-      </div>
-    )
-  }
-}
+const ListContainer = (props) => {
+
+  return (
+    <div>
+      <h1>this is ListContainer</h1>
+      <div></div>
+      <List data={props}/>
+    </div>
+  );
+};
 
 export default ListContainer;

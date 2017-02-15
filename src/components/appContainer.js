@@ -22,18 +22,17 @@ class AppContainer extends Component {
       data: null,
       dataUrl: 'http://frontendtest.cpcstrategy.com/'
     }
-
-    this.getCompaniesData = this.getCompaniesData.bind(this);
-    this.getProductsData = this.getProductsData.bind(this);
-    this.getKeywordsData = this.getKeywordsData.bind(this);
   }
 
   componentWillMount() {
-    // axios GET call to get data and organize on state
+    // axios GET call to retrieve data and set to state
     if (this.state.dataUrl !== null) {
       this.state.data = axios.get(this.state.dataUrl)
       .then((response) => {
-        console.log('data mapped to state');
+        this.state.data = response;
+      })
+      .then((data) => {
+        console.log('data mapped to state: ', this.state.data);
       })
       .catch((error) => {
         console.log('Something did not work right');
@@ -41,24 +40,13 @@ class AppContainer extends Component {
     }
   }
 
-  componentDidMount() {
-    // provide accurate data to
-    console.log('This is data on state: ' + this.state.data); 
-  }
-
-  getCompaniesData() {}
-
-  getProductsData() {}
-
-  getKeywordsData() {}
-
   render() {
     return (
       <div style={styles.container}>
         <h1>this is appContainer</h1>
         <Header />
         <Sidebar />
-        <ListContainer />
+        <ListContainer data={this.state.data}/>
       </div>
     )
   }

@@ -5,7 +5,7 @@ import AppContainer from './components/appContainer.js'
 
 ReactDOM.render(
   <div>
-  <h1>This is app</h1>
+  <h1>this is app</h1>
    <AppContainer />
   </div>,
 	document.getElementById('app')
