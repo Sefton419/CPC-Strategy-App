@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import 'babel-polyfill';
-
+import AppContainer from './components/appContainer.js'
 
 ReactDOM.render(
-	<h1>Lets Build a React App with Redux!</h1>,
+  <div>
+  <h1>This is app</h1>
+   <AppContainer />
+  </div>,
 	document.getElementById('app')
 );
