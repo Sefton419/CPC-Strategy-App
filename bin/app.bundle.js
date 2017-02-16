@@ -29406,6 +29406,10 @@
 
 	var _listContainer2 = _interopRequireDefault(_listContainer);
 
+	var _loading = __webpack_require__(502);
+
+	var _loading2 = _interopRequireDefault(_loading);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29421,13 +29425,14 @@
 	var AppContainer = function (_Component) {
 	  _inherits(AppContainer, _Component);
 
-	  function AppContainer() {
+	  function AppContainer(props) {
 	    _classCallCheck(this, AppContainer);
 
-	    var _this = _possibleConstructorReturn(this, (AppContainer.__proto__ || Object.getPrototypeOf(AppContainer)).call(this));
+	    var _this = _possibleConstructorReturn(this, (AppContainer.__proto__ || Object.getPrototypeOf(AppContainer)).call(this, props));
 
 	    _this.state = {
 	      data: null,
+	      dataLoading: true,
 	      dataUrl: 'http://frontendtest.cpcstrategy.com/'
 	    };
 	    return _this;
@@ -29439,11 +29444,21 @@
 	      var _this2 = this;
 
 	      // axios GET call to retrieve data and set to state
-	      if (this.state.dataUrl !== null) {
-	        this.state.data = _axios2.default.get(this.state.dataUrl).then(function (response) {
-	          _this2.state.data = response;
-	        }).then(function (data) {
+	      var _state = this.state;
+	      var dataUrl = _state.dataUrl;
+	      var data = _state.data;
+
+
+	      console.log('This is data initially: ', data);
+
+	      if (data === null) {
+	        this.state.data = _axios2.default.get(dataUrl).then(function (resp) {
+	          _this2.state.data = resp.data;
+	        }).then(function (resp) {
 	          console.log('data mapped to state: ', _this2.state.data);
+	          console.log('length of data: ', _this2.state.data.length);
+	          _this2.setState({ dataLoading: false });
+	          console.log('dataLoading is now... ', _this2.state.dataLoading);
 	        }).catch(function (error) {
 	          console.log('Something did not work right');
 	        });
@@ -29452,6 +29467,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'container-fluid', style: styles.container },
@@ -29464,7 +29480,7 @@
 	          'div',
 	          { className: 'row' },
 	          _react2.default.createElement(_sidebar2.default, null),
-	          _react2.default.createElement(_listContainer2.default, { data: this.state.data })
+	          this.state.dataLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_listContainer2.default, null)
 	        )
 	      );
 	    }
@@ -31118,7 +31134,11 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'col-md-8', id: 'listContainer', style: styles.listContainer },
-	    _react2.default.createElement('div', null),
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      'this is list container :)'
+	    ),
 	    _react2.default.createElement(_list2.default, { data: props })
 	  );
 	};

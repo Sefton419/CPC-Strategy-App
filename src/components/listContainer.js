@@ -10,7 +10,7 @@ const ListContainer = (props) => {
 
   return (
     <div className="col-md-8" id="listContainer" style={styles.listContainer}>
-      <div></div>
+      <div>this is list container :)</div>
       <List data={props}/>
     </div>
   );

@@ -4,29 +4,39 @@ import axios from 'axios';
 import Header from './header.js';
 import Sidebar from './sidebar.js';
 import ListContainer from './listContainer.js';
+import Loading from './loading.js'
 
 const styles = {
   container: {}
 };
 
 class AppContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       data: null,
+      dataLoading: true,
       dataUrl: 'http://frontendtest.cpcstrategy.com/'
     }
   }
 
   componentWillMount() {
     // axios GET call to retrieve data and set to state
-    if (this.state.dataUrl !== null) {
-      this.state.data = axios.get(this.state.dataUrl)
-      .then((response) => {
-        this.state.data = response;
+    const { dataUrl, data } = this.state;
+
+    console.log('This is data initially: ', data)
+
+    if (data === null) {
+      this.state.data = axios.get(dataUrl)
+      .then((resp) => {
+        this.state.data = resp.data;
       })
-      .then((data) => {
-        console.log('data mapped to state: ', this.state.data);
+      .then((resp) => {
+        console.log('data mapped to state: ', this.state.data)
+        console.log('length of data: ', this.state.data.length);
+        this.setState({ dataLoading: false });
+        console.log('dataLoading is now... ', this.state.dataLoading);
+
       })
       .catch((error) => {
         console.log('Something did not work right');
@@ -35,6 +45,7 @@ class AppContainer extends Component {
   }
 
   render() {
+
     return (
       <div className="container-fluid" style={styles.container}>
         <div className="row">
@@ -42,7 +53,7 @@ class AppContainer extends Component {
         </div>
         <div className="row">
           <Sidebar />
-          <ListContainer data={this.state.data}/>
+          {this.state.dataLoading ? <Loading /> : <ListContainer />}
         </div>
       </div>
     )
