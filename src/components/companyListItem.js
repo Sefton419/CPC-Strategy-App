@@ -1,6 +1,8 @@
 import React from 'react';
 
-const CompanyListItem = (props) => {
+const CompanyListItem = ({ data }) => {
+
+  console.log('data in CompanyListItem: ', data);
 
   return (
     <div>

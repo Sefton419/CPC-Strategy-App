@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
+import DATAURL from '../constants/constants.js'
 import Header from './header.js';
 import Sidebar from './sidebar.js';
 import ListContainer from './listContainer.js';
@@ -16,7 +17,7 @@ class AppContainer extends Component {
     this.state = {
       data: null,
       dataLoading: true,
-      dataUrl: 'http://frontendtest.cpcstrategy.com/'
+      dataUrl: DATAURL
     }
   }
 
@@ -32,11 +33,10 @@ class AppContainer extends Component {
         this.state.data = resp.data;
       })
       .then((resp) => {
-        console.log('data mapped to state: ', this.state.data)
+        console.log('data mapped to state: ', this.state.data);
         console.log('length of data: ', this.state.data.length);
         this.setState({ dataLoading: false });
         console.log('dataLoading is now... ', this.state.dataLoading);
-
       })
       .catch((error) => {
         console.log('Something did not work right');
@@ -53,7 +53,7 @@ class AppContainer extends Component {
         </div>
         <div className="row">
           <Sidebar />
-          {this.state.dataLoading ? <Loading /> : <ListContainer />}
+          {this.state.dataLoading ? <Loading /> : <ListContainer data={this.state.data} />}
         </div>
       </div>
     )

@@ -29394,19 +29394,23 @@
 
 	var _axios2 = _interopRequireDefault(_axios);
 
-	var _header = __webpack_require__(494);
+	var _constants = __webpack_require__(494);
+
+	var _constants2 = _interopRequireDefault(_constants);
+
+	var _header = __webpack_require__(495);
 
 	var _header2 = _interopRequireDefault(_header);
 
-	var _sidebar = __webpack_require__(495);
+	var _sidebar = __webpack_require__(496);
 
 	var _sidebar2 = _interopRequireDefault(_sidebar);
 
-	var _listContainer = __webpack_require__(497);
+	var _listContainer = __webpack_require__(498);
 
 	var _listContainer2 = _interopRequireDefault(_listContainer);
 
-	var _loading = __webpack_require__(502);
+	var _loading = __webpack_require__(503);
 
 	var _loading2 = _interopRequireDefault(_loading);
 
@@ -29433,7 +29437,7 @@
 	    _this.state = {
 	      data: null,
 	      dataLoading: true,
-	      dataUrl: 'http://frontendtest.cpcstrategy.com/'
+	      dataUrl: _constants2.default
 	    };
 	    return _this;
 	  }
@@ -29480,7 +29484,7 @@
 	          'div',
 	          { className: 'row' },
 	          _react2.default.createElement(_sidebar2.default, null),
-	          this.state.dataLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_listContainer2.default, null)
+	          this.state.dataLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_listContainer2.default, { data: this.state.data })
 	        )
 	      );
 	    }
@@ -30982,6 +30986,19 @@
 
 /***/ },
 /* 494 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var DATAURL = 'http://frontendtest.cpcstrategy.com/';
+
+	exports.default = DATAURL;
+
+/***/ },
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31018,7 +31035,7 @@
 	exports.default = Header;
 
 /***/ },
-/* 495 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31031,7 +31048,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _buttonsContainer = __webpack_require__(496);
+	var _buttonsContainer = __webpack_require__(497);
 
 	var _buttonsContainer2 = _interopRequireDefault(_buttonsContainer);
 
@@ -31057,7 +31074,7 @@
 	exports.default = Sidebar;
 
 /***/ },
-/* 496 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31106,46 +31123,6 @@
 	exports.default = ButtonsContainer;
 
 /***/ },
-/* 497 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _list = __webpack_require__(498);
-
-	var _list2 = _interopRequireDefault(_list);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var styles = {
-	  listContainer: {}
-	};
-
-	var ListContainer = function ListContainer(props) {
-
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'col-md-8', id: 'listContainer', style: styles.listContainer },
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      'this is list container :)'
-	    ),
-	    _react2.default.createElement(_list2.default, { data: props })
-	  );
-	};
-
-	exports.default = ListContainer;
-
-/***/ },
 /* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -31159,39 +31136,31 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _CompanyListItem = __webpack_require__(499);
+	var _list = __webpack_require__(499);
 
-	var _CompanyListItem2 = _interopRequireDefault(_CompanyListItem);
-
-	var _ProductListItem = __webpack_require__(500);
-
-	var _ProductListItem2 = _interopRequireDefault(_ProductListItem);
-
-	var _KeywordListItem = __webpack_require__(501);
-
-	var _KeywordListItem2 = _interopRequireDefault(_KeywordListItem);
-
-	var _loading = __webpack_require__(502);
-
-	var _loading2 = _interopRequireDefault(_loading);
+	var _list2 = _interopRequireDefault(_list);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var List = function List() {
+	var styles = {
+	  listContainer: {}
+	};
 
-	  // Methods and variables go here...
-
+	var ListContainer = function ListContainer(data) {
+	  console.log('data in list container: ', data);
 	  return _react2.default.createElement(
 	    'div',
-	    null,
-	    _react2.default.createElement(_CompanyListItem2.default, null),
-	    _react2.default.createElement(_ProductListItem2.default, null),
-	    _react2.default.createElement(_KeywordListItem2.default, null),
-	    _react2.default.createElement(_loading2.default, null)
+	    { className: 'col-md-8', id: 'listContainer', style: styles.listContainer },
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      'this is list container :)'
+	    ),
+	    _react2.default.createElement(_list2.default, { data: data })
 	  );
 	};
 
-	exports.default = List;
+	exports.default = ListContainer;
 
 /***/ },
 /* 499 */
@@ -31207,9 +31176,62 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _CompanyListItem = __webpack_require__(500);
+
+	var _CompanyListItem2 = _interopRequireDefault(_CompanyListItem);
+
+	var _ProductListItem = __webpack_require__(501);
+
+	var _ProductListItem2 = _interopRequireDefault(_ProductListItem);
+
+	var _KeywordListItem = __webpack_require__(502);
+
+	var _KeywordListItem2 = _interopRequireDefault(_KeywordListItem);
+
+	var _loading = __webpack_require__(503);
+
+	var _loading2 = _interopRequireDefault(_loading);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var CompanyListItem = function CompanyListItem(props) {
+	var List = function List(_ref) {
+	  var data = _ref.data;
+
+	  console.log('data in list: ', data);
+	  // Methods and variables go here...
+
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(_CompanyListItem2.default, { data: data }),
+	    _react2.default.createElement(_ProductListItem2.default, null),
+	    _react2.default.createElement(_KeywordListItem2.default, null)
+	  );
+	};
+
+	exports.default = List;
+
+/***/ },
+/* 500 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var CompanyListItem = function CompanyListItem(_ref) {
+	  var data = _ref.data;
+
+
+	  console.log('data in CompanyListItem: ', data);
 
 	  return _react2.default.createElement('div', null);
 	};
@@ -31217,7 +31239,7 @@
 	exports.default = CompanyListItem;
 
 /***/ },
-/* 500 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31240,7 +31262,7 @@
 	exports.default = ProductListItem;
 
 /***/ },
-/* 501 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31263,7 +31285,7 @@
 	exports.default = KeywordListItem;
 
 /***/ },
-/* 502 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

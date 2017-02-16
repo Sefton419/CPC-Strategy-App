@@ -6,12 +6,12 @@ const styles = {
   listContainer: {}
 }
 
-const ListContainer = (props) => {
-
+const ListContainer = (data) => {
+  console.log('data in list container: ', data);
   return (
     <div className="col-md-8" id="listContainer" style={styles.listContainer}>
       <div>this is list container :)</div>
-      <List data={props}/>
+      <List data={data}/>
     </div>
   );
 };
