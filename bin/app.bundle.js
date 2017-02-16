@@ -31146,16 +31146,13 @@
 	  listContainer: {}
 	};
 
-	var ListContainer = function ListContainer(data) {
+	var ListContainer = function ListContainer(_ref) {
+	  var data = _ref.data;
+
 	  console.log('data in list container: ', data);
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'col-md-8', id: 'listContainer', style: styles.listContainer },
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      'this is list container :)'
-	    ),
 	    _react2.default.createElement(_list2.default, { data: data })
 	  );
 	};
@@ -31180,14 +31177,6 @@
 
 	var _CompanyListItem2 = _interopRequireDefault(_CompanyListItem);
 
-	var _ProductListItem = __webpack_require__(501);
-
-	var _ProductListItem2 = _interopRequireDefault(_ProductListItem);
-
-	var _KeywordListItem = __webpack_require__(502);
-
-	var _KeywordListItem2 = _interopRequireDefault(_KeywordListItem);
-
 	var _loading = __webpack_require__(503);
 
 	var _loading2 = _interopRequireDefault(_loading);
@@ -31198,14 +31187,22 @@
 	  var data = _ref.data;
 
 	  console.log('data in list: ', data);
-	  // Methods and variables go here...
+	  var companyItems = data.map(function (company) {
+	    return _react2.default.createElement(_CompanyListItem2.default, {
+	      className: 'list-group-item',
+	      key: company.client_id,
+	      company: company
+	    });
+	  });
 
 	  return _react2.default.createElement(
 	    'div',
 	    null,
-	    _react2.default.createElement(_CompanyListItem2.default, { data: data }),
-	    _react2.default.createElement(_ProductListItem2.default, null),
-	    _react2.default.createElement(_KeywordListItem2.default, null)
+	    _react2.default.createElement(
+	      'ul',
+	      { className: 'list-group' },
+	      companyItems
+	    )
 	  );
 	};
 
@@ -31225,66 +31222,57 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _productList = __webpack_require__(504);
+
+	var _productList2 = _interopRequireDefault(_productList);
+
+	var _productListItem = __webpack_require__(505);
+
+	var _productListItem2 = _interopRequireDefault(_productListItem);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var CompanyListItem = function CompanyListItem(_ref) {
-	  var data = _ref.data;
+	  var company = _ref.company;
 
+	  console.log('data in CompanyListItem: ', company);
+	  var products = company.products.map(function (product) {
+	    return _react2.default.createElement(_productListItem2.default, {
+	      key: product.product_id,
+	      name: product.product_name,
+	      image_url: product.product_image_url,
+	      product: product
+	    });
+	  });
 
-	  console.log('data in CompanyListItem: ', data);
+	  console.log('Products for ' + company.client_name + ': ', products);
 
-	  return _react2.default.createElement('div', null);
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'li',
+	      { className: 'list-group-item' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'media-heading' },
+	        company.client_name
+	      ),
+	      _react2.default.createElement(
+	        'ul',
+	        null,
+	        'Products',
+	        products
+	      )
+	    )
+	  );
 	};
 
 	exports.default = CompanyListItem;
 
 /***/ },
-/* 501 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var ProductListItem = function ProductListItem(props) {
-
-	  return _react2.default.createElement('div', null);
-	};
-
-	exports.default = ProductListItem;
-
-/***/ },
-/* 502 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var KeywordListItem = function KeywordListItem(props) {
-
-	  return _react2.default.createElement('div', null);
-	};
-
-	exports.default = KeywordListItem;
-
-/***/ },
+/* 501 */,
+/* 502 */,
 /* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -31313,6 +31301,234 @@
 	};
 
 	exports.default = Loading;
+
+/***/ },
+/* 504 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ProductList = function ProductList(_ref) {
+	  var products = _ref.products;
+
+	  console.log('data in productList: ', productList);
+
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'ul',
+	      null,
+	      products
+	    )
+	  );
+	};
+
+	exports.default = ProductList;
+
+	// Am I using this?
+
+/***/ },
+/* 505 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _keywordListItem = __webpack_require__(507);
+
+	var _keywordListItem2 = _interopRequireDefault(_keywordListItem);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var styles = {
+	  thumbnail: {
+	    maxHeight: 50
+	  }
+	};
+
+	var ProductListItem = function ProductListItem(_ref) {
+	  var product = _ref.product;
+	  var name = _ref.name;
+	  var image_url = _ref.image_url;
+
+	  console.log('product ' + name + ': ', product);
+	  var keywords = product.keywords.map(function (keyword) {
+	    return _react2.default.createElement(_keywordListItem2.default, {
+	      key: keyword.keyword_id,
+	      name: keyword.keyword_name,
+	      country: keyword.keyword_country,
+	      keyword: keyword
+	    });
+	  });
+
+	  console.log('Keywords for ' + name + ': ', keywords);
+
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'li',
+	      { className: 'list-group-item' },
+	      _react2.default.createElement(
+	        'div',
+	        null,
+	        ' ',
+	        name,
+	        ' '
+	      ),
+	      _react2.default.createElement('img', {
+	        className: 'card-img, img-fluid',
+	        style: styles.thumbnail,
+	        src: image_url
+	      }),
+	      _react2.default.createElement(
+	        'ul',
+	        { className: 'list-group' },
+	        'Keywords',
+	        keywords
+	      )
+	    )
+	  );
+	};
+
+	exports.default = ProductListItem;
+
+/***/ },
+/* 506 */,
+/* 507 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _rankListItem = __webpack_require__(508);
+
+	var _rankListItem2 = _interopRequireDefault(_rankListItem);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var KeywordListItem = function KeywordListItem(_ref) {
+	  var keyword = _ref.keyword;
+	  var name = _ref.name;
+	  var country = _ref.country;
+
+	  var ranks = keyword.ranks.map(function (rank) {
+	    return _react2.default.createElement(_rankListItem2.default, {
+	      key: rank.rank_id,
+	      position: rank.rank_position,
+	      page: rank.rank_page,
+	      date: rank.rank_date
+	    });
+	  });
+
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'li',
+	      { className: 'list-group-item' },
+	      _react2.default.createElement(
+	        'div',
+	        null,
+	        name
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        null,
+	        country
+	      ),
+	      _react2.default.createElement(
+	        'ul',
+	        { className: 'list-group' },
+	        ranks
+	      )
+	    )
+	  );
+	};
+
+	exports.default = KeywordListItem;
+
+/***/ },
+/* 508 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var RankListItem = function RankListItem(_ref) {
+	  var rank = _ref.rank;
+	  var position = _ref.position;
+	  var page = _ref.page;
+	  var date = _ref.date;
+
+
+	  return _react2.default.createElement(
+	    "div",
+	    null,
+	    _react2.default.createElement(
+	      "li",
+	      { className: "list-group-item" },
+	      _react2.default.createElement(
+	        "ul",
+	        { className: "list-Group" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "list-group-item" },
+	          "Position: ",
+	          position
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "list-group-item" },
+	          "Page: ",
+	          page
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "list-group-item" },
+	          "Date: ",
+	          date
+	        )
+	      )
+	    )
+	  );
+	};
+
+	exports.default = RankListItem;
 
 /***/ }
 /******/ ]);
