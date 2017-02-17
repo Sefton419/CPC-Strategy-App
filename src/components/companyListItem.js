@@ -23,17 +23,14 @@ const CompanyListItem = ({ company }) => {
   console.log(`Products for ${company.client_name}: `, products);
 
   return (
-    <div>
-      <li className="list-group-item">
-        <div className="media-heading">
-          {company.client_name}
-        </div>
-        <ul>
-          Products
-          {products}
-        </ul>
-      </li>
-    </div>
+    <table className="table">
+      <h2 className="panel-title">
+        {company.client_name}
+      </h2>
+      <div className="panel-body">
+        {products}
+      </div>
+    </table>
   );
 };
 

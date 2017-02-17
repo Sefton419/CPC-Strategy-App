@@ -31187,7 +31187,7 @@
 	  var data = _ref.data;
 
 	  console.log('data in list: ', data);
-	  var companyItems = data.map(function (company) {
+	  var companies = data.map(function (company) {
 	    return _react2.default.createElement(_CompanyListItem2.default, {
 	      className: 'list-group-item',
 	      key: company.client_id,
@@ -31197,11 +31197,20 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    null,
+	    { className: 'panel panel-default' },
 	    _react2.default.createElement(
-	      'ul',
-	      { className: 'list-group' },
-	      companyItems
+	      'div',
+	      { className: 'panel-heading' },
+	      _react2.default.createElement(
+	        'h1',
+	        { className: 'panel-title' },
+	        'Companies'
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'panel-body' },
+	      companies
 	    )
 	  );
 	};
@@ -31248,22 +31257,17 @@
 	  console.log('Products for ' + company.client_name + ': ', products);
 
 	  return _react2.default.createElement(
-	    'div',
-	    null,
+	    'table',
+	    { className: 'table' },
 	    _react2.default.createElement(
-	      'li',
-	      { className: 'list-group-item' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'media-heading' },
-	        company.client_name
-	      ),
-	      _react2.default.createElement(
-	        'ul',
-	        null,
-	        'Products',
-	        products
-	      )
+	      'h2',
+	      { className: 'panel-title' },
+	      company.client_name
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'panel-body' },
+	      products
 	    )
 	  );
 	};
