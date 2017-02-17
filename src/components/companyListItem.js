@@ -4,12 +4,11 @@ import ProductListItem from './productListItem.js';
 
 
 
-
-
-
 const CompanyListItem = ({ company }) => {
+
   console.log('data in CompanyListItem: ', company);
   const products = company.products.map((product) => {
+    console.log(`iterating, product: `, product)
     return (
       <ProductListItem 
         key={product.product_id}
@@ -23,14 +22,25 @@ const CompanyListItem = ({ company }) => {
   console.log(`Products for ${company.client_name}: `, products);
 
   return (
-    <table className="table">
+    <div className="panel panel-default">
       <h2 className="panel-title">
         {company.client_name}
       </h2>
       <div className="panel-body">
-        {products}
+        <div className="row">
+          <div className="col-xs-3">Product</div>
+          <div className="col-xs-2">Keywords</div>
+          <div className="col-xs-2">Ranks</div>
+          <div className="col-xs-2">Progress</div>
+          <div className="col-xs-2">Total Avg Score</div>
+        </div>
+        <div className="row">
+          <div>
+            {products}
+          </div>
+        </div>
       </div>
-    </table>
+    </div>
   );
 };
 

@@ -21,13 +21,16 @@ const KeywordListItem = ({ keyword, name, country }) => {
 
   return (
     <div>
-      <li className="list-group-item">
-        <div>{name}</div>
-        <div>{country}</div>
-        <ul className="list-group">
-          {ranks}
-        </ul>
-      </li>
+      <div className="col-xs-2">
+        name: {name}
+      </div> 
+      <div>
+        country: {country}
+      </div>
+
+      <div className="row">
+        {ranks}
+      </div>
     </div>
   );
 };

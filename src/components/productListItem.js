@@ -1,5 +1,7 @@
 import React from 'react';
+
 import KeywordListItem from './keywordListItem.js';
+import RankListItem from './rankListItem.js';
 
 const styles = {
   thumbnail: {
@@ -20,22 +22,12 @@ const ProductListItem = ({ product, name, image_url }) => {
     );
   });
 
-  console.log(`Keywords for ${name}: `, keywords);
-
   return (
-    <div>
-      <li className="list-group-item">
-        <div> {name} </div>
-        <img 
-          className="card-img, img-fluid"
-          style={styles.thumbnail}
-          src={image_url}
-        />
-        <ul className="list-group">
-          Keywords
-          {keywords}
-        </ul>
-      </li>
+    <div className="row">
+      <div className ="col-xs-3">{name}</div>
+      <div className="col-xs-2">
+        {keywords}
+      </div>
     </div>
   );
 };

@@ -10,7 +10,7 @@ import Loading from './loading.js'
 const List = ({ data }) => {
   console.log('data in list: ', data);
   const companies = data.map((company) => {
-    return ( 
+    return (
       <CompanyListItem 
         className="list-group-item"
         key={company.client_id}
@@ -24,9 +24,7 @@ const List = ({ data }) => {
       <div className="panel-heading">
         <h1 className="panel-title">Companies</h1>
       </div>
-      <div className="panel-body">
         {companies}
-      </div>
     </div>
   )
 }

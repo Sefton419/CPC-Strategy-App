@@ -11,13 +11,9 @@ const RankListItem = ({ rank, position, page, date }) => {
 
   return (
     <div>
-      <li className="list-group-item">
-        <ul className="list-Group">
-          <div className="list-group-item">Position: {position}</div>
-          <div className="list-group-item">Page: {page}</div>
-          <div className="list-group-item">Date: {date}</div>
-        </ul>
-      </li>
+      <div className="col-xs-2">Position: {position}</div>
+      <div className="col-xs-2">Page: {page}</div>
+      <div className="col-xs-2">Date: {date}</div>
     </div>
   );
 };
