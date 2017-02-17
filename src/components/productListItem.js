@@ -3,10 +3,12 @@ import React from 'react';
 import KeywordListItem from './keywordListItem.js';
 import RankListItem from './rankListItem.js';
 
+
 const styles = {
   thumbnail: {
     maxHeight: 50,
-  }
+  },
+  productListItem: {}
 }
 
 const ProductListItem = ({ product, name, image_url }) => {
@@ -23,10 +25,12 @@ const ProductListItem = ({ product, name, image_url }) => {
   });
 
   return (
-    <div className="row">
-      <div className ="col-xs-3">{name}</div>
-      <div className="col-xs-2">
-        {keywords}
+    <div className="row" style={styles.productListItem}>
+     <div className="col-xs-11">
+        <div className ="col-xs-3">{name}</div>
+        <div className="col-xs-8">
+          {keywords}
+        </div>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import React from 'react';
-import ProductList from './productList.js';
 import ProductListItem from './productListItem.js';
 
 
+const styles = {}
 
 const CompanyListItem = ({ company }) => {
 
@@ -30,12 +30,12 @@ const CompanyListItem = ({ company }) => {
         <div className="row">
           <div className="col-xs-3">Product</div>
           <div className="col-xs-2">Keywords</div>
-          <div className="col-xs-2">Ranks</div>
+          <div className="col-xs-3">Ranks</div>
           <div className="col-xs-2">Progress</div>
           <div className="col-xs-2">Total Avg Score</div>
         </div>
         <div className="row">
-          <div>
+          <div className="col-xs-12" style={styles.productListItem}>
             {products}
           </div>
         </div>

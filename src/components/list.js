@@ -5,14 +5,11 @@ import Loading from './loading.js'
 
 
 
-
-
 const List = ({ data }) => {
   console.log('data in list: ', data);
   const companies = data.map((company) => {
     return (
       <CompanyListItem 
-        className="list-group-item"
         key={company.client_id}
         company={company}
       />
