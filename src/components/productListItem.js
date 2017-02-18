@@ -44,7 +44,7 @@ const ProductListItem = ({ product, product_name, product_image_url, updateGraph
         <div className="col-xs-2" style={styles.EMPTY}>
           {keywords}
         </div>
-        <div className="col-xs-4">
+        <div className="col-xs-5">
           <RanksGraph 
             updateGraphData={updateGraphData}
             graphData={keywordsDataForGraphs}

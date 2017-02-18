@@ -29403,7 +29403,7 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'col-md-2', style: styles.sidebar },
+	    { className: 'col-xs-2', style: styles.sidebar },
 	    _react2.default.createElement(_buttonsContainer2.default, null)
 	  );
 	};
@@ -29490,7 +29490,7 @@
 	  console.log('data in list container: ', data);
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'col-md-8', id: 'listContainer', style: styles.listContainer },
+	    { className: 'col-xs-10', id: 'listContainer', style: styles.listContainer },
 	    _react2.default.createElement(_list2.default, {
 	      data: data,
 	      updateGraphData: updateGraphData
@@ -29726,7 +29726,7 @@
 	    ),
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'col-xs-4' },
+	      { className: 'col-xs-5' },
 	      _react2.default.createElement(_ranksGraph2.default, {
 	        updateGraphData: updateGraphData,
 	        graphData: keywordsDataForGraphs

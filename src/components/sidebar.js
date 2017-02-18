@@ -13,7 +13,7 @@ const Sidebar = (props) => {
   // method and variable go here...
   
   return (
-    <div className="col-md-2" style={styles.sidebar}>
+    <div className="col-xs-2" style={styles.sidebar}>
       <ButtonsContainer />
     </div>
   )

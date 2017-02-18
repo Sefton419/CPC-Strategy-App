@@ -9,7 +9,7 @@ const styles = {
 const ListContainer = ({ data, updateGraphData }) => {
   console.log('data in list container: ', data);
   return (
-    <div className="col-md-8" id="listContainer" style={styles.listContainer}>
+    <div className="col-xs-10" id="listContainer" style={styles.listContainer}>
       <List 
         data={data}
         updateGraphData={updateGraphData}
