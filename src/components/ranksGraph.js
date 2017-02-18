@@ -1,16 +1,61 @@
 import React from 'react';
-import { Chart, LineChart }  from 'react-d3-core';
+import { Chart }  from 'react-d3-core';
+import { LineChart } from 'react-d3-basic';
 
-
-
+const styles = {
+  TE: {
+    borderStyle: 'solid',
+    borderWidth: 0.25
+  },
+  EMPTY: {}
+}
 
 const RanksGraph = ({ graphData, updateGraphData }) => {
   console.log('graphData in RanksGraph: ', graphData);
   console.log('graphData function: ', updateGraphData);
 
-  const width = 700,
-    height = 300,
-    margins = {left: 100, right: 100, top: 50, bottom: 50},
+  const chartData = [
+    {
+      name: "Lavon Hilll I",
+      BMI: 20.57,
+      age: 12,
+      birthday: "1994-10-26T00:00:00.000Z",
+      city: "Annatown",
+      married: true,
+      index: 1
+    },
+    {
+      name: "Clovis Pagac",
+      BMI: 24.28,
+      age: 26,
+      birthday: "1995-11-10T00:00:00.000Z",
+      city: "South Eldredtown",
+      married: false,
+      index: 3
+    },
+    {
+      name: "Gaylord Paucek",
+      BMI: 24.41,
+      age: 30,
+      birthday: "1975-06-12T00:00:00.000Z",
+      city: "Koeppchester",
+      married: true,
+      index: 5
+    },
+    {
+      name: "Ashlynn Kuhn MD",
+      BMI: 23.77,
+      age: 32,
+      birthday: "1985-08-09T00:00:00.000Z",
+      city: "West Josiemouth",
+      married: false,
+      index: 6
+    }
+  ]
+
+  const width = 350,
+    height = 150,
+    margins = {left: 50, right: 50, top: 25, bottom: 25},
     title = "User sample",
     // chart series,
     // field: is what field your data want to be selected
@@ -29,31 +74,27 @@ const RanksGraph = ({ graphData, updateGraphData }) => {
     }
 
   return (
-    <div>I'm ranksGraph</div>
+    <div style={styles.TE}>
+      <Chart 
+        title={0}
+        width={0}
+        height={0}
+        margins= {0}
+        >
+        <LineChart
+          showXGrid= {false}
+          showYGrid= {false}
+          margins= {margins}
+          title={title}
+          data={chartData}
+          width={width}
+          height={height}
+          chartSeries={chartSeries}
+          x={x}
+        />
+      </Chart>
+    </div>
   );
 };
 
 export default RanksGraph;
-
-/*
-
-<Chart
-  title={title}
-  width={width}
-  height={height}
-  margins= {margins}
-  >
-  <LineChart
-    showXGrid= {false}
-    showYGrid= {false}
-    margins= {margins}
-    title={title}
-    data={chartData}
-    width={width}
-    height={height}
-    chartSeries={chartSeries}
-    x={x}
-  />
-</Chart>
-
-*/
