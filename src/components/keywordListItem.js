@@ -3,9 +3,15 @@ import React from 'react';
 import RankListItem from './rankListItem.js';
 import RanksGraph from './ranksGraph.js'
 
+const styles = {
+  TE: {
+    borderStyle: 'solid',
+    borderWidth: 0.25
+  },
+  EMPTY: {}
+}
 
-
-const KeywordListItem = ({ keyword, name, country }) => {
+const KeywordListItem = ({ keyword, keyword_name, keyword_country }) => {
   const graphData = keyword.ranks.map(rank => rank);
   console.log('this is mapped graphData: ', graphData)
   // const ranks = keyword.ranks.map((rank) => {
@@ -20,12 +26,9 @@ const KeywordListItem = ({ keyword, name, country }) => {
   // });
 
   return (
-    <div className="row">
-      <div className="col-xs-4">
-        {name}
-      </div>
-      <div className="col-xs-6">
-        <RanksGraph />
+    <div className="row" style={styles.EMPTY}>
+      <div className="col-xs-2" style={styles.EMPTY}>
+        {keyword_name}
       </div>
     </div>
   );

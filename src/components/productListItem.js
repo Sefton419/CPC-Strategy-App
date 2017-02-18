@@ -5,33 +5,32 @@ import RankListItem from './rankListItem.js';
 
 
 const styles = {
-  thumbnail: {
-    maxHeight: 50,
+  TE: {
+    borderStyle: 'solid',
+    borderWidth: 0.25
   },
-  productListItem: {}
+  EMPTY: {}
 }
 
-const ProductListItem = ({ product, name, image_url }) => {
+const ProductListItem = ({ product, product_name, product_image_url }) => {
   console.log(`product ${name}: `, product)
   const keywords = product.keywords.map((keyword) => {
     return (
       <KeywordListItem 
         key={keyword.keyword_id}
-        name={keyword.keyword_name}
-        country={keyword.keyword_country}
+        keyword_name={keyword.keyword_name}
+        keyword_country={keyword.keyword_country}
         keyword={keyword}
       />
     );
   });
 
   return (
-    <div className="row" style={styles.productListItem}>
-     <div className="col-xs-11">
-        <div className ="col-xs-3">{name}</div>
-        <div className="col-xs-8">
+    <div className="row" style={styles.EMPTY}>
+        <div className="col-xs-7" style={styles.EMPTY}>{product_name}</div>
+        <div className="col-xs-2" style={styles.EMPTY}>
           {keywords}
         </div>
-      </div>
     </div>
   );
 };

@@ -17,11 +17,8 @@ const List = ({ data }) => {
   });
 
   return (
-    <div className="panel panel-default">
-      <div className="panel-heading">
-        <h1 className="panel-title">Companies</h1>
-      </div>
-        {companies}
+    <div className="container-fluid">
+      {companies}
     </div>
   )
 }

@@ -31196,16 +31196,7 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'panel panel-default' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'panel-heading' },
-	      _react2.default.createElement(
-	        'h1',
-	        { className: 'panel-title' },
-	        'Companies'
-	      )
-	    ),
+	    { className: 'container-fluid' },
 	    companies
 	  );
 	};
@@ -31232,7 +31223,13 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var styles = {};
+	var styles = {
+	  TE: {
+	    borderStyle: 'solid',
+	    borderWidth: 0.25
+	  },
+	  EMPTY: {}
+	};
 
 	var CompanyListItem = function CompanyListItem(_ref) {
 	  var company = _ref.company;
@@ -31243,8 +31240,8 @@
 	    console.log('iterating, product: ', product);
 	    return _react2.default.createElement(_productListItem2.default, {
 	      key: product.product_id,
-	      name: product.product_name,
-	      image_url: product.product_image_url,
+	      product_name: product.product_name,
+	      product_image_url: product.product_image_url,
 	      product: product
 	    });
 	  });
@@ -31264,7 +31261,7 @@
 	      { className: 'panel-body' },
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'row' },
+	        { className: 'row', style: styles.EMPTY },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'col-xs-3' },
@@ -31296,7 +31293,7 @@
 	        { className: 'row' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'col-xs-12', style: styles.productListItem },
+	          { className: 'col-xs-5' },
 	          products
 	        )
 	      )
@@ -31332,43 +31329,40 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var styles = {
-	  thumbnail: {
-	    maxHeight: 50
+	  TE: {
+	    borderStyle: 'solid',
+	    borderWidth: 0.25
 	  },
-	  productListItem: {}
+	  EMPTY: {}
 	};
 
 	var ProductListItem = function ProductListItem(_ref) {
 	  var product = _ref.product;
-	  var name = _ref.name;
-	  var image_url = _ref.image_url;
+	  var product_name = _ref.product_name;
+	  var product_image_url = _ref.product_image_url;
 
 	  console.log('product ' + name + ': ', product);
 	  var keywords = product.keywords.map(function (keyword) {
 	    return _react2.default.createElement(_keywordListItem2.default, {
 	      key: keyword.keyword_id,
-	      name: keyword.keyword_name,
-	      country: keyword.keyword_country,
+	      keyword_name: keyword.keyword_name,
+	      keyword_country: keyword.keyword_country,
 	      keyword: keyword
 	    });
 	  });
 
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'row', style: styles.productListItem },
+	    { className: 'row', style: styles.EMPTY },
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'col-xs-11' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'col-xs-3' },
-	        name
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'col-xs-8' },
-	        keywords
-	      )
+	      { className: 'col-xs-7', style: styles.EMPTY },
+	      product_name
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'col-xs-2', style: styles.EMPTY },
+	      keywords
 	    )
 	  );
 	};
@@ -31399,10 +31393,18 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	var styles = {
+	  TE: {
+	    borderStyle: 'solid',
+	    borderWidth: 0.25
+	  },
+	  EMPTY: {}
+	};
+
 	var KeywordListItem = function KeywordListItem(_ref) {
 	  var keyword = _ref.keyword;
-	  var name = _ref.name;
-	  var country = _ref.country;
+	  var keyword_name = _ref.keyword_name;
+	  var keyword_country = _ref.keyword_country;
 
 	  var graphData = keyword.ranks.map(function (rank) {
 	    return rank;
@@ -31421,16 +31423,11 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'row' },
+	    { className: 'row', style: styles.EMPTY },
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'col-xs-4' },
-	      name
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'col-xs-6' },
-	      _react2.default.createElement(_ranksGraph2.default, null)
+	      { className: 'col-xs-2', style: styles.EMPTY },
+	      keyword_name
 	    )
 	  );
 	};
@@ -41732,7 +41729,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var RanksGraph = function RanksGraph(_ref) {
-	  var ranks = _ref.ranks;
+	  var graphData = _ref.graphData;
 
 
 	  var width = 700,
@@ -41776,7 +41773,7 @@
 	  </Chart>
 	  */
 
-	  console.log('graphData in graph component: ', ranks);
+	  console.log('graphData in graph component: ', graphData);
 
 	  return _react2.default.createElement(
 	    'div',
