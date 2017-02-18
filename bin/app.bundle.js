@@ -29438,20 +29438,20 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    null,
+	    { className: 'btn-group-vertical', id: 'width100' },
 	    _react2.default.createElement(
 	      'button',
-	      { style: styles.sidebarButtons },
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
 	      'Companies'
 	    ),
 	    _react2.default.createElement(
 	      'button',
-	      { style: styles.sidebarButtons },
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
 	      'Products'
 	    ),
 	    _react2.default.createElement(
 	      'button',
-	      { style: styles.sidebarButtons },
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
 	      'Keywords'
 	    )
 	  );
