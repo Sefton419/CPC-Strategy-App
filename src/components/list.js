@@ -5,13 +5,16 @@ import Loading from './loading.js'
 
 
 
-const List = ({ data }) => {
-  console.log('data in list: ', data);
+const List = ({ data, updateGraphData }) => {
+  console.log('data in list: ', data); 
+  console.log('updateGraphData in list: ', updateGraphData);
+
   const companies = data.map((company) => {
     return (
       <CompanyListItem 
         key={company.client_id}
         company={company}
+        updateGraphData={updateGraphData}
       />
     );
   });

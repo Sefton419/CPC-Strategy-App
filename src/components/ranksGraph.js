@@ -4,7 +4,9 @@ import { Chart, LineChart }  from 'react-d3-core';
 
 
 
-const RanksGraph = ({ graphData }) => {
+const RanksGraph = ({ graphData, updateGraphData }) => {
+  console.log('graphData in RanksGraph: ', graphData);
+  console.log('graphData function: ', updateGraphData);
 
   const width = 700,
     height = 300,
@@ -26,7 +28,15 @@ const RanksGraph = ({ graphData }) => {
       return d.index;
     }
 
-    /*
+  return (
+    <div>I'm ranksGraph</div>
+  );
+};
+
+export default RanksGraph;
+
+/*
+
 <Chart
   title={title}
   width={width}
@@ -45,13 +55,5 @@ const RanksGraph = ({ graphData }) => {
     x={x}
   />
 </Chart>
-    */
 
-  console.log('graphData in graph component: ', graphData);
-
-  return (
-    <div>We're cool</div>
-  );
-};
-
-export default RanksGraph;
+*/

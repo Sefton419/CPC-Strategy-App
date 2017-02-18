@@ -17,8 +17,11 @@ class AppContainer extends Component {
     this.state = {
       data: null,
       dataLoading: true,
-      dataUrl: DATAURL
+      dataUrl: DATAURL,
+      graphData: null
     }
+
+    this.updateGraphData = this.updateGraphData.bind(this);   
   }
 
   componentWillMount() {
@@ -44,7 +47,13 @@ class AppContainer extends Component {
     }
   }
 
+  updateGraphData(data) {
+    this.setState({ graphData: data });
+  }
+
   render() {
+
+    console.log('updateGraphData in AppContainer: ', this.updateGraphData);
 
     return (
       <div className="container-fluid" style={styles.container}>
@@ -53,7 +62,7 @@ class AppContainer extends Component {
         </div>
         <div className="row">
           <Sidebar />
-          {this.state.dataLoading ? <Loading /> : <ListContainer data={this.state.data} />}
+          {this.state.dataLoading ? <Loading /> : <ListContainer data={this.state.data} updateGraphData={this.updateGraphData} />}
         </div>
       </div>
     )

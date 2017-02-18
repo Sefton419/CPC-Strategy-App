@@ -10,7 +10,7 @@ const styles = {
   EMPTY: {}
 }
 
-const CompanyListItem = ({ company }) => {
+const CompanyListItem = ({ company, updateGraphData }) => {
 
   console.log('data in CompanyListItem: ', company);
   const products = company.products.map((product) => {
@@ -21,6 +21,7 @@ const CompanyListItem = ({ company }) => {
         product_name={product.product_name}
         product_image_url={product.product_image_url}
         product={product}
+        updateGraphData={updateGraphData}
       />
     );
   });
@@ -41,7 +42,7 @@ const CompanyListItem = ({ company }) => {
           <div className="col-xs-2">Total Avg Score</div>
         </div>
         <div className="row">
-          <div className="col-xs-5">
+          <div className="col-xs-12" style={styles.TE}>
             {products}
           </div>
         </div>
