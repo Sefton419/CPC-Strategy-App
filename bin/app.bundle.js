@@ -29907,7 +29907,9 @@
 	    });
 	  }).reduce(function (arr, rank) {
 	    return [].concat(_toConsumableArray(arr), _toConsumableArray(rank));
-	  }, []);
+	  }, []).sort(function (a, b) {
+	    return new Date(a.rank_date).getTime() - new Date(b.rank_date).getTime();
+	  });;
 
 	  console.log('chartData: ', chartData);
 

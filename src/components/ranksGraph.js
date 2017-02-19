@@ -47,7 +47,10 @@ const RanksGraph = ({ ranks, updateGraphData, colors }) => {
     })
     .reduce((arr, rank) => {
       return [...arr, ...rank];
-    }, []);
+    }, [])
+    .sort((a, b) => {
+      return new Date(a.rank_date).getTime() - new Date(b.rank_date).getTime();
+    });;
 
     
     console.log('chartData: ', chartData);
