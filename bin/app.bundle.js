@@ -29359,13 +29359,39 @@
 	};
 
 	var Header = function Header() {
-
 	  // methods and variables go here...
-
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'col-md-12', style: styles.header },
-	    'CPC Strategy'
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'col-md-12' },
+	      'CPC Strategy'
+	    ),
+	    _react2.default.createElement('div', { className: 'row' }),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'row' },
+	      _react2.default.createElement('div', { className: 'col-md-2' }),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'col-lg-4' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'input-group' },
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'input-group-btn' },
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'btn btn-default', type: 'button' },
+	              'Go!'
+	            )
+	          ),
+	          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Search for...' })
+	        )
+	      )
+	    )
 	  );
 	};
 
