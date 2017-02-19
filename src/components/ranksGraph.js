@@ -58,7 +58,6 @@ const RanksGraph = ({ ranks, updateGraphData, colors }) => {
     // your x accessor
     const x = function(d) {
       const date = parseDate(d.rank_date);
-      console.log('how date looks: ', date);
         return date;
     };
 

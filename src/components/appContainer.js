@@ -18,7 +18,13 @@ class AppContainer extends Component {
       data: null,
       dataLoading: true,
       dataUrl: DATAURL,
-      graphData: null
+      graphData: null,
+      buttons: {
+        companys: {},
+        products: {},
+        keywords: {}  
+      },
+      buttonsLoading: true,
     }
 
     this.updateGraphData = this.updateGraphData.bind(this);   
@@ -61,7 +67,7 @@ class AppContainer extends Component {
           <Header />
         </div>
         <div className="row">
-          <Sidebar />
+          {this.state.buttonsLoading ? <Sidebar /> : <Sidebar buttonData={this.state.buttons} />}
           {this.state.dataLoading ? <Loading /> : <ListContainer data={this.state.data} updateGraphData={this.updateGraphData} />}
         </div>
       </div>

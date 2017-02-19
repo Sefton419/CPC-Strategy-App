@@ -27721,23 +27721,23 @@
 
 	var _axios2 = _interopRequireDefault(_axios);
 
-	var _constants = __webpack_require__(481);
+	var _constants = __webpack_require__(484);
 
 	var _constants2 = _interopRequireDefault(_constants);
 
-	var _header = __webpack_require__(482);
+	var _header = __webpack_require__(485);
 
 	var _header2 = _interopRequireDefault(_header);
 
-	var _sidebar = __webpack_require__(483);
+	var _sidebar = __webpack_require__(487);
 
 	var _sidebar2 = _interopRequireDefault(_sidebar);
 
-	var _listContainer = __webpack_require__(485);
+	var _listContainer = __webpack_require__(489);
 
 	var _listContainer2 = _interopRequireDefault(_listContainer);
 
-	var _loading = __webpack_require__(566);
+	var _loading = __webpack_require__(570);
 
 	var _loading2 = _interopRequireDefault(_loading);
 
@@ -27765,7 +27765,13 @@
 	      data: null,
 	      dataLoading: true,
 	      dataUrl: _constants2.default,
-	      graphData: null
+	      graphData: null,
+	      buttons: {
+	        companys: {},
+	        products: {},
+	        keywords: {}
+	      },
+	      buttonsLoading: true
 	    };
 
 	    _this.updateGraphData = _this.updateGraphData.bind(_this);
@@ -27820,7 +27826,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'row' },
-	          _react2.default.createElement(_sidebar2.default, null),
+	          this.state.buttonsLoading ? _react2.default.createElement(_sidebar2.default, null) : _react2.default.createElement(_sidebar2.default, { buttonData: this.state.buttons }),
 	          this.state.dataLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_listContainer2.default, { data: this.state.data, updateGraphData: this.updateGraphData })
 	        )
 	      );
@@ -29322,7 +29328,10 @@
 
 
 /***/ },
-/* 481 */
+/* 481 */,
+/* 482 */,
+/* 483 */,
+/* 484 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29335,7 +29344,7 @@
 	exports.default = DATAURL;
 
 /***/ },
-/* 482 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29347,6 +29356,10 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _searchBar = __webpack_require__(486);
+
+	var _searchBar2 = _interopRequireDefault(_searchBar);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29369,36 +29382,61 @@
 	      'CPC Strategy'
 	    ),
 	    _react2.default.createElement('div', { className: 'row' }),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'row' },
-	      _react2.default.createElement('div', { className: 'col-md-2' }),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'col-lg-4' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'input-group' },
-	          _react2.default.createElement(
-	            'span',
-	            { className: 'input-group-btn' },
-	            _react2.default.createElement(
-	              'button',
-	              { className: 'btn btn-default', type: 'button' },
-	              'Go!'
-	            )
-	          ),
-	          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Search for...' })
-	        )
-	      )
-	    )
+	    _react2.default.createElement(_searchBar2.default, null)
 	  );
 	};
 
 	exports.default = Header;
 
 /***/ },
-/* 483 */
+/* 486 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var SearchBar = function SearchBar(_ref) {
+	  var props = _ref.props;
+
+
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "row" },
+	    _react2.default.createElement("div", { className: "col-md-2" }),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "col-lg-4" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "input-group" },
+	        _react2.default.createElement(
+	          "span",
+	          { className: "input-group-btn" },
+	          _react2.default.createElement(
+	            "button",
+	            { className: "btn btn-default", type: "button" },
+	            "Go!"
+	          )
+	        ),
+	        _react2.default.createElement("input", { type: "text", className: "form-control", placeholder: "Search for..." })
+	      )
+	    )
+	  );
+	};
+
+	exports.default = SearchBar;
+
+/***/ },
+/* 487 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29411,7 +29449,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _buttonsContainer = __webpack_require__(484);
+	var _buttonsContainer = __webpack_require__(488);
 
 	var _buttonsContainer2 = _interopRequireDefault(_buttonsContainer);
 
@@ -29435,7 +29473,7 @@
 	exports.default = Sidebar;
 
 /***/ },
-/* 484 */
+/* 488 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29447,6 +29485,18 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _companyButtons = __webpack_require__(571);
+
+	var _companyButtons2 = _interopRequireDefault(_companyButtons);
+
+	var _productButtons = __webpack_require__(572);
+
+	var _productButtons2 = _interopRequireDefault(_productButtons);
+
+	var _keywordButtons = __webpack_require__(573);
+
+	var _keywordButtons2 = _interopRequireDefault(_keywordButtons);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29459,32 +29509,34 @@
 	var ButtonsContainer = function ButtonsContainer(props) {
 
 	  // method and variables pertaining to clicking buttons in child components
-
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'btn-group-vertical', id: 'width100' },
+	    null,
 	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'h4',
+	      null,
 	      'Companies'
 	    ),
+	    _react2.default.createElement(_companyButtons2.default, null),
 	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'h4',
+	      null,
 	      'Products'
 	    ),
+	    _react2.default.createElement(_productButtons2.default, null),
 	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'h4',
+	      null,
 	      'Keywords'
-	    )
+	    ),
+	    _react2.default.createElement(_keywordButtons2.default, null)
 	  );
 	};
 
 	exports.default = ButtonsContainer;
 
 /***/ },
-/* 485 */
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29497,7 +29549,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _list = __webpack_require__(486);
+	var _list = __webpack_require__(490);
 
 	var _list2 = _interopRequireDefault(_list);
 
@@ -29515,6 +29567,11 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'col-xs-10', style: styles.listContainer },
+	    _react2.default.createElement(
+	      'h4',
+	      null,
+	      'TESTING'
+	    ),
 	    _react2.default.createElement(_list2.default, {
 	      data: data,
 	      updateGraphData: updateGraphData
@@ -29525,7 +29582,7 @@
 	exports.default = ListContainer;
 
 /***/ },
-/* 486 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29538,11 +29595,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _CompanyListItem = __webpack_require__(487);
+	var _CompanyListItem = __webpack_require__(491);
 
 	var _CompanyListItem2 = _interopRequireDefault(_CompanyListItem);
 
-	var _loading = __webpack_require__(566);
+	var _loading = __webpack_require__(570);
 
 	var _loading2 = _interopRequireDefault(_loading);
 
@@ -29573,7 +29630,7 @@
 	exports.default = List;
 
 /***/ },
-/* 487 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29586,7 +29643,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _productListItem = __webpack_require__(488);
+	var _productListItem = __webpack_require__(492);
 
 	var _productListItem2 = _interopRequireDefault(_productListItem);
 
@@ -29675,7 +29732,7 @@
 	exports.default = CompanyListItem;
 
 /***/ },
-/* 488 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29688,15 +29745,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _keywordListItem = __webpack_require__(489);
+	var _keywordListItem = __webpack_require__(493);
 
 	var _keywordListItem2 = _interopRequireDefault(_keywordListItem);
 
-	var _rankListItem = __webpack_require__(490);
+	var _rankListItem = __webpack_require__(494);
 
 	var _rankListItem2 = _interopRequireDefault(_rankListItem);
 
-	var _ranksGraph = __webpack_require__(491);
+	var _ranksGraph = __webpack_require__(495);
 
 	var _ranksGraph2 = _interopRequireDefault(_ranksGraph);
 
@@ -29767,7 +29824,7 @@
 	exports.default = ProductListItem;
 
 /***/ },
-/* 489 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29780,7 +29837,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _rankListItem = __webpack_require__(490);
+	var _rankListItem = __webpack_require__(494);
 
 	var _rankListItem2 = _interopRequireDefault(_rankListItem);
 
@@ -29827,7 +29884,7 @@
 	exports.default = KeywordListItem;
 
 /***/ },
-/* 490 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29864,7 +29921,7 @@
 	exports.default = RankListItem;
 
 /***/ },
-/* 491 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29877,9 +29934,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(492);
+	var _reactD3Core = __webpack_require__(496);
 
-	var _reactD3Basic = __webpack_require__(534);
+	var _reactD3Basic = __webpack_require__(538);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29942,7 +29999,6 @@
 	  // your x accessor
 	  var x = function x(d) {
 	    var date = parseDate(d.rank_date);
-	    console.log('how date looks: ', date);
 	    return date;
 	  };
 
@@ -29969,7 +30025,7 @@
 	exports.default = RanksGraph;
 
 /***/ },
-/* 492 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29978,7 +30034,7 @@
 	  value: true
 	});
 
-	var _svg = __webpack_require__(493);
+	var _svg = __webpack_require__(497);
 
 	Object.defineProperty(exports, 'Svg', {
 	  enumerable: true,
@@ -29987,7 +30043,7 @@
 	  }
 	});
 
-	var _title = __webpack_require__(504);
+	var _title = __webpack_require__(508);
 
 	Object.defineProperty(exports, 'Title', {
 	  enumerable: true,
@@ -29996,7 +30052,7 @@
 	  }
 	});
 
-	var _chartContainer = __webpack_require__(505);
+	var _chartContainer = __webpack_require__(509);
 
 	Object.defineProperty(exports, 'Chart', {
 	  enumerable: true,
@@ -30005,7 +30061,7 @@
 	  }
 	});
 
-	var _axis = __webpack_require__(524);
+	var _axis = __webpack_require__(528);
 
 	Object.defineProperty(exports, 'Axis', {
 	  enumerable: true,
@@ -30014,7 +30070,7 @@
 	  }
 	});
 
-	var _xaxis = __webpack_require__(526);
+	var _xaxis = __webpack_require__(530);
 
 	Object.defineProperty(exports, 'Xaxis', {
 	  enumerable: true,
@@ -30023,7 +30079,7 @@
 	  }
 	});
 
-	var _yaxis = __webpack_require__(528);
+	var _yaxis = __webpack_require__(532);
 
 	Object.defineProperty(exports, 'Yaxis', {
 	  enumerable: true,
@@ -30032,7 +30088,7 @@
 	  }
 	});
 
-	var _label = __webpack_require__(527);
+	var _label = __webpack_require__(531);
 
 	Object.defineProperty(exports, 'Label', {
 	  enumerable: true,
@@ -30041,7 +30097,7 @@
 	  }
 	});
 
-	var _legend = __webpack_require__(506);
+	var _legend = __webpack_require__(510);
 
 	Object.defineProperty(exports, 'Legend', {
 	  enumerable: true,
@@ -30050,7 +30106,7 @@
 	  }
 	});
 
-	var _grid = __webpack_require__(529);
+	var _grid = __webpack_require__(533);
 
 	Object.defineProperty(exports, 'Grid', {
 	  enumerable: true,
@@ -30059,7 +30115,7 @@
 	  }
 	});
 
-	var _xgrid = __webpack_require__(530);
+	var _xgrid = __webpack_require__(534);
 
 	Object.defineProperty(exports, 'Xgrid', {
 	  enumerable: true,
@@ -30068,7 +30124,7 @@
 	  }
 	});
 
-	var _ygrid = __webpack_require__(531);
+	var _ygrid = __webpack_require__(535);
 
 	Object.defineProperty(exports, 'Ygrid', {
 	  enumerable: true,
@@ -30077,7 +30133,7 @@
 	  }
 	});
 
-	var _scale = __webpack_require__(495);
+	var _scale = __webpack_require__(499);
 
 	Object.defineProperty(exports, 'scale', {
 	  enumerable: true,
@@ -30086,7 +30142,7 @@
 	  }
 	});
 
-	var _xDomain = __webpack_require__(532);
+	var _xDomain = __webpack_require__(536);
 
 	Object.defineProperty(exports, 'xDomainCount', {
 	  enumerable: true,
@@ -30095,7 +30151,7 @@
 	  }
 	});
 
-	var _yDomain = __webpack_require__(533);
+	var _yDomain = __webpack_require__(537);
 
 	Object.defineProperty(exports, 'yDomainCount', {
 	  enumerable: true,
@@ -30107,7 +30163,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 493 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -30124,11 +30180,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _commonProps = __webpack_require__(494);
+	var _commonProps = __webpack_require__(498);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
-	var _scale = __webpack_require__(495);
+	var _scale = __webpack_require__(499);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30199,7 +30255,7 @@
 	exports.default = ChartSvg;
 
 /***/ },
-/* 494 */
+/* 498 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -30214,7 +30270,7 @@
 	};
 
 /***/ },
-/* 495 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30224,7 +30280,7 @@
 	});
 	exports.scale = scale;
 
-	var _d3Scale = __webpack_require__(496);
+	var _d3Scale = __webpack_require__(500);
 
 	var _d3Scale2 = _interopRequireDefault(_d3Scale);
 
@@ -30270,11 +30326,11 @@
 	}
 
 /***/ },
-/* 496 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(497), __webpack_require__(498), __webpack_require__(499), __webpack_require__(501), __webpack_require__(502), __webpack_require__(503), __webpack_require__(500)) :
+	   true ? factory(exports, __webpack_require__(501), __webpack_require__(502), __webpack_require__(503), __webpack_require__(505), __webpack_require__(506), __webpack_require__(507), __webpack_require__(504)) :
 	  typeof define === 'function' && define.amd ? define(['exports', 'd3-array', 'd3-collection', 'd3-interpolate', 'd3-format', 'd3-time', 'd3-time-format', 'd3-color'], factory) :
 	  (factory((global.d3_scale = global.d3_scale || {}),global.d3_array,global.d3_collection,global.d3_interpolate,global.d3_format,global.d3_time,global.d3_time_format,global.d3_color));
 	}(this, function (exports,d3Array,d3Collection,d3Interpolate,d3Format,d3Time,d3TimeFormat,d3Color) { 'use strict';
@@ -31204,7 +31260,7 @@
 	}));
 
 /***/ },
-/* 497 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -31678,7 +31734,7 @@
 	}));
 
 /***/ },
-/* 498 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -31907,11 +31963,11 @@
 	}));
 
 /***/ },
-/* 499 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(500)) :
+	   true ? factory(exports, __webpack_require__(504)) :
 	  typeof define === 'function' && define.amd ? define(['exports', 'd3-color'], factory) :
 	  (factory((global.d3_interpolate = global.d3_interpolate || {}),global.d3_color));
 	}(this, function (exports,d3Color) { 'use strict';
@@ -32422,7 +32478,7 @@
 	}));
 
 /***/ },
-/* 500 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -32944,7 +33000,7 @@
 	}));
 
 /***/ },
-/* 501 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -33451,7 +33507,7 @@
 	}));
 
 /***/ },
-/* 502 */
+/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -33805,11 +33861,11 @@
 	}));
 
 /***/ },
-/* 503 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(502)) :
+	   true ? factory(exports, __webpack_require__(506)) :
 	  typeof define === 'function' && define.amd ? define(['exports', 'd3-time'], factory) :
 	  (factory((global.d3_time_format = global.d3_time_format || {}),global.d3_time));
 	}(this, function (exports,d3Time) { 'use strict';
@@ -34643,7 +34699,7 @@
 	}));
 
 /***/ },
-/* 504 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -34660,7 +34716,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _commonProps = __webpack_require__(494);
+	var _commonProps = __webpack_require__(498);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -34723,7 +34779,7 @@
 	exports.default = ChartTitle;
 
 /***/ },
-/* 505 */
+/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -34740,15 +34796,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _svg = __webpack_require__(493);
+	var _svg = __webpack_require__(497);
 
 	var _svg2 = _interopRequireDefault(_svg);
 
-	var _legend = __webpack_require__(506);
+	var _legend = __webpack_require__(510);
 
 	var _legend2 = _interopRequireDefault(_legend);
 
-	var _commonProps = __webpack_require__(494);
+	var _commonProps = __webpack_require__(498);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -34805,7 +34861,7 @@
 	exports.default = ChartContainer;
 
 /***/ },
-/* 506 */
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -34822,19 +34878,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Selection = __webpack_require__(507);
+	var _d3Selection = __webpack_require__(511);
 
 	var _d3Selection2 = _interopRequireDefault(_d3Selection);
 
-	var _d3Scale = __webpack_require__(496);
+	var _d3Scale = __webpack_require__(500);
 
 	var _d3Scale2 = _interopRequireDefault(_d3Scale);
 
-	var _reactFauxDom = __webpack_require__(508);
+	var _reactFauxDom = __webpack_require__(512);
 
 	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
 
-	var _commonProps = __webpack_require__(494);
+	var _commonProps = __webpack_require__(498);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -34955,7 +35011,7 @@
 	exports.default = Legend;
 
 /***/ },
-/* 507 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -35904,13 +35960,13 @@
 	}));
 
 /***/ },
-/* 508 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Element = __webpack_require__(509)
-	var Window = __webpack_require__(521)
-	var core = __webpack_require__(522)
-	var anim = __webpack_require__(523)
+	var Element = __webpack_require__(513)
+	var Window = __webpack_require__(525)
+	var core = __webpack_require__(526)
+	var anim = __webpack_require__(527)
 
 	var ReactFauxDOM = {
 	  Element: Element,
@@ -35938,18 +35994,18 @@
 
 
 /***/ },
-/* 509 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1)
-	var styleAttr = __webpack_require__(510)
-	var querySelectorAll = __webpack_require__(511)
-	var camelCase = __webpack_require__(515)
-	var isString = __webpack_require__(516)
-	var isUndefined = __webpack_require__(517)
-	var assign = __webpack_require__(518)
-	var mapValues = __webpack_require__(519)
-	var styleCamelCase = __webpack_require__(520)
+	var styleAttr = __webpack_require__(514)
+	var querySelectorAll = __webpack_require__(515)
+	var camelCase = __webpack_require__(519)
+	var isString = __webpack_require__(520)
+	var isUndefined = __webpack_require__(521)
+	var assign = __webpack_require__(522)
+	var mapValues = __webpack_require__(523)
+	var styleCamelCase = __webpack_require__(524)
 
 	function Element (nodeName, parentNode) {
 	  this.nodeName = nodeName
@@ -36301,7 +36357,7 @@
 
 
 /***/ },
-/* 510 */
+/* 514 */
 /***/ function(module, exports) {
 
 	
@@ -36413,13 +36469,13 @@
 	module.exports.normalize = normalize;
 
 /***/ },
-/* 511 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(512);
+	module.exports = __webpack_require__(516);
 
 /***/ },
-/* 512 */
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -36428,8 +36484,8 @@
 	 * @author yiminghe@gmail.com
 	 */
 
-	var util = __webpack_require__(513);
-	var parser = __webpack_require__(514);
+	var util = __webpack_require__(517);
+	var parser = __webpack_require__(518);
 
 	var EXPANDO_SELECTOR_KEY = '_ks_data_selector_id_',
 	  caches = {},
@@ -37122,7 +37178,7 @@
 	 */
 
 /***/ },
-/* 513 */
+/* 517 */
 /***/ function(module, exports) {
 
 	/**
@@ -37473,7 +37529,7 @@
 	};
 
 /***/ },
-/* 514 */
+/* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -38682,7 +38738,7 @@
 	}
 
 /***/ },
-/* 515 */
+/* 519 */
 /***/ function(module, exports) {
 
 	var hyphenExpression = /\-+([a-z])/gi
@@ -38705,7 +38761,7 @@
 
 
 /***/ },
-/* 516 */
+/* 520 */
 /***/ function(module, exports) {
 
 	function isString (value) {
@@ -38716,7 +38772,7 @@
 
 
 /***/ },
-/* 517 */
+/* 521 */
 /***/ function(module, exports) {
 
 	function isUndefined (value) {
@@ -38727,7 +38783,7 @@
 
 
 /***/ },
-/* 518 */
+/* 522 */
 /***/ function(module, exports) {
 
 	function assign (dest) {
@@ -38749,7 +38805,7 @@
 
 
 /***/ },
-/* 519 */
+/* 523 */
 /***/ function(module, exports) {
 
 	function mapValues (source, fn) {
@@ -38768,10 +38824,10 @@
 
 
 /***/ },
-/* 520 */
+/* 524 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var camelCase = __webpack_require__(515)
+	var camelCase = __webpack_require__(519)
 
 	function styleCamelCase (name) {
 	  var camel = camelCase(name)
@@ -38794,7 +38850,7 @@
 
 
 /***/ },
-/* 521 */
+/* 525 */
 /***/ function(module, exports) {
 
 	var Window = {
@@ -38809,11 +38865,11 @@
 
 
 /***/ },
-/* 522 */
+/* 526 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Element = __webpack_require__(509)
-	var mapValues = __webpack_require__(519)
+	var Element = __webpack_require__(513)
+	var mapValues = __webpack_require__(523)
 
 	var mixin = {
 	  componentWillMount: function () {
@@ -38837,7 +38893,7 @@
 
 
 /***/ },
-/* 523 */
+/* 527 */
 /***/ function(module, exports) {
 
 	var anim = {
@@ -38869,7 +38925,7 @@
 
 
 /***/ },
-/* 524 */
+/* 528 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -38884,19 +38940,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Axis = __webpack_require__(525);
+	var _d3Axis = __webpack_require__(529);
 
 	var _d3Axis2 = _interopRequireDefault(_d3Axis);
 
-	var _d3Selection = __webpack_require__(507);
+	var _d3Selection = __webpack_require__(511);
 
 	var _d3Selection2 = _interopRequireDefault(_d3Selection);
 
-	var _reactFauxDom = __webpack_require__(508);
+	var _reactFauxDom = __webpack_require__(512);
 
 	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
 
-	var _scale = __webpack_require__(495);
+	var _scale = __webpack_require__(499);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -39051,7 +39107,7 @@
 	exports.default = Axis;
 
 /***/ },
-/* 525 */
+/* 529 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -39240,7 +39296,7 @@
 	}));
 
 /***/ },
-/* 526 */
+/* 530 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39257,15 +39313,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _axis = __webpack_require__(524);
+	var _axis = __webpack_require__(528);
 
 	var _axis2 = _interopRequireDefault(_axis);
 
-	var _label = __webpack_require__(527);
+	var _label = __webpack_require__(531);
 
 	var _label2 = _interopRequireDefault(_label);
 
-	var _commonProps = __webpack_require__(494);
+	var _commonProps = __webpack_require__(498);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -39422,7 +39478,7 @@
 	exports.default = Xaxis;
 
 /***/ },
-/* 527 */
+/* 531 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39439,15 +39495,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Selection = __webpack_require__(507);
+	var _d3Selection = __webpack_require__(511);
 
 	var _d3Selection2 = _interopRequireDefault(_d3Selection);
 
-	var _reactFauxDom = __webpack_require__(508);
+	var _reactFauxDom = __webpack_require__(512);
 
 	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
 
-	var _commonProps = __webpack_require__(494);
+	var _commonProps = __webpack_require__(498);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -39546,7 +39602,7 @@
 	exports.default = Label;
 
 /***/ },
-/* 528 */
+/* 532 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39563,15 +39619,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _axis = __webpack_require__(524);
+	var _axis = __webpack_require__(528);
 
 	var _axis2 = _interopRequireDefault(_axis);
 
-	var _label = __webpack_require__(527);
+	var _label = __webpack_require__(531);
 
 	var _label2 = _interopRequireDefault(_label);
 
-	var _commonProps = __webpack_require__(494);
+	var _commonProps = __webpack_require__(498);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -39728,7 +39784,7 @@
 	exports.default = Yaxis;
 
 /***/ },
-/* 529 */
+/* 533 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39745,11 +39801,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _axis = __webpack_require__(524);
+	var _axis = __webpack_require__(528);
 
 	var _axis2 = _interopRequireDefault(_axis);
 
-	var _commonProps = __webpack_require__(494);
+	var _commonProps = __webpack_require__(498);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -39910,7 +39966,7 @@
 	exports.default = Grid;
 
 /***/ },
-/* 530 */
+/* 534 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39927,7 +39983,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _grid = __webpack_require__(529);
+	var _grid = __webpack_require__(533);
 
 	var _grid2 = _interopRequireDefault(_grid);
 
@@ -39963,7 +40019,7 @@
 	exports.default = XGrid;
 
 /***/ },
-/* 531 */
+/* 535 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39980,7 +40036,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _grid = __webpack_require__(529);
+	var _grid = __webpack_require__(533);
 
 	var _grid2 = _interopRequireDefault(_grid);
 
@@ -40016,7 +40072,7 @@
 	exports.default = YGrid;
 
 /***/ },
-/* 532 */
+/* 536 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40026,7 +40082,7 @@
 	});
 	exports.xDomain = xDomain;
 
-	var _d3Array = __webpack_require__(497);
+	var _d3Array = __webpack_require__(501);
 
 	var _d3Array2 = _interopRequireDefault(_d3Array);
 
@@ -40094,7 +40150,7 @@
 	}
 
 /***/ },
-/* 533 */
+/* 537 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40104,7 +40160,7 @@
 	});
 	exports.yDomain = yDomain;
 
-	var _d3Array = __webpack_require__(497);
+	var _d3Array = __webpack_require__(501);
 
 	var _d3Array2 = _interopRequireDefault(_d3Array);
 
@@ -40178,7 +40234,7 @@
 	}
 
 /***/ },
-/* 534 */
+/* 538 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40188,47 +40244,47 @@
 	});
 	exports.PieChart = exports.BarStackHorizontalChart = exports.BarStackChart = exports.AreaStackChart = exports.BarGroupHorizontalChart = exports.BarGroupChart = exports.BarHorizontalChart = exports.BarChart = exports.ScatterPlot = exports.AreaChart = exports.LineChart = undefined;
 
-	var _line = __webpack_require__(535);
+	var _line = __webpack_require__(539);
 
 	var _line2 = _interopRequireDefault(_line);
 
-	var _area = __webpack_require__(556);
+	var _area = __webpack_require__(560);
 
 	var _area2 = _interopRequireDefault(_area);
 
-	var _scatter = __webpack_require__(557);
+	var _scatter = __webpack_require__(561);
 
 	var _scatter2 = _interopRequireDefault(_scatter);
 
-	var _bar = __webpack_require__(558);
+	var _bar = __webpack_require__(562);
 
 	var _bar2 = _interopRequireDefault(_bar);
 
-	var _bar_horizontal = __webpack_require__(559);
+	var _bar_horizontal = __webpack_require__(563);
 
 	var _bar_horizontal2 = _interopRequireDefault(_bar_horizontal);
 
-	var _bar_group = __webpack_require__(560);
+	var _bar_group = __webpack_require__(564);
 
 	var _bar_group2 = _interopRequireDefault(_bar_group);
 
-	var _bar_group_horizontal = __webpack_require__(561);
+	var _bar_group_horizontal = __webpack_require__(565);
 
 	var _bar_group_horizontal2 = _interopRequireDefault(_bar_group_horizontal);
 
-	var _area_stack = __webpack_require__(562);
+	var _area_stack = __webpack_require__(566);
 
 	var _area_stack2 = _interopRequireDefault(_area_stack);
 
-	var _bar_stack = __webpack_require__(563);
+	var _bar_stack = __webpack_require__(567);
 
 	var _bar_stack2 = _interopRequireDefault(_bar_stack);
 
-	var _bar_stack_horizontal = __webpack_require__(564);
+	var _bar_stack_horizontal = __webpack_require__(568);
 
 	var _bar_stack_horizontal2 = _interopRequireDefault(_bar_stack_horizontal);
 
-	var _pie = __webpack_require__(565);
+	var _pie = __webpack_require__(569);
 
 	var _pie2 = _interopRequireDefault(_pie);
 
@@ -40248,7 +40304,7 @@
 	exports.PieChart = _pie2.default;
 
 /***/ },
-/* 535 */
+/* 539 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40265,11 +40321,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(492);
+	var _reactD3Core = __webpack_require__(496);
 
-	var _reactD3Shape = __webpack_require__(536);
+	var _reactD3Shape = __webpack_require__(540);
 
-	var _commonProps = __webpack_require__(555);
+	var _commonProps = __webpack_require__(559);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -40357,7 +40413,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 536 */
+/* 540 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40366,7 +40422,7 @@
 	  value: true
 	});
 
-	var _series = __webpack_require__(537);
+	var _series = __webpack_require__(541);
 
 	Object.defineProperty(exports, 'series', {
 	  enumerable: true,
@@ -40375,7 +40431,7 @@
 	  }
 	});
 
-	var _chart = __webpack_require__(539);
+	var _chart = __webpack_require__(543);
 
 	Object.defineProperty(exports, 'Chart', {
 	  enumerable: true,
@@ -40384,7 +40440,7 @@
 	  }
 	});
 
-	var _chartpie = __webpack_require__(541);
+	var _chartpie = __webpack_require__(545);
 
 	Object.defineProperty(exports, 'ChartPie', {
 	  enumerable: true,
@@ -40393,7 +40449,7 @@
 	  }
 	});
 
-	var _line = __webpack_require__(542);
+	var _line = __webpack_require__(546);
 
 	Object.defineProperty(exports, 'Line', {
 	  enumerable: true,
@@ -40402,7 +40458,7 @@
 	  }
 	});
 
-	var _area = __webpack_require__(545);
+	var _area = __webpack_require__(549);
 
 	Object.defineProperty(exports, 'Area', {
 	  enumerable: true,
@@ -40411,7 +40467,7 @@
 	  }
 	});
 
-	var _area_stack = __webpack_require__(546);
+	var _area_stack = __webpack_require__(550);
 
 	Object.defineProperty(exports, 'AreaStack', {
 	  enumerable: true,
@@ -40420,7 +40476,7 @@
 	  }
 	});
 
-	var _bar = __webpack_require__(547);
+	var _bar = __webpack_require__(551);
 
 	Object.defineProperty(exports, 'Bar', {
 	  enumerable: true,
@@ -40429,7 +40485,7 @@
 	  }
 	});
 
-	var _bar_horizontal = __webpack_require__(548);
+	var _bar_horizontal = __webpack_require__(552);
 
 	Object.defineProperty(exports, 'BarHorizontal', {
 	  enumerable: true,
@@ -40438,7 +40494,7 @@
 	  }
 	});
 
-	var _bar_group = __webpack_require__(549);
+	var _bar_group = __webpack_require__(553);
 
 	Object.defineProperty(exports, 'BarGroup', {
 	  enumerable: true,
@@ -40447,7 +40503,7 @@
 	  }
 	});
 
-	var _bar_group_horizontal = __webpack_require__(550);
+	var _bar_group_horizontal = __webpack_require__(554);
 
 	Object.defineProperty(exports, 'BarGroupHorizontal', {
 	  enumerable: true,
@@ -40456,7 +40512,7 @@
 	  }
 	});
 
-	var _bar_stack = __webpack_require__(551);
+	var _bar_stack = __webpack_require__(555);
 
 	Object.defineProperty(exports, 'BarStack', {
 	  enumerable: true,
@@ -40465,7 +40521,7 @@
 	  }
 	});
 
-	var _bar_stack_horizontal = __webpack_require__(552);
+	var _bar_stack_horizontal = __webpack_require__(556);
 
 	Object.defineProperty(exports, 'BarStackHorizontal', {
 	  enumerable: true,
@@ -40474,7 +40530,7 @@
 	  }
 	});
 
-	var _pie = __webpack_require__(553);
+	var _pie = __webpack_require__(557);
 
 	Object.defineProperty(exports, 'Pie', {
 	  enumerable: true,
@@ -40483,7 +40539,7 @@
 	  }
 	});
 
-	var _scatter = __webpack_require__(554);
+	var _scatter = __webpack_require__(558);
 
 	Object.defineProperty(exports, 'Scatter', {
 	  enumerable: true,
@@ -40495,7 +40551,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 537 */
+/* 541 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40505,7 +40561,7 @@
 	});
 	exports.series = series;
 
-	var _d = __webpack_require__(538);
+	var _d = __webpack_require__(542);
 
 	var _d2 = _interopRequireDefault(_d);
 
@@ -40561,7 +40617,7 @@
 	}
 
 /***/ },
-/* 538 */
+/* 542 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;!function() {
@@ -50120,7 +50176,7 @@
 	}();
 
 /***/ },
-/* 539 */
+/* 543 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50137,9 +50193,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(492);
+	var _reactD3Core = __webpack_require__(496);
 
-	var _commonProps = __webpack_require__(540);
+	var _commonProps = __webpack_require__(544);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -50292,7 +50348,7 @@
 	exports.default = ChartSvg;
 
 /***/ },
-/* 540 */
+/* 544 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50302,7 +50358,7 @@
 	});
 	exports.pieProps = undefined;
 
-	var _d3Scale = __webpack_require__(496);
+	var _d3Scale = __webpack_require__(500);
 
 	var _d3Scale2 = _interopRequireDefault(_d3Scale);
 
@@ -50335,7 +50391,7 @@
 	};
 
 /***/ },
-/* 541 */
+/* 545 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50352,9 +50408,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(492);
+	var _reactD3Core = __webpack_require__(496);
 
-	var _commonProps = __webpack_require__(540);
+	var _commonProps = __webpack_require__(544);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -50433,7 +50489,7 @@
 	exports.default = ChartSvg;
 
 /***/ },
-/* 542 */
+/* 546 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50450,15 +50506,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Shape = __webpack_require__(543);
+	var _d3Shape = __webpack_require__(547);
 
 	var _d3Shape2 = _interopRequireDefault(_d3Shape);
 
-	var _commonProps = __webpack_require__(540);
+	var _commonProps = __webpack_require__(544);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
-	var _series = __webpack_require__(537);
+	var _series = __webpack_require__(541);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -50539,11 +50595,11 @@
 	exports.default = Line;
 
 /***/ },
-/* 543 */
+/* 547 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(544)) :
+	   true ? factory(exports, __webpack_require__(548)) :
 	  typeof define === 'function' && define.amd ? define(['exports', 'd3-path'], factory) :
 	  (factory((global.d3_shape = {}),global.d3_path));
 	}(this, function (exports,d3Path) { 'use strict';
@@ -52291,7 +52347,7 @@
 	}));
 
 /***/ },
-/* 544 */
+/* 548 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -52451,7 +52507,7 @@
 	}));
 
 /***/ },
-/* 545 */
+/* 549 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52468,15 +52524,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Shape = __webpack_require__(543);
+	var _d3Shape = __webpack_require__(547);
 
 	var _d3Shape2 = _interopRequireDefault(_d3Shape);
 
-	var _commonProps = __webpack_require__(540);
+	var _commonProps = __webpack_require__(544);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
-	var _series = __webpack_require__(537);
+	var _series = __webpack_require__(541);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -52570,7 +52626,7 @@
 	exports.default = Area;
 
 /***/ },
-/* 546 */
+/* 550 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52587,15 +52643,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Shape = __webpack_require__(543);
+	var _d3Shape = __webpack_require__(547);
 
 	var _d3Shape2 = _interopRequireDefault(_d3Shape);
 
-	var _commonProps = __webpack_require__(540);
+	var _commonProps = __webpack_require__(544);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
-	var _series = __webpack_require__(537);
+	var _series = __webpack_require__(541);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -52708,7 +52764,7 @@
 	exports.default = AreaStack;
 
 /***/ },
-/* 547 */
+/* 551 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52723,7 +52779,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _series = __webpack_require__(537);
+	var _series = __webpack_require__(541);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -52829,7 +52885,7 @@
 	exports.default = Bar;
 
 /***/ },
-/* 548 */
+/* 552 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52844,7 +52900,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _series = __webpack_require__(537);
+	var _series = __webpack_require__(541);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -52942,7 +52998,7 @@
 	exports.default = BarHorizontal;
 
 /***/ },
-/* 549 */
+/* 553 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52957,11 +53013,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Scale = __webpack_require__(496);
+	var _d3Scale = __webpack_require__(500);
 
 	var _d3Scale2 = _interopRequireDefault(_d3Scale);
 
-	var _series = __webpack_require__(537);
+	var _series = __webpack_require__(541);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53068,7 +53124,7 @@
 	exports.default = BarGroup;
 
 /***/ },
-/* 550 */
+/* 554 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53083,11 +53139,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Scale = __webpack_require__(496);
+	var _d3Scale = __webpack_require__(500);
 
 	var _d3Scale2 = _interopRequireDefault(_d3Scale);
 
-	var _series = __webpack_require__(537);
+	var _series = __webpack_require__(541);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53200,7 +53256,7 @@
 	exports.default = BarGroupHorizontal;
 
 /***/ },
-/* 551 */
+/* 555 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53215,11 +53271,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d = __webpack_require__(538);
+	var _d = __webpack_require__(542);
 
 	var _d2 = _interopRequireDefault(_d);
 
-	var _series = __webpack_require__(537);
+	var _series = __webpack_require__(541);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53365,7 +53421,7 @@
 	exports.default = BarStack;
 
 /***/ },
-/* 552 */
+/* 556 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53380,11 +53436,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d = __webpack_require__(538);
+	var _d = __webpack_require__(542);
 
 	var _d2 = _interopRequireDefault(_d);
 
-	var _series = __webpack_require__(537);
+	var _series = __webpack_require__(541);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53529,7 +53585,7 @@
 	exports.default = BarStackHorizontal;
 
 /***/ },
-/* 553 */
+/* 557 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53546,11 +53602,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Shape = __webpack_require__(543);
+	var _d3Shape = __webpack_require__(547);
 
 	var _d3Shape2 = _interopRequireDefault(_d3Shape);
 
-	var _commonProps = __webpack_require__(540);
+	var _commonProps = __webpack_require__(544);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53713,7 +53769,7 @@
 	exports.default = Pie;
 
 /***/ },
-/* 554 */
+/* 558 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53728,11 +53784,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Shape = __webpack_require__(543);
+	var _d3Shape = __webpack_require__(547);
 
 	var _d3Shape2 = _interopRequireDefault(_d3Shape);
 
-	var _series = __webpack_require__(537);
+	var _series = __webpack_require__(541);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53835,7 +53891,7 @@
 	exports.default = Scatter;
 
 /***/ },
-/* 555 */
+/* 559 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53845,11 +53901,11 @@
 	});
 	exports.pieProps = exports.horizontalProps = undefined;
 
-	var _d3Scale = __webpack_require__(496);
+	var _d3Scale = __webpack_require__(500);
 
 	var _d3Scale2 = _interopRequireDefault(_d3Scale);
 
-	var _d3Array = __webpack_require__(497);
+	var _d3Array = __webpack_require__(501);
 
 	var _d3Array2 = _interopRequireDefault(_d3Array);
 
@@ -53896,7 +53952,7 @@
 	};
 
 /***/ },
-/* 556 */
+/* 560 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53913,11 +53969,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(492);
+	var _reactD3Core = __webpack_require__(496);
 
-	var _reactD3Shape = __webpack_require__(536);
+	var _reactD3Shape = __webpack_require__(540);
 
-	var _commonProps = __webpack_require__(555);
+	var _commonProps = __webpack_require__(559);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -54005,7 +54061,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 557 */
+/* 561 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54022,11 +54078,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(492);
+	var _reactD3Core = __webpack_require__(496);
 
-	var _reactD3Shape = __webpack_require__(536);
+	var _reactD3Shape = __webpack_require__(540);
 
-	var _commonProps = __webpack_require__(555);
+	var _commonProps = __webpack_require__(559);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -54112,7 +54168,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 558 */
+/* 562 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54129,11 +54185,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(492);
+	var _reactD3Core = __webpack_require__(496);
 
-	var _reactD3Shape = __webpack_require__(536);
+	var _reactD3Shape = __webpack_require__(540);
 
-	var _commonProps = __webpack_require__(555);
+	var _commonProps = __webpack_require__(559);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -54222,7 +54278,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 559 */
+/* 563 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54239,11 +54295,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(492);
+	var _reactD3Core = __webpack_require__(496);
 
-	var _reactD3Shape = __webpack_require__(536);
+	var _reactD3Shape = __webpack_require__(540);
 
-	var _commonProps = __webpack_require__(555);
+	var _commonProps = __webpack_require__(559);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -54331,7 +54387,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 560 */
+/* 564 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54348,11 +54404,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(492);
+	var _reactD3Core = __webpack_require__(496);
 
-	var _reactD3Shape = __webpack_require__(536);
+	var _reactD3Shape = __webpack_require__(540);
 
-	var _commonProps = __webpack_require__(555);
+	var _commonProps = __webpack_require__(559);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -54441,7 +54497,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 561 */
+/* 565 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54458,11 +54514,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(492);
+	var _reactD3Core = __webpack_require__(496);
 
-	var _reactD3Shape = __webpack_require__(536);
+	var _reactD3Shape = __webpack_require__(540);
 
-	var _commonProps = __webpack_require__(555);
+	var _commonProps = __webpack_require__(559);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -54550,7 +54606,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 562 */
+/* 566 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54567,11 +54623,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(492);
+	var _reactD3Core = __webpack_require__(496);
 
-	var _reactD3Shape = __webpack_require__(536);
+	var _reactD3Shape = __webpack_require__(540);
 
-	var _commonProps = __webpack_require__(555);
+	var _commonProps = __webpack_require__(559);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -54658,7 +54714,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 563 */
+/* 567 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54675,11 +54731,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(492);
+	var _reactD3Core = __webpack_require__(496);
 
-	var _reactD3Shape = __webpack_require__(536);
+	var _reactD3Shape = __webpack_require__(540);
 
-	var _commonProps = __webpack_require__(555);
+	var _commonProps = __webpack_require__(559);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -54769,7 +54825,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 564 */
+/* 568 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54786,11 +54842,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(492);
+	var _reactD3Core = __webpack_require__(496);
 
-	var _reactD3Shape = __webpack_require__(536);
+	var _reactD3Shape = __webpack_require__(540);
 
-	var _commonProps = __webpack_require__(555);
+	var _commonProps = __webpack_require__(559);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -54879,7 +54935,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 565 */
+/* 569 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54896,9 +54952,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(492);
+	var _reactD3Core = __webpack_require__(496);
 
-	var _reactD3Shape = __webpack_require__(536);
+	var _reactD3Shape = __webpack_require__(540);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -54980,7 +55036,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 566 */
+/* 570 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55008,6 +55064,324 @@
 	};
 
 	exports.default = Loading;
+
+/***/ },
+/* 571 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var styles = {
+	  sidebarButtons: {
+	    width: '100%'
+	  }
+	};
+
+	var CompanyButtons = function CompanyButtons(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'btn-group-vertical', id: 'width100' },
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'Company'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'Company'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'Company'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'Company'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'Company'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'Company'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'Company'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'Company'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'Company'
+	    )
+	  );
+	};
+
+	exports.default = CompanyButtons;
+
+/***/ },
+/* 572 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var styles = {
+	  sidebarButtons: {
+	    width: '100%'
+	  }
+	};
+
+	var ProductButtons = function ProductButtons(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'btn-group-vertical', id: 'width100' },
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'product'
+	    )
+	  );
+	};
+
+	exports.default = ProductButtons;
+
+/***/ },
+/* 573 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var styles = {
+	  sidebarButtons: {
+	    width: '100%'
+	  }
+	};
+
+	var KeywordButtons = function KeywordButtons(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'btn-group-vertical', id: 'width100' },
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      'keyword'
+	    )
+	  );
+	};
+
+	exports.default = KeywordButtons;
 
 /***/ }
 /******/ ]);
