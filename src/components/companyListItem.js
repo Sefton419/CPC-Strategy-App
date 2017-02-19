@@ -42,7 +42,7 @@ const CompanyListItem = ({ company, updateGraphData }) => {
           <div className="col-xs-2">Total Avg Score</div>
         </div>
         <div className="row">
-          <div className="col-xs-12" style={styles.TE}>
+          <div className="col-xs-12" style={styles.EMPTY}>
             {products}
           </div>
         </div>

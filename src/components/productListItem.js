@@ -16,13 +16,23 @@ const styles = {
 
 const ProductListItem = ({ product, product_name, product_image_url, updateGraphData }) => {
 
+  const colors = [
+    '#5068A5',
+    '#F1666D',
+    '#53C453',
+    '#844AA4',
+    '#F5A868',
+    '#C65492'
+  ]
+
   console.log(`product ${name}: `, product);
   const keywordsDataForGraphs = [];
 
   const keywords = product.keywords.map((keyword) => {
 
     // this is for the graphs
-    keywordsDataForGraphs.push(keyword.ranks);
+
+    keywordsDataForGraphs.push([keyword.keyword_name, keyword.ranks]);
 
     return (
       <KeywordListItem 
@@ -30,6 +40,7 @@ const ProductListItem = ({ product, product_name, product_image_url, updateGraph
         keyword_name={keyword.keyword_name}
         keyword_country={keyword.keyword_country}
         keyword={keyword}
+        colors={colors}
       />
     );
   });
@@ -38,7 +49,7 @@ const ProductListItem = ({ product, product_name, product_image_url, updateGraph
 
   return (
     <div className="row" style={styles.EMPTY}>
-        <div className="col-xs-3" style={styles.TE}>
+        <div className="col-xs-3" style={styles.EMPTY}>
           {product_name}
         </div>
         <div className="col-xs-2" style={styles.EMPTY}>
@@ -47,7 +58,8 @@ const ProductListItem = ({ product, product_name, product_image_url, updateGraph
         <div className="col-xs-5">
           <RanksGraph 
             updateGraphData={updateGraphData}
-            graphData={keywordsDataForGraphs}
+            ranks={keywordsDataForGraphs}
+            colors={colors}
         />
         </div>
     </div>

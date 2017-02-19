@@ -10,7 +10,7 @@ const styles = {
   EMPTY: {}
 }
 
-const KeywordListItem = ({ keyword, keyword_name, keyword_country }) => {
+const KeywordListItem = ({ keyword, keyword_name, keyword_country, colors }) => {
   // console.log('state: ', this.state);
 
   // const ranks = keyword.ranks.map((rank) => {

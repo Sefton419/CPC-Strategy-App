@@ -10,80 +10,63 @@ const styles = {
   EMPTY: {}
 }
 
-const RanksGraph = ({ graphData, updateGraphData }) => {
-  console.log('graphData in RanksGraph: ', graphData);
-  console.log('graphData function: ', updateGraphData);
+const RanksGraph = ({ ranks, updateGraphData, colors }) => {
+  console.log('ranks in RanksGraph: ', ranks);
+  console.log('ranks function: ', updateGraphData);
 
-  const chartData = [
-    {
-      name: "Lavon Hilll I",
-      BMI: 20.57,
-      age: 12,
-      birthday: "1994-10-26T00:00:00.000Z",
-      city: "Annatown",
-      married: true,
-      index: 1
-    },
-    {
-      name: "Clovis Pagac",
-      BMI: 24.28,
-      age: 26,
-      birthday: "1995-11-10T00:00:00.000Z",
-      city: "South Eldredtown",
-      married: false,
-      index: 3
-    },
-    {
-      name: "Gaylord Paucek",
-      BMI: 24.41,
-      age: 30,
-      birthday: "1975-06-12T00:00:00.000Z",
-      city: "Koeppchester",
-      married: true,
-      index: 5
-    },
-    {
-      name: "Ashlynn Kuhn MD",
-      BMI: 23.77,
-      age: 32,
-      birthday: "1985-08-09T00:00:00.000Z",
-      city: "West Josiemouth",
-      married: false,
-      index: 6
-    }
-  ]
-
-  const width = 350,
-    height = 150,
+  const width = 350*(1.5),
+    height = 150*(1.5),
     margins = {left: 50, right: 50, top: 25, bottom: 25},
-    title = "User sample",
+    title = "User sample";
     // chart series,
     // field: is what field your data want to be selected
     // name: the name of the field that display in legend
     // color: what color is the line
-    chartSeries = [
+
+    const chartSeries = ranks.map((rank, index) => (
       {
-        field: 'BMI',
-        name: 'BMI',
-        color: '#ff7f0e'
+        field: 'rank_position',
+        name: rank[0],
+        color: colors[index]       
       }
-    ],
+    ));
+
+    console.log('chartSeries: ', chartSeries);
+
+    const parseDate = d3.time.format("%Y-%m-%d").parse;
+    console.log('I think parseDate is a function: ', parseDate)
+
+    var abc = parseDate("2010-05-22");
+    console.log('abc: ', abc);
+
+    const chartData = ranks.map((tuple) => {
+      return tuple[1].map((rank) => {
+        rank.keyword_name = tuple[0];
+        return rank;
+      });
+    })
+    .reduce((arr, rank) => {
+      return [...arr, ...rank];
+    }, []);
+
+    
+    console.log('chartData: ', chartData);
+
     // your x accessor
-    x = function(d) {
-      return d.index;
-    }
+    const x = function(d) {
+      const date = parseDate(d.rank_date);
+      console.log('how date looks: ', date);
+        return date;
+    };
+
+    const xScale = 'time';
+
 
   return (
     <div style={styles.TE}>
-      <Chart 
-        title={0}
-        width={0}
-        height={0}
-        margins= {0}
-        >
         <LineChart
-          showXGrid= {false}
-          showYGrid= {false}
+          showXGrid= {true}
+          showYGrid= {true}
           margins= {margins}
           title={title}
           data={chartData}
@@ -91,8 +74,8 @@ const RanksGraph = ({ graphData, updateGraphData }) => {
           height={height}
           chartSeries={chartSeries}
           x={x}
+          xScale={xScale}
         />
-      </Chart>
     </div>
   );
 };

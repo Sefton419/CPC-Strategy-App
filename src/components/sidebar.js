@@ -3,9 +3,7 @@ import React, { Component } from 'react';
 import ButtonsContainer from './buttonsContainer.js'
 
 const styles = {
-  'sidebar': {
-    backgroundColor: '#f7f7f9'
-  }
+  'sidebar': {}
 }
 
 const Sidebar = (props) => {
