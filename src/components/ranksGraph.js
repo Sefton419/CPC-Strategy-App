@@ -31,13 +31,9 @@ const RanksGraph = ({ ranks, updateGraphData, colors }) => {
       }
     ));
 
-    console.log('chartSeries: ', chartSeries);
+    console.log(`chartSeries for ${ranks[0]}: `, chartSeries);
 
     const parseDate = d3.time.format("%Y-%m-%d").parse;
-    console.log('I think parseDate is a function: ', parseDate)
-
-    var abc = parseDate("2010-05-22");
-    console.log('abc: ', abc);
 
     const chartData = ranks.map((tuple) => {
       return tuple[1].map((rank) => {
@@ -53,7 +49,7 @@ const RanksGraph = ({ ranks, updateGraphData, colors }) => {
     });;
 
     
-    console.log('chartData: ', chartData);
+    console.log(`chartData for ${ranks[0]}: `, chartData);
 
     // your x accessor
     const x = function(d) {

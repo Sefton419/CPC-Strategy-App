@@ -27800,7 +27800,7 @@
 	          _this2.setState({ dataLoading: false });
 	          console.log('dataLoading is now... ', _this2.state.dataLoading);
 	        }).catch(function (error) {
-	          console.log('Something did not work right');
+	          console.log('ERROR in mapping data');
 	        });
 	      }
 	    }
@@ -29561,7 +29561,6 @@
 
 	var ListContainer = function ListContainer(_ref) {
 	  var data = _ref.data;
-	  var updateGraphData = _ref.updateGraphData;
 
 	  console.log('data in list container: ', data);
 	  return _react2.default.createElement(
@@ -29573,8 +29572,7 @@
 	      'TESTING'
 	    ),
 	    _react2.default.createElement(_list2.default, {
-	      data: data,
-	      updateGraphData: updateGraphData
+	      data: data
 	    })
 	  );
 	};
@@ -29607,22 +29605,19 @@
 
 	var List = function List(_ref) {
 	  var data = _ref.data;
-	  var updateGraphData = _ref.updateGraphData;
 
 	  console.log('data in list: ', data);
-	  console.log('updateGraphData in list: ', updateGraphData);
 
 	  var companies = data.map(function (company) {
 	    return _react2.default.createElement(_CompanyListItem2.default, {
 	      key: company.client_id,
-	      company: company,
-	      updateGraphData: updateGraphData
+	      company: company
 	    });
 	  });
 
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'container-fluid' },
+	    null,
 	    companies
 	  );
 	};
@@ -29659,18 +29654,13 @@
 
 	var CompanyListItem = function CompanyListItem(_ref) {
 	  var company = _ref.company;
-	  var updateGraphData = _ref.updateGraphData;
 
-
-	  console.log('data in CompanyListItem: ', company);
 	  var products = company.products.map(function (product) {
-	    console.log('iterating, product: ', product);
 	    return _react2.default.createElement(_productListItem2.default, {
 	      key: product.product_id,
 	      product_name: product.product_name,
 	      product_image_url: product.product_image_url,
-	      product: product,
-	      updateGraphData: updateGraphData
+	      product: product
 	    });
 	  });
 
@@ -29780,9 +29770,7 @@
 	  var keywordsDataForGraphs = [];
 
 	  var keywords = product.keywords.map(function (keyword) {
-
 	    // this is for the graphs
-
 	    keywordsDataForGraphs.push([keyword.keyword_name, keyword.ranks]);
 
 	    return _react2.default.createElement(_keywordListItem2.default, {
@@ -29793,8 +29781,6 @@
 	      colors: colors
 	    });
 	  });
-
-	  console.log('going to ranksgraph', keywordsDataForGraphs);
 
 	  return _react2.default.createElement(
 	    'div',
@@ -29975,13 +29961,9 @@
 	    };
 	  });
 
-	  console.log('chartSeries: ', chartSeries);
+	  console.log('chartSeries for ' + ranks[0] + ': ', chartSeries);
 
 	  var parseDate = d3.time.format("%Y-%m-%d").parse;
-	  console.log('I think parseDate is a function: ', parseDate);
-
-	  var abc = parseDate("2010-05-22");
-	  console.log('abc: ', abc);
 
 	  var chartData = ranks.map(function (tuple) {
 	    return tuple[1].map(function (rank) {
@@ -29994,7 +29976,7 @@
 	    return new Date(a.rank_date).getTime() - new Date(b.rank_date).getTime();
 	  });;
 
-	  console.log('chartData: ', chartData);
+	  console.log('chartData for ' + ranks[0] + ': ', chartData);
 
 	  // your x accessor
 	  var x = function x(d) {

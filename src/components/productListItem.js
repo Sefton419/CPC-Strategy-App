@@ -29,9 +29,7 @@ const ProductListItem = ({ product, product_name, product_image_url, updateGraph
   const keywordsDataForGraphs = [];
 
   const keywords = product.keywords.map((keyword) => {
-
     // this is for the graphs
-
     keywordsDataForGraphs.push([keyword.keyword_name, keyword.ranks]);
 
     return (
@@ -44,8 +42,6 @@ const ProductListItem = ({ product, product_name, product_image_url, updateGraph
       />
     );
   });
-
-  console.log('going to ranksgraph', keywordsDataForGraphs);
 
   return (
     <div className="row" style={styles.EMPTY}>

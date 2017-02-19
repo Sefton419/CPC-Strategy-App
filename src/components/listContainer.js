@@ -6,14 +6,13 @@ const styles = {
   listContainer: {}
 }
 
-const ListContainer = ({ data, updateGraphData }) => {
+const ListContainer = ({ data }) => {
   console.log('data in list container: ', data);
   return (
     <div className="col-xs-10" style={styles.listContainer}>
     <h4>TESTING</h4>
       <List 
         data={data}
-        updateGraphData={updateGraphData}
       />
     </div>
   );

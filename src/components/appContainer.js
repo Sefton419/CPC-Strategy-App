@@ -48,7 +48,7 @@ class AppContainer extends Component {
         console.log('dataLoading is now... ', this.state.dataLoading);
       })
       .catch((error) => {
-        console.log('Something did not work right');
+        console.log('ERROR in mapping data');
       });
     }
   }

@@ -10,18 +10,14 @@ const styles = {
   EMPTY: {}
 }
 
-const CompanyListItem = ({ company, updateGraphData }) => {
-
-  console.log('data in CompanyListItem: ', company);
+const CompanyListItem = ({ company }) => {
   const products = company.products.map((product) => {
-    console.log(`iterating, product: `, product)
     return (
       <ProductListItem 
         key={product.product_id}
         product_name={product.product_name}
         product_image_url={product.product_image_url}
         product={product}
-        updateGraphData={updateGraphData}
       />
     );
   });
