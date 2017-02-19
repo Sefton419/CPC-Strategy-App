@@ -27767,14 +27767,15 @@
 	      dataUrl: _constants2.default,
 	      graphData: null,
 	      buttons: {
-	        companys: {},
+	        companies: {},
 	        products: {},
 	        keywords: {}
 	      },
 	      buttonsLoading: true
 	    };
 
-	    _this.updateGraphData = _this.updateGraphData.bind(_this);
+	    _this.updateButtonsData = _this.updateButtonsData.bind(_this);
+
 	    return _this;
 	  }
 
@@ -27805,9 +27806,19 @@
 	      }
 	    }
 	  }, {
-	    key: 'updateGraphData',
-	    value: function updateGraphData(data) {
-	      this.setState({ graphData: data });
+	    key: 'updateButtonsData',
+	    value: function updateButtonsData() {
+	      var buttons = this.state.buttons.buttons;
+	      // check to see whether dealing with companies, products, or keywords
+	      // if companies
+	      // companyButtons = (companies.filter)
+	      // this.setState({/* can I use this const?*/ buttons: companyButtons });
+	      // if products
+	      // productButtons = (products.filter)
+	      // this.setState({/* can I use this const?*/ buttons: productButtons });
+	      // if keywords
+	      // companyButtons = (keywords.filter)
+	      // this.setState({/* can I use this const?*/ buttons: companyButtons });
 	    }
 	  }, {
 	    key: 'render',

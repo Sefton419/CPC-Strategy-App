@@ -20,14 +20,15 @@ class AppContainer extends Component {
       dataUrl: DATAURL,
       graphData: null,
       buttons: {
-        companys: {},
+        companies: {},
         products: {},
         keywords: {}  
       },
       buttonsLoading: true,
     }
 
-    this.updateGraphData = this.updateGraphData.bind(this);   
+    this.updateButtonsData = this.updateButtonsData.bind(this);   
+
   }
 
   componentWillMount() {
@@ -53,8 +54,19 @@ class AppContainer extends Component {
     }
   }
 
-  updateGraphData(data) {
-    this.setState({ graphData: data });
+  updateButtonsData() {
+    const { buttons } = this.state.buttons;
+    // check to see whether dealing with companies, products, or keywords
+    // if companies
+      // companyButtons = (companies.filter)
+      // this.setState({/* can I use this const?*/ buttons: companyButtons });
+    // if products
+      // productButtons = (products.filter)
+      // this.setState({/* can I use this const?*/ buttons: productButtons });
+    // if keywords
+      // companyButtons = (keywords.filter)
+      // this.setState({/* can I use this const?*/ buttons: companyButtons });
+  
   }
 
   render() {
