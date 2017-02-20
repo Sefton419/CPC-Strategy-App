@@ -27804,22 +27804,44 @@
 	          console.log('length of data: ', _this2.state.data.length);
 	          _this2.setState({ dataLoading: false });
 	          console.log('dataLoading is now... ', _this2.state.dataLoading);
+	        }).then(function (resp) {
+	          var companyIndexNames = Object.keys(_this2.companiesIndex);
+	          var productIndexNames = Object.keys(_this2.productsIndex);
+	          var keywordIndexNames = Object.keys(_this2.keywordsIndex);
+
+	          // reset index variables
+	          _this2.companiesIndex = {};
+	          _this2.productsIndex = {};
+	          _this2.keywordsIndex = {};
+
+	          var companyButtons = _this2.state.buttons;
+
+	          companyButtons.companies = companyIndexNames;
+	          companyButtons.products = productIndexNames;
+	          companyButtons.keywords = keywordIndexNames;
+
+	          _this2.setState({
+	            buttons: companyButtons,
+	            buttonsLoading: false
+	          });
+	          console.log('did it work in axios call?');
+	          console.log('--this.state.buttons.companies: ', _this2.state.buttons.companies);
+	          console.log('--this.state.buttons.products: ', _this2.state.buttons.products);
+	          console.log('--this.state.buttons.keywords: ', _this2.state.buttons.keywords);
 	        }).catch(function (error) {
 	          console.log('ERROR in mapping data');
 	        });
 	      }
 	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {}
+
+	    // componentDidMount() {
+
+	    // }
+
 	  }, {
 	    key: 'updateButtonsData',
 	    value: function updateButtonsData(d) {
 	      var _this3 = this;
-
-	      console.log('updateButtonsData envoked');
-	      console.log('here is data: ', d);
-	      console.log('this.companiesIndex: ', this.companiesIndex);
 
 	      var index = {};
 	      // check to see whether dealing with companies, products, or keywords
@@ -27835,13 +27857,8 @@
 	            _this3.companiesIndex[product_name]++;
 	          }
 	        }, []);
-	        console.log('companyButtons: ', companyButtons);
-	        // this.setState({companyButtons: companyButtons });
-	        // console.log('this is this.state.buttons.companies, fucker: ', this.state.companyButtons)
 	      }
-	      console.log('NEAR PRODUCTS!!!!');
 	      if (d[0].product_name !== undefined) {
-	        console.log('INSIDE PRODUCTS!!!!');
 	        var productButtons = d.reduce(function (productNames, product) {
 	          var product_name = product.product_name;
 
@@ -27853,12 +27870,8 @@
 	            _this3.productsIndex[product_name]++;
 	          }
 	        }, []);
-	        console.log('this.productsIndex: ', this.productsIndex);
-	        // this.setState({/* can I use this const?*/ buttons: productButtons });
 	      }
-	      console.log('NEAR KEYWORDS!!!!');
 	      if (d[0].keyword_name !== undefined) {
-	        console.log('INSIDE KEYWORDS!!!!');
 	        var keywordButtons = d.reduce(function (keywordNames, keyword) {
 	          var keyword_name = keyword.keyword_name;
 
@@ -27870,8 +27883,6 @@
 	            _this3.keywordIndex[product_name]++;
 	          }
 	        }, []);
-	        console.log('this.keywordsIndex: ', this.keywordsIndex);
-	        // this.setState({/* can I use this const?*/ buttons: companyButtons, buttonsLoading: false }); 
 	      }
 	    }
 	  }, {
@@ -27889,7 +27900,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'row' },
-	          this.state.buttonsLoading ? _react2.default.createElement(_sidebar2.default, null) : _react2.default.createElement(_sidebar2.default, { buttonData: this.state.buttons }),
+	          this.state.buttonsLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_sidebar2.default, { buttonData: this.state.buttons }),
 	          this.state.dataLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_listContainer2.default, { data: this.state.data, state: this.state, updateButtonsData: this.updateButtonsData })
 	        )
 	      );
@@ -29522,14 +29533,16 @@
 	  'sidebar': {}
 	};
 
-	var Sidebar = function Sidebar(props) {
+	var Sidebar = function Sidebar(_ref) {
+	  var buttonData = _ref.buttonData;
 
+	  console.log('buttonData in SideBar: ', buttonData);
 	  // method and variable go here...
 
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'col-xs-2', style: styles.sidebar },
-	    _react2.default.createElement(_buttonsContainer2.default, null)
+	    _react2.default.createElement(_buttonsContainer2.default, { buttonData: buttonData })
 	  );
 	};
 
@@ -29549,17 +29562,17 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _companyButtons = __webpack_require__(571);
+	var _companyButton = __webpack_require__(574);
 
-	var _companyButtons2 = _interopRequireDefault(_companyButtons);
+	var _companyButton2 = _interopRequireDefault(_companyButton);
 
-	var _productButtons = __webpack_require__(572);
+	var _productButton = __webpack_require__(576);
 
-	var _productButtons2 = _interopRequireDefault(_productButtons);
+	var _productButton2 = _interopRequireDefault(_productButton);
 
-	var _keywordButtons = __webpack_require__(573);
+	var _keywordButton = __webpack_require__(575);
 
-	var _keywordButtons2 = _interopRequireDefault(_keywordButtons);
+	var _keywordButton2 = _interopRequireDefault(_keywordButton);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29569,7 +29582,43 @@
 	  }
 	};
 
-	var ButtonsContainer = function ButtonsContainer(props) {
+	var ButtonsContainer = function ButtonsContainer(_ref) {
+	  var buttonData = _ref.buttonData;
+
+	  console.log('buttonData in ButtonsContainer: ', buttonData);
+	  var companies = buttonData.companies;
+	  var products = buttonData.products;
+	  var keywords = buttonData.keywords;
+
+	  console.log('companies destructured: ', companies);
+
+	  var companyButtons = companies.map(function (company) {
+	    return _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100',
+	        style: styles.sidebarButtons
+	      },
+	      company
+	    );
+	  });
+	  var productButtons = products.map(function (product) {
+	    return _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100',
+	        style: styles.sidebarButtons
+	      },
+	      product
+	    );
+	  });
+	  var keywordButtons = keywords.map(function (keyword) {
+	    return _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100',
+	        style: styles.sidebarButtons
+	      },
+	      keyword
+	    );
+	  });
 
 	  // method and variables pertaining to clicking buttons in child components
 	  return _react2.default.createElement(
@@ -29580,23 +29629,52 @@
 	      null,
 	      'Companies'
 	    ),
-	    _react2.default.createElement(_companyButtons2.default, null),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'btn-group-vertical', id: 'width100' },
+	      companyButtons
+	    ),
 	    _react2.default.createElement(
 	      'h4',
 	      null,
 	      'Products'
 	    ),
-	    _react2.default.createElement(_productButtons2.default, null),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'btn-group-vertical', id: 'width100' },
+	      productButtons
+	    ),
 	    _react2.default.createElement(
 	      'h4',
 	      null,
 	      'Keywords'
 	    ),
-	    _react2.default.createElement(_keywordButtons2.default, null)
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'btn-group-vertical', id: 'width100' },
+	      keywordButtons
+	    )
 	  );
 	};
 
 	exports.default = ButtonsContainer;
+
+	/*
+
+	<h4>Companies</h4>
+	<div className="btn-group-vertical" id="width100">
+	  {companyButtons}
+	</div>
+	<h4>Products</h4>
+	<div className="btn-group-vertical" id="width100">
+	  {productButtons}
+	</div>
+	<h4>Keywords</h4>
+	<div className="btn-group-vertical" id="width100">
+	  {keywordButtons}
+	</div>
+
+	*/
 
 /***/ },
 /* 489 */
@@ -29845,15 +29923,12 @@
 
 	  var colors = ['#5068A5', '#F1666D', '#53C453', '#844AA4', '#F5A868', '#C65492'];
 
-	  console.log('product aksdhflasd: ', product);
+	  console.log('product: ', product);
 	  var keywordsDataForGraphs = [];
-	  console.log('keywordsDataForGraphs: ', keywordsDataForGraphs);
 
 	  var keywords = product.keywords.map(function (keyword) {
-	    console.log('INSIDE MAPPING FUNC KEYWORDS');
 	    // this is for the graphs
 	    keywordsDataForGraphs.push([keyword.keyword_name, keyword.ranks]);
-	    console.log('Mapping keywordsDataForGraphs: ', keywordsDataForGraphs);
 	    return _react2.default.createElement(_keywordListItem2.default, {
 	      key: keyword.keyword_id,
 	      keyword_name: keyword.keyword_name,
@@ -55128,7 +55203,10 @@
 	exports.default = Loading;
 
 /***/ },
-/* 571 */
+/* 571 */,
+/* 572 */,
+/* 573 */,
+/* 574 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55149,62 +55227,23 @@
 	  }
 	};
 
-	var CompanyButtons = function CompanyButtons(props) {
+	var CompanyButton = function CompanyButton(_ref) {
+	  var company = _ref.company;
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'btn-group-vertical', id: 'width100' },
+	    null,
 	    _react2.default.createElement(
 	      'button',
 	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'Company'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'Company'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'Company'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'Company'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'Company'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'Company'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'Company'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'Company'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'Company'
+	      company
 	    )
 	  );
 	};
 
-	exports.default = CompanyButtons;
+	exports.default = CompanyButton;
 
 /***/ },
-/* 572 */
+/* 575 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55225,107 +55264,23 @@
 	  }
 	};
 
-	var ProductButtons = function ProductButtons(props) {
+	var KeywordButton = function KeywordButton(_ref) {
+	  var keyword = _ref.keyword;
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'btn-group-vertical', id: 'width100' },
+	    null,
 	    _react2.default.createElement(
 	      'button',
 	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'product'
+	      keyword
 	    )
 	  );
 	};
 
-	exports.default = ProductButtons;
+	exports.default = KeywordButton;
 
 /***/ },
-/* 573 */
+/* 576 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55346,104 +55301,20 @@
 	  }
 	};
 
-	var KeywordButtons = function KeywordButtons(props) {
+	var ProductButton = function ProductButton(_ref) {
+	  var product = _ref.product;
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'btn-group-vertical', id: 'width100' },
+	    null,
 	    _react2.default.createElement(
 	      'button',
 	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      'keyword'
+	      product
 	    )
 	  );
 	};
 
-	exports.default = KeywordButtons;
+	exports.default = ProductButton;
 
 /***/ }
 /******/ ]);

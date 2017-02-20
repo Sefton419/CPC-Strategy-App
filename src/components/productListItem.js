@@ -27,15 +27,12 @@ const ProductListItem = ({ product, product_name, product_image_url, updateButto
     '#C65492'
   ]
 
-  console.log('product aksdhflasd: ', product);
+  console.log('product: ', product);
   const keywordsDataForGraphs = [];
-  console.log('keywordsDataForGraphs: ', keywordsDataForGraphs)
 
   const keywords = product.keywords.map((keyword) => {
-    console.log('INSIDE MAPPING FUNC KEYWORDS')
     // this is for the graphs
     keywordsDataForGraphs.push([keyword.keyword_name, keyword.ranks]);
-    console.log('Mapping keywordsDataForGraphs: ', keywordsDataForGraphs)
     return (
       <KeywordListItem 
         key={keyword.keyword_id}
