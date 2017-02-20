@@ -12,7 +12,7 @@ const styles = {
 
 const CompanyListItem = ({ company, updateButtonsData, addCompanyArrayToQueryStrings, pushCurrentQueryString }) => {
   console.log('inside companyListItem');
-  addCompanyArrayToQueryStrings(company.company_name);
+  addCompanyArrayToQueryStrings(company.client_name);
 
   console.log('addCompanyArrayToQueryStrings envoked')
 

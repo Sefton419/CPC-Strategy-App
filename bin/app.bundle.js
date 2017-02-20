@@ -27772,7 +27772,7 @@
 	        keywords: []
 	      },
 	      buttonsLoading: true,
-	      searchTerm: '',
+	      searchTerm: null,
 	      companiesQueryStrings: null
 	    };
 
@@ -27790,6 +27790,7 @@
 	    _this.addCompanyArrayToQueryStrings = _this.addCompanyArrayToQueryStrings.bind(_this);
 	    _this.pushCurrentQueryString = _this.pushCurrentQueryString.bind(_this);
 	    _this.handleQueryData = _this.handleQueryData.bind(_this);
+	    _this.applySearchFilter = _this.applySearchFilter.bind(_this);
 
 	    return _this;
 	  }
@@ -27828,6 +27829,14 @@
 	          console.log('ERROR in mapping data');
 	        });
 	      }
+	    }
+	  }, {
+	    key: 'componentWillUpdate',
+	    value: function componentWillUpdate() {
+	      if (this.state.searchTerm !== null) {
+	        this.applySearchFilter(this.state.data);
+	      }
+	      console.log('COMPONENT UPDATED: ', this.state.data);
 	    }
 	  }, {
 	    key: 'updateButtonsData',
@@ -27929,7 +27938,7 @@
 	    }
 	  }, {
 	    key: 'addCompanyArrayToQueryStrings',
-	    value: function addCompanyArrayToQueryStrings() {
+	    value: function addCompanyArrayToQueryStrings(companyName) {
 	      if (this.firstCompanyPassedOver) {
 	        if (this.companiesQueryArrayIndex < this.state.data.length - 1) {
 	          console.log('INCREMENTED, BITCHES: ', this.companiesQueryArrayIndex);
@@ -27942,7 +27951,7 @@
 	      }
 
 	      if (this.companiesQueryStrings.length < this.state.data.length) {
-	        this.companiesQueryStrings.push([]);
+	        this.companiesQueryStrings.push([companyName.toLowerCase()]);
 	      }
 	      console.log('companiesQueryStrings after pushing: ', this.companiesQueryStrings);
 	      console.log('THIS IS THE INDEXXXX: ', this.companyQueryArrayIndex);
@@ -27962,7 +27971,7 @@
 
 	      // cycle through all 20 arrays, join
 	      var joinedQueries = d.map(function (query) {
-	        return query.join('').replace(/\s/g, '');
+	        return query.join('');
 	      });
 	      console.log('JOINEDQUERIES: ', joinedQueries);
 	      // setState
@@ -27972,13 +27981,24 @@
 	    }
 	  }, {
 	    key: 'applySearchFilter',
-	    value: function applySearchFilter() {
-	      // if (this.state.searchTerm !== '')
-	      // make the particular stringQuery = null;
-	      // same with buttons
-	      // take most parent data, filter companies according to stringQueryArray
+	    value: function applySearchFilter(d) {
+	      var _this5 = this;
 
+	      var newQueryStrings = [];
+	      if (this.state.searchTerm !== '') {
+	        var newData = d.reduce(function (newDataArray, company, index) {
+	          if (_this5.companiesQueryStrings[index].includes(_this5.state.searchTerm)) {
+	            newDataArray.push(company);
+	            newQueryStrings.push(_this5.companiesQueryStrings[index]);
+	          }
+	          return newDataArray;
+	        });
+	        console.log('filteredData: ', newData);
+	        this.setState({ data: newData });
+	      }
 	    }
+	    // take most parent data, filter companies according to stringQueryArray
+
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -29928,7 +29948,7 @@
 	  var pushCurrentQueryString = _ref.pushCurrentQueryString;
 
 	  console.log('inside companyListItem');
-	  addCompanyArrayToQueryStrings(company.company_name);
+	  addCompanyArrayToQueryStrings(company.client_name);
 
 	  console.log('addCompanyArrayToQueryStrings envoked');
 

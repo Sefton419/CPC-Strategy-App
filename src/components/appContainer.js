@@ -25,7 +25,7 @@ class AppContainer extends Component {
         keywords: []
       },
       buttonsLoading: true,
-      searchTerm: '',
+      searchTerm: null,
       companiesQueryStrings: null
     }
 
@@ -43,6 +43,7 @@ class AppContainer extends Component {
     this.addCompanyArrayToQueryStrings = this.addCompanyArrayToQueryStrings.bind(this);
     this.pushCurrentQueryString = this.pushCurrentQueryString.bind(this);
     this.handleQueryData = this.handleQueryData.bind(this);
+    this.applySearchFilter = this.applySearchFilter.bind(this);
     
   }
 
@@ -78,6 +79,13 @@ class AppContainer extends Component {
         console.log('ERROR in mapping data');
       });
     }
+  }
+
+  componentWillUpdate() {
+    if (this.state.searchTerm !== null) {
+      this.applySearchFilter(this.state.data)
+    }
+    console.log('COMPONENT UPDATED: ', this.state.data);
   }
 
   updateButtonsData(d) {    
@@ -170,7 +178,7 @@ class AppContainer extends Component {
     });
   }
 
-  addCompanyArrayToQueryStrings() {
+  addCompanyArrayToQueryStrings(companyName) {
     if (this.firstCompanyPassedOver) {
       if (this.companiesQueryArrayIndex < this.state.data.length - 1) {
         console.log('INCREMENTED, BITCHES: ', this.companiesQueryArrayIndex);
@@ -184,7 +192,7 @@ class AppContainer extends Component {
     }
 
     if (this.companiesQueryStrings.length < this.state.data.length) {
-      this.companiesQueryStrings.push([]);
+      this.companiesQueryStrings.push([companyName.toLowerCase()]);
     }
     console.log('companiesQueryStrings after pushing: ', this.companiesQueryStrings);
     console.log('THIS IS THE INDEXXXX: ', this.companyQueryArrayIndex);
@@ -199,7 +207,7 @@ class AppContainer extends Component {
 
   handleQueryData(d) {
     // cycle through all 20 arrays, join
-    let joinedQueries = d.map(query => query.join('').replace(/\s/g, '')); 
+    let joinedQueries = d.map(query => query.join('')); 
     console.log('JOINEDQUERIES: ', joinedQueries);
     // setState
     this.setState({ companiesQueryStrings: joinedQueries }, (data) => {
@@ -208,13 +216,21 @@ class AppContainer extends Component {
     );
   }
 
-  applySearchFilter() {
-    // if (this.state.searchTerm !== '')
-      // make the particular stringQuery = null;
-      // same with buttons
-    // take most parent data, filter companies according to stringQueryArray
-
+  applySearchFilter(d) {
+    let newQueryStrings = [];
+    if (this.state.searchTerm !== '') {
+      const newData = d.reduce((newDataArray, company, index) => {
+        if (this.companiesQueryStrings[index].includes(this.state.searchTerm)) {
+          newDataArray.push(company);
+          newQueryStrings.push(this.companiesQueryStrings[index]);
+        }
+        return newDataArray;
+      });
+      console.log('filteredData: ', newData)
+      this.setState({ data: newData })
+    }
   }
+    // take most parent data, filter companies according to stringQueryArray
 
   render() {
 
