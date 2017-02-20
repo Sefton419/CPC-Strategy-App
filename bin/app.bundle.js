@@ -27873,9 +27873,7 @@
 	      };
 
 	      var companyIndexNames = sortNames(Object.keys(this.companiesIndex));
-
 	      var productIndexNames = sortNames(Object.keys(this.productsIndex));
-
 	      var keywordIndexNames = sortNames(Object.keys(this.keywordsIndex));
 
 	      // reset index variables
@@ -29599,6 +29597,8 @@
 	var ButtonsContainer = function ButtonsContainer(_ref) {
 	  var buttonData = _ref.buttonData;
 
+	  var keyTicker = 1;
+
 	  console.log('buttonData in ButtonsContainer: ', buttonData);
 
 	  var companies = buttonData.companies;
@@ -29610,7 +29610,10 @@
 	  var companyButtons = companies.map(function (company) {
 	    return _react2.default.createElement(
 	      'button',
-	      { className: 'btn btn-default', id: 'width100',
+	      {
+	        key: keyTicker++,
+	        className: 'btn btn-default',
+	        id: 'width100',
 	        style: styles.sidebarButtons
 	      },
 	      company
@@ -29619,7 +29622,10 @@
 	  var productButtons = products.map(function (product) {
 	    return _react2.default.createElement(
 	      'button',
-	      { className: 'btn btn-default', id: 'width100',
+	      {
+	        key: keyTicker++,
+	        className: 'btn btn-default',
+	        id: 'width100',
 	        style: styles.sidebarButtons
 	      },
 	      product
@@ -29628,7 +29634,10 @@
 	  var keywordButtons = keywords.map(function (keyword) {
 	    return _react2.default.createElement(
 	      'button',
-	      { className: 'btn btn-default', id: 'width100',
+	      {
+	        key: keyTicker++,
+	        className: 'btn btn-default',
+	        id: 'width100',
 	        style: styles.sidebarButtons
 	      },
 	      keyword

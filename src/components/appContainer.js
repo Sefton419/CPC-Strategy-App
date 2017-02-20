@@ -34,7 +34,6 @@ class AppContainer extends Component {
     this.updateButtonsData = this.updateButtonsData.bind(this);
     this.handleIndexData = this.handleIndexData.bind(this);
     
-
   }
 
   componentWillMount() {
@@ -116,9 +115,7 @@ class AppContainer extends Component {
     };
 
     let companyIndexNames = sortNames(Object.keys(this.companiesIndex));
-
-    let productIndexNames = sortNames(Object.keys(this.productsIndex));
-    
+    let productIndexNames = sortNames(Object.keys(this.productsIndex)); 
     let keywordIndexNames = sortNames(Object.keys(this.keywordsIndex));
 
     // reset index variables

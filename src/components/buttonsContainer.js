@@ -10,28 +10,40 @@ const styles = {
   }
 }
 
+
 const ButtonsContainer = ({ buttonData }) => {
+  let keyTicker = 1;
+
   console.log('buttonData in ButtonsContainer: ', buttonData);
 
   const { companies, products, keywords } = buttonData;
   console.log('companies destructured: ', companies);
 
   const companyButtons = companies.map(company => (
-    <button className="btn btn-default" id="width100" 
+    <button 
+      key={keyTicker++}
+      className="btn btn-default" 
+      id="width100" 
       style={styles.sidebarButtons}
     >
       {company}
     </button> 
   ));
   const productButtons = products.map(product => (
-    <button className="btn btn-default" id="width100" 
+    <button 
+      key={keyTicker++}
+      className="btn btn-default" 
+      id="width100" 
       style={styles.sidebarButtons}
     >
       {product}
     </button> 
   ));
   const keywordButtons = keywords.map(keyword => (
-      <button className="btn btn-default" id="width100" 
+      <button 
+        key={keyTicker++}
+        className="btn btn-default" 
+        id="width100" 
         style={styles.sidebarButtons}
       >
         {keyword}
