@@ -12,6 +12,7 @@ const styles = {
 
 const ButtonsContainer = ({ buttonData }) => {
   console.log('buttonData in ButtonsContainer: ', buttonData);
+
   const { companies, products, keywords } = buttonData;
   console.log('companies destructured: ', companies);
 
@@ -57,20 +58,3 @@ const ButtonsContainer = ({ buttonData }) => {
 }
 
 export default ButtonsContainer;
-
-/*
-
-<h4>Companies</h4>
-<div className="btn-group-vertical" id="width100">
-  {companyButtons}
-</div>
-<h4>Products</h4>
-<div className="btn-group-vertical" id="width100">
-  {productButtons}
-</div>
-<h4>Keywords</h4>
-<div className="btn-group-vertical" id="width100">
-  {keywordButtons}
-</div>
-
-*/

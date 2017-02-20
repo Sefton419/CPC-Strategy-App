@@ -32,6 +32,8 @@ class AppContainer extends Component {
     this.keywordsIndex = {};  
 
     this.updateButtonsData = this.updateButtonsData.bind(this);
+    this.handleIndexData = this.handleIndexData.bind(this);
+    
 
   }
 
@@ -53,41 +55,14 @@ class AppContainer extends Component {
         console.log('dataLoading is now... ', this.state.dataLoading);
       })
       .then((resp) =>{
-        let companyIndexNames = Object.keys(this.companiesIndex);    
-        let productIndexNames = Object.keys(this.productsIndex);   
-        let keywordIndexNames =  Object.keys(this.keywordsIndex);
-
-        // reset index variables
-        this.companiesIndex = {};
-        this.productsIndex = {};
-        this.keywordsIndex = {};
-
-        let companyButtons = this.state.buttons;
-
-        companyButtons.companies = companyIndexNames
-        companyButtons.products = productIndexNames
-        companyButtons.keywords = keywordIndexNames
-
-        this.setState({
-          buttons: companyButtons,
-          buttonsLoading: false
-      });
-        console.log('did it work in axios call?');
-        console.log('--this.state.buttons.companies: ', this.state.buttons.companies);
-        console.log('--this.state.buttons.products: ', this.state.buttons.products);
-        console.log('--this.state.buttons.keywords: ', this.state.buttons.keywords); 
-
-
+        // for buttons
+        this.handleIndexData()
       })
       .catch((error) => {
         console.log('ERROR in mapping data');
       });
     }
   }
-
-  // componentDidMount() {
-    
-  // }
 
   updateButtonsData(d) {    
     const index = {};
@@ -130,14 +105,52 @@ class AppContainer extends Component {
     }
   }
 
+  handleIndexData() {
+
+    const sortNames = (names) => {
+      return names.sort((a, b) => {
+        if (a < b) return -1;
+        if (a > b) return 1;
+        return 0;
+      });
+    };
+
+    let companyIndexNames = sortNames(Object.keys(this.companiesIndex));
+
+    let productIndexNames = sortNames(Object.keys(this.productsIndex));
+    
+    let keywordIndexNames = sortNames(Object.keys(this.keywordsIndex));
+
+    // reset index variables
+    this.companiesIndex = {};
+    this.productsIndex = {};
+    this.keywordsIndex = {};
+
+    let companyButtons = this.state.buttons;
+
+    companyButtons.companies = companyIndexNames;
+    companyButtons.products = productIndexNames;
+    companyButtons.keywords = keywordIndexNames;
+
+    this.setState({
+      buttons: companyButtons,
+      buttonsLoading: false
+    });
+
+    console.log('did it work in axios call?');
+    console.log('--this.state.buttons.companies: ', this.state.buttons.companies);
+    console.log('--this.state.buttons.products: ', this.state.buttons.products);
+    console.log('--this.state.buttons.keywords: ', this.state.buttons.keywords); 
+  }
+
   render() {
 
     return (
-      <div className="container-fluid" style={styles.container}>
+      <div className="container-fluid" id="appContainer" style={styles.container}>
         <div className="row">
           <Header />
         </div>
-        <div className="row">
+        <div className="row" id="appContainer">
           {this.state.buttonsLoading ? <Loading /> : <Sidebar buttonData={this.state.buttons} />}
           {this.state.dataLoading ? <Loading /> : <ListContainer data={this.state.data} state={this.state} updateButtonsData={this.updateButtonsData} />}
         </div>

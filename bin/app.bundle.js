@@ -27779,6 +27779,7 @@
 	    _this.keywordsIndex = {};
 
 	    _this.updateButtonsData = _this.updateButtonsData.bind(_this);
+	    _this.handleIndexData = _this.handleIndexData.bind(_this);
 
 	    return _this;
 	  }
@@ -27805,39 +27806,13 @@
 	          _this2.setState({ dataLoading: false });
 	          console.log('dataLoading is now... ', _this2.state.dataLoading);
 	        }).then(function (resp) {
-	          var companyIndexNames = Object.keys(_this2.companiesIndex);
-	          var productIndexNames = Object.keys(_this2.productsIndex);
-	          var keywordIndexNames = Object.keys(_this2.keywordsIndex);
-
-	          // reset index variables
-	          _this2.companiesIndex = {};
-	          _this2.productsIndex = {};
-	          _this2.keywordsIndex = {};
-
-	          var companyButtons = _this2.state.buttons;
-
-	          companyButtons.companies = companyIndexNames;
-	          companyButtons.products = productIndexNames;
-	          companyButtons.keywords = keywordIndexNames;
-
-	          _this2.setState({
-	            buttons: companyButtons,
-	            buttonsLoading: false
-	          });
-	          console.log('did it work in axios call?');
-	          console.log('--this.state.buttons.companies: ', _this2.state.buttons.companies);
-	          console.log('--this.state.buttons.products: ', _this2.state.buttons.products);
-	          console.log('--this.state.buttons.keywords: ', _this2.state.buttons.keywords);
+	          // for buttons
+	          _this2.handleIndexData();
 	        }).catch(function (error) {
 	          console.log('ERROR in mapping data');
 	        });
 	      }
 	    }
-
-	    // componentDidMount() {
-
-	    // }
-
 	  }, {
 	    key: 'updateButtonsData',
 	    value: function updateButtonsData(d) {
@@ -27886,12 +27861,51 @@
 	      }
 	    }
 	  }, {
+	    key: 'handleIndexData',
+	    value: function handleIndexData() {
+
+	      var sortNames = function sortNames(names) {
+	        return names.sort(function (a, b) {
+	          if (a < b) return -1;
+	          if (a > b) return 1;
+	          return 0;
+	        });
+	      };
+
+	      var companyIndexNames = sortNames(Object.keys(this.companiesIndex));
+
+	      var productIndexNames = sortNames(Object.keys(this.productsIndex));
+
+	      var keywordIndexNames = sortNames(Object.keys(this.keywordsIndex));
+
+	      // reset index variables
+	      this.companiesIndex = {};
+	      this.productsIndex = {};
+	      this.keywordsIndex = {};
+
+	      var companyButtons = this.state.buttons;
+
+	      companyButtons.companies = companyIndexNames;
+	      companyButtons.products = productIndexNames;
+	      companyButtons.keywords = keywordIndexNames;
+
+	      this.setState({
+	        buttons: companyButtons,
+	        buttonsLoading: false
+	      });
+
+	      console.log('did it work in axios call?');
+	      console.log('--this.state.buttons.companies: ', this.state.buttons.companies);
+	      console.log('--this.state.buttons.products: ', this.state.buttons.products);
+	      console.log('--this.state.buttons.keywords: ', this.state.buttons.keywords);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'container-fluid', style: styles.container },
+	        { className: 'container-fluid', id: 'appContainer', style: styles.container },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'row' },
@@ -27899,7 +27913,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'row' },
+	          { className: 'row', id: 'appContainer' },
 	          this.state.buttonsLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_sidebar2.default, { buttonData: this.state.buttons }),
 	          this.state.dataLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_listContainer2.default, { data: this.state.data, state: this.state, updateButtonsData: this.updateButtonsData })
 	        )
@@ -29586,6 +29600,7 @@
 	  var buttonData = _ref.buttonData;
 
 	  console.log('buttonData in ButtonsContainer: ', buttonData);
+
 	  var companies = buttonData.companies;
 	  var products = buttonData.products;
 	  var keywords = buttonData.keywords;
@@ -29658,23 +29673,6 @@
 	};
 
 	exports.default = ButtonsContainer;
-
-	/*
-
-	<h4>Companies</h4>
-	<div className="btn-group-vertical" id="width100">
-	  {companyButtons}
-	</div>
-	<h4>Products</h4>
-	<div className="btn-group-vertical" id="width100">
-	  {productButtons}
-	</div>
-	<h4>Keywords</h4>
-	<div className="btn-group-vertical" id="width100">
-	  {keywordButtons}
-	</div>
-
-	*/
 
 /***/ },
 /* 489 */
