@@ -28,6 +28,7 @@ class AppContainer extends Component {
       searchTerm: ''
     }
 
+    this.firstCompanyPassedOver = false
     this.companyQueryArrayIndex = 0;
     this.companiesQueryStrings = [];
 
@@ -38,12 +39,18 @@ class AppContainer extends Component {
     this.updateButtonsData = this.updateButtonsData.bind(this);
     this.handleIndexData = this.handleIndexData.bind(this);
     this.updateSearchTerm = this.updateSearchTerm.bind(this);
+    this.addCompanyArrayToQueryStrings = this.addCompanyArrayToQueryStrings.bind(this);
     
   }
 
   componentWillMount() {
     // axios GET call to retrieve data and set to state
     const { dataUrl, data } = this.state;
+
+    // empties and resets query data
+    this.companiesQueryStrings.length = 0;
+    this.companyQueryArrayIndex = 0;
+    
 
     console.log('This is data initially: ', data)
 
@@ -152,6 +159,25 @@ class AppContainer extends Component {
     });
   }
 
+  addCompanyArrayToQueryStrings() {
+    if (this.firstCompanyPassedOver) {
+      if (this.companyQueryArrayIndex < this.state.data.length - 1) {
+        this.companyQueryArrayIndex++;
+      } else {
+        this.companyQueryArrayIndex = 0;
+      }
+      
+    } else {
+      this.firstCompanyPassedOver = true;
+    }
+
+    if (this.companiesQueryStrings.length < this.state.data.length) {
+      this.companiesQueryStrings.push([]);
+    }
+    console.log('companiesQueryStrings after pushing: ', this.companiesQueryStrings);
+    console.log('this is the index: ', this.companyQueryArrayIndex);
+  }
+
   render() {
 
     return (
@@ -164,13 +190,18 @@ class AppContainer extends Component {
           <Loading /> :
           <Sidebar 
             buttonData={this.state.buttons} 
-            updateSearchTerm={this.updateSearchTerm} />}
+            updateSearchTerm={this.updateSearchTerm} 
+          />}
           {this.state.dataLoading ?
           <Loading /> :
           <ListContainer 
             data={this.state.data} 
             state={this.state} 
-            updateButtonsData={this.updateButtonsData} />}
+            updateButtonsData={this.updateButtonsData}
+            addCompanyArrayToQueryStrings={this.addCompanyArrayToQueryStrings}
+          />}
+
+
         </div>
       </div>
     )

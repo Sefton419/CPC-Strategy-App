@@ -10,10 +10,10 @@ const styles = {
   EMPTY: {}
 }
 
-const CompanyListItem = ({ company, updateButtonsData }) => {
-
-  
-
+const CompanyListItem = ({ company, updateButtonsData, addCompanyArrayToQueryStrings }) => {
+  console.log('inside companyListItem');
+  addCompanyArrayToQueryStrings();
+  console.log('addCompanyArrayToQueryStrings envoked')
   updateButtonsData(company.products);
 
   const products = company.products.map((product) => {

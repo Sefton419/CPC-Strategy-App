@@ -27775,6 +27775,7 @@
 	      searchTerm: ''
 	    };
 
+	    _this.firstCompanyPassedOver = false;
 	    _this.companyQueryArrayIndex = 0;
 	    _this.companiesQueryStrings = [];
 
@@ -27785,6 +27786,7 @@
 	    _this.updateButtonsData = _this.updateButtonsData.bind(_this);
 	    _this.handleIndexData = _this.handleIndexData.bind(_this);
 	    _this.updateSearchTerm = _this.updateSearchTerm.bind(_this);
+	    _this.addCompanyArrayToQueryStrings = _this.addCompanyArrayToQueryStrings.bind(_this);
 
 	    return _this;
 	  }
@@ -27799,6 +27801,10 @@
 	      var dataUrl = _state.dataUrl;
 	      var data = _state.data;
 
+	      // empties and resets query data
+
+	      this.companiesQueryStrings.length = 0;
+	      this.companyQueryArrayIndex = 0;
 
 	      console.log('This is data initially: ', data);
 
@@ -27911,6 +27917,25 @@
 	      });
 	    }
 	  }, {
+	    key: 'addCompanyArrayToQueryStrings',
+	    value: function addCompanyArrayToQueryStrings() {
+	      if (this.firstCompanyPassedOver) {
+	        if (this.companyQueryArrayIndex < this.state.data.length - 1) {
+	          this.companyQueryArrayIndex++;
+	        } else {
+	          this.companyQueryArrayIndex = 0;
+	        }
+	      } else {
+	        this.firstCompanyPassedOver = true;
+	      }
+
+	      if (this.companiesQueryStrings.length < this.state.data.length) {
+	        this.companiesQueryStrings.push([]);
+	      }
+	      console.log('companiesQueryStrings after pushing: ', this.companiesQueryStrings);
+	      console.log('this is the index: ', this.companyQueryArrayIndex);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 
@@ -27927,11 +27952,14 @@
 	          { className: 'row', id: 'appContainer' },
 	          this.state.buttonsLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_sidebar2.default, {
 	            buttonData: this.state.buttons,
-	            updateSearchTerm: this.updateSearchTerm }),
+	            updateSearchTerm: this.updateSearchTerm
+	          }),
 	          this.state.dataLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_listContainer2.default, {
 	            data: this.state.data,
 	            state: this.state,
-	            updateButtonsData: this.updateButtonsData })
+	            updateButtonsData: this.updateButtonsData,
+	            addCompanyArrayToQueryStrings: this.addCompanyArrayToQueryStrings
+	          })
 	        )
 	      );
 	    }
@@ -29740,6 +29768,7 @@
 	  var data = _ref.data;
 	  var state = _ref.state;
 	  var updateButtonsData = _ref.updateButtonsData;
+	  var addCompanyArrayToQueryStrings = _ref.addCompanyArrayToQueryStrings;
 
 	  console.log('data in list container: ', data);
 	  return _react2.default.createElement(
@@ -29752,8 +29781,9 @@
 	    ),
 	    _react2.default.createElement(_list2.default, {
 	      data: data,
+	      state: state,
 	      updateButtonsData: updateButtonsData,
-	      state: state
+	      addCompanyArrayToQueryStrings: addCompanyArrayToQueryStrings
 	    })
 	  );
 	};
@@ -29788,16 +29818,20 @@
 	  var data = _ref.data;
 	  var state = _ref.state;
 	  var updateButtonsData = _ref.updateButtonsData;
+	  var addCompanyArrayToQueryStrings = _ref.addCompanyArrayToQueryStrings;
 
-	  console.log('data in list: ', data);
+	  // console.log('data in list: ', data); 
 
 	  updateButtonsData(data);
+	  // console.log('updateButtonsData envoked');
 
 	  var companies = data.map(function (company) {
+	    // console.log('mapping in list: ', company.client_id);
 	    return _react2.default.createElement(_CompanyListItem2.default, {
 	      key: company.client_id,
 	      company: company,
-	      updateButtonsData: updateButtonsData
+	      updateButtonsData: updateButtonsData,
+	      addCompanyArrayToQueryStrings: addCompanyArrayToQueryStrings
 	    });
 	  });
 
@@ -29841,8 +29875,11 @@
 	var CompanyListItem = function CompanyListItem(_ref) {
 	  var company = _ref.company;
 	  var updateButtonsData = _ref.updateButtonsData;
+	  var addCompanyArrayToQueryStrings = _ref.addCompanyArrayToQueryStrings;
 
-
+	  console.log('inside companyListItem');
+	  addCompanyArrayToQueryStrings();
+	  console.log('addCompanyArrayToQueryStrings envoked');
 	  updateButtonsData(company.products);
 
 	  var products = company.products.map(function (product) {
