@@ -6,7 +6,7 @@ const styles = {
   listContainer: {}
 }
 
-const ListContainer = ({ data, state, updateButtonsData, addCompanyArrayToQueryStrings}) => {
+const ListContainer = ({ data, state, updateButtonsData, addCompanyArrayToQueryStrings, pushCurrentQueryString }) => {
   console.log('data in list container: ', data);
   return (
     <div className="col-xs-10" style={styles.listContainer}>
@@ -16,6 +16,7 @@ const ListContainer = ({ data, state, updateButtonsData, addCompanyArrayToQueryS
         state={state}
         updateButtonsData={updateButtonsData}
         addCompanyArrayToQueryStrings={addCompanyArrayToQueryStrings}
+        pushCurrentQueryString={pushCurrentQueryString}
       />
     </div>
   );

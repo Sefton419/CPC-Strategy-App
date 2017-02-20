@@ -27772,11 +27772,12 @@
 	        keywords: []
 	      },
 	      buttonsLoading: true,
-	      searchTerm: ''
+	      searchTerm: '',
+	      companiesQueryStrings: null
 	    };
 
 	    _this.firstCompanyPassedOver = false;
-	    _this.companyQueryArrayIndex = 0;
+	    _this.companiesQueryArrayIndex = 0;
 	    _this.companiesQueryStrings = [];
 
 	    _this.companiesIndex = {};
@@ -27787,6 +27788,8 @@
 	    _this.handleIndexData = _this.handleIndexData.bind(_this);
 	    _this.updateSearchTerm = _this.updateSearchTerm.bind(_this);
 	    _this.addCompanyArrayToQueryStrings = _this.addCompanyArrayToQueryStrings.bind(_this);
+	    _this.pushCurrentQueryString = _this.pushCurrentQueryString.bind(_this);
+	    _this.handleQueryData = _this.handleQueryData.bind(_this);
 
 	    return _this;
 	  }
@@ -27804,7 +27807,8 @@
 	      // empties and resets query data
 
 	      this.companiesQueryStrings.length = 0;
-	      this.companyQueryArrayIndex = 0;
+	      this.companiesQueryArrayIndex = 0;
+	      this.firstCompanyPassedOver = false;
 
 	      console.log('This is data initially: ', data);
 
@@ -27819,6 +27823,7 @@
 	        }).then(function (resp) {
 	          // for buttons
 	          _this2.handleIndexData();
+	          _this2.handleQueryData(_this2.companiesQueryStrings);
 	        }).catch(function (error) {
 	          console.log('ERROR in mapping data');
 	        });
@@ -27844,7 +27849,7 @@
 	        }, []);
 	      }
 	      if (d[0].product_name !== undefined) {
-	        var productButtons = d.reduce(function (productNames, product) {
+	        var productItemNames = d.reduce(function (productNames, product) {
 	          var product_name = product.product_name;
 
 	          if (_this3.productsIndex.product_name === undefined) {
@@ -27854,10 +27859,12 @@
 	          } else {
 	            _this3.productsIndex[product_name]++;
 	          }
-	        }, []);
+	        }, []).join('').toLowerCase();
+	        this.pushCurrentQueryString(productItemNames);
+	        // console.log('query string from a product: ', this.companiesQueryStrings[this.companiesQueryArrayIndex]);
 	      }
 	      if (d[0].keyword_name !== undefined) {
-	        var keywordButtons = d.reduce(function (keywordNames, keyword) {
+	        var keywordItemNames = d.reduce(function (keywordNames, keyword) {
 	          var keyword_name = keyword.keyword_name;
 
 	          if (_this3.keywordsIndex.keyword_name === undefined) {
@@ -27867,8 +27874,12 @@
 	          } else {
 	            _this3.keywordIndex[product_name]++;
 	          }
-	        }, []);
+	        }, []).join('').toLowerCase();
+	        // console.log('keywordItemNames TOLOWERCASE(): ', keywordItemNames)
+	        this.pushCurrentQueryString(keywordItemNames);
+	        // console.log('query string from a keyword: ', this.companiesQueryStrings[this.companiesQueryArrayIndex]);
 	      }
+	      console.log('QUERYSTRINGS: ', this.companiesQueryStrings);
 	    }
 	  }, {
 	    key: 'handleIndexData',
@@ -27920,10 +27931,11 @@
 	    key: 'addCompanyArrayToQueryStrings',
 	    value: function addCompanyArrayToQueryStrings() {
 	      if (this.firstCompanyPassedOver) {
-	        if (this.companyQueryArrayIndex < this.state.data.length - 1) {
-	          this.companyQueryArrayIndex++;
+	        if (this.companiesQueryArrayIndex < this.state.data.length - 1) {
+	          console.log('INCREMENTED, BITCHES: ', this.companiesQueryArrayIndex);
+	          this.companiesQueryArrayIndex++;
 	        } else {
-	          this.companyQueryArrayIndex = 0;
+	          this.companiesQueryArrayIndex = 0;
 	        }
 	      } else {
 	        this.firstCompanyPassedOver = true;
@@ -27933,7 +27945,39 @@
 	        this.companiesQueryStrings.push([]);
 	      }
 	      console.log('companiesQueryStrings after pushing: ', this.companiesQueryStrings);
-	      console.log('this is the index: ', this.companyQueryArrayIndex);
+	      console.log('THIS IS THE INDEXXXX: ', this.companyQueryArrayIndex);
+	    }
+	  }, {
+	    key: 'pushCurrentQueryString',
+	    value: function pushCurrentQueryString(qstr) {
+	      var companiesQueryArrayIndex = this.companiesQueryArrayIndex;
+
+	      console.log('companiesQueryArrayIndex from pushCurrent Func: ', companiesQueryArrayIndex);
+	      this.companiesQueryStrings[companiesQueryArrayIndex].push(qstr);
+	    }
+	  }, {
+	    key: 'handleQueryData',
+	    value: function handleQueryData(d) {
+	      var _this4 = this;
+
+	      // cycle through all 20 arrays, join
+	      var joinedQueries = d.map(function (query) {
+	        return query.join('').replace(/\s/g, '');
+	      });
+	      console.log('JOINEDQUERIES: ', joinedQueries);
+	      // setState
+	      this.setState({ companiesQueryStrings: joinedQueries }, function (data) {
+	        console.log('companiesQueryStrings after setting state: ', _this4.state.companiesQueryStrings);
+	      });
+	    }
+	  }, {
+	    key: 'applySearchFilter',
+	    value: function applySearchFilter() {
+	      // if (this.state.searchTerm !== '')
+	      // make the particular stringQuery = null;
+	      // same with buttons
+	      // take most parent data, filter companies according to stringQueryArray
+
 	    }
 	  }, {
 	    key: 'render',
@@ -27958,7 +28002,8 @@
 	            data: this.state.data,
 	            state: this.state,
 	            updateButtonsData: this.updateButtonsData,
-	            addCompanyArrayToQueryStrings: this.addCompanyArrayToQueryStrings
+	            addCompanyArrayToQueryStrings: this.addCompanyArrayToQueryStrings,
+	            pushCurrentQueryString: this.pushCurrentQueryString
 	          })
 	        )
 	      );
@@ -29769,6 +29814,7 @@
 	  var state = _ref.state;
 	  var updateButtonsData = _ref.updateButtonsData;
 	  var addCompanyArrayToQueryStrings = _ref.addCompanyArrayToQueryStrings;
+	  var pushCurrentQueryString = _ref.pushCurrentQueryString;
 
 	  console.log('data in list container: ', data);
 	  return _react2.default.createElement(
@@ -29783,7 +29829,8 @@
 	      data: data,
 	      state: state,
 	      updateButtonsData: updateButtonsData,
-	      addCompanyArrayToQueryStrings: addCompanyArrayToQueryStrings
+	      addCompanyArrayToQueryStrings: addCompanyArrayToQueryStrings,
+	      pushCurrentQueryString: pushCurrentQueryString
 	    })
 	  );
 	};
@@ -29819,6 +29866,7 @@
 	  var state = _ref.state;
 	  var updateButtonsData = _ref.updateButtonsData;
 	  var addCompanyArrayToQueryStrings = _ref.addCompanyArrayToQueryStrings;
+	  var pushCurrentQueryString = _ref.pushCurrentQueryString;
 
 	  // console.log('data in list: ', data); 
 
@@ -29831,7 +29879,8 @@
 	      key: company.client_id,
 	      company: company,
 	      updateButtonsData: updateButtonsData,
-	      addCompanyArrayToQueryStrings: addCompanyArrayToQueryStrings
+	      addCompanyArrayToQueryStrings: addCompanyArrayToQueryStrings,
+	      pushCurrentQueryString: pushCurrentQueryString
 	    });
 	  });
 
@@ -29876,11 +29925,15 @@
 	  var company = _ref.company;
 	  var updateButtonsData = _ref.updateButtonsData;
 	  var addCompanyArrayToQueryStrings = _ref.addCompanyArrayToQueryStrings;
+	  var pushCurrentQueryString = _ref.pushCurrentQueryString;
 
 	  console.log('inside companyListItem');
-	  addCompanyArrayToQueryStrings();
+	  addCompanyArrayToQueryStrings(company.company_name);
+
 	  console.log('addCompanyArrayToQueryStrings envoked');
+
 	  updateButtonsData(company.products);
+	  // pushCurrentQueryString();
 
 	  var products = company.products.map(function (product) {
 	    return _react2.default.createElement(_productListItem2.default, {
@@ -29888,7 +29941,8 @@
 	      product_name: product.product_name,
 	      product_image_url: product.product_image_url,
 	      product: product,
-	      updateButtonsData: updateButtonsData
+	      updateButtonsData: updateButtonsData,
+	      pushCurrentQueryString: pushCurrentQueryString
 	    });
 	  });
 
@@ -29990,6 +30044,7 @@
 	  var product_name = _ref.product_name;
 	  var product_image_url = _ref.product_image_url;
 	  var updateButtonsData = _ref.updateButtonsData;
+	  var pushCurrentQueryString = _ref.pushCurrentQueryString;
 
 
 	  updateButtonsData(product.keywords);
@@ -30007,7 +30062,8 @@
 	      keyword_name: keyword.keyword_name,
 	      keyword_country: keyword.keyword_country,
 	      keyword: keyword,
-	      colors: colors
+	      colors: colors,
+	      pushCurrentQueryString: pushCurrentQueryString
 	    });
 	  });
 

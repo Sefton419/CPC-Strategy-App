@@ -10,12 +10,15 @@ const styles = {
   EMPTY: {}
 }
 
-const CompanyListItem = ({ company, updateButtonsData, addCompanyArrayToQueryStrings }) => {
+const CompanyListItem = ({ company, updateButtonsData, addCompanyArrayToQueryStrings, pushCurrentQueryString }) => {
   console.log('inside companyListItem');
-  addCompanyArrayToQueryStrings();
-  console.log('addCompanyArrayToQueryStrings envoked')
-  updateButtonsData(company.products);
+  addCompanyArrayToQueryStrings(company.company_name);
 
+  console.log('addCompanyArrayToQueryStrings envoked')
+
+  updateButtonsData(company.products);
+  // pushCurrentQueryString();
+  
   const products = company.products.map((product) => {
     return (
       <ProductListItem 
@@ -24,6 +27,7 @@ const CompanyListItem = ({ company, updateButtonsData, addCompanyArrayToQueryStr
         product_image_url={product.product_image_url}
         product={product}
         updateButtonsData={updateButtonsData}
+        pushCurrentQueryString={pushCurrentQueryString}
       />
     );
   });

@@ -5,7 +5,7 @@ import Loading from './loading.js'
 
 
 
-const List = ({ data, state, updateButtonsData, addCompanyArrayToQueryStrings }) => {
+const List = ({ data, state, updateButtonsData, addCompanyArrayToQueryStrings, pushCurrentQueryString }) => {
   // console.log('data in list: ', data); 
 
   updateButtonsData(data);
@@ -19,6 +19,7 @@ const List = ({ data, state, updateButtonsData, addCompanyArrayToQueryStrings })
         company={company}
         updateButtonsData={updateButtonsData}
         addCompanyArrayToQueryStrings={addCompanyArrayToQueryStrings}
+        pushCurrentQueryString={pushCurrentQueryString}
       />
     );
   });

@@ -25,11 +25,12 @@ class AppContainer extends Component {
         keywords: []
       },
       buttonsLoading: true,
-      searchTerm: ''
+      searchTerm: '',
+      companiesQueryStrings: null
     }
 
     this.firstCompanyPassedOver = false
-    this.companyQueryArrayIndex = 0;
+    this.companiesQueryArrayIndex = 0;
     this.companiesQueryStrings = [];
 
     this.companiesIndex = {};
@@ -40,6 +41,8 @@ class AppContainer extends Component {
     this.handleIndexData = this.handleIndexData.bind(this);
     this.updateSearchTerm = this.updateSearchTerm.bind(this);
     this.addCompanyArrayToQueryStrings = this.addCompanyArrayToQueryStrings.bind(this);
+    this.pushCurrentQueryString = this.pushCurrentQueryString.bind(this);
+    this.handleQueryData = this.handleQueryData.bind(this);
     
   }
 
@@ -49,7 +52,8 @@ class AppContainer extends Component {
 
     // empties and resets query data
     this.companiesQueryStrings.length = 0;
-    this.companyQueryArrayIndex = 0;
+    this.companiesQueryArrayIndex = 0;
+    this.firstCompanyPassedOver = false;
     
 
     console.log('This is data initially: ', data)
@@ -67,7 +71,8 @@ class AppContainer extends Component {
       })
       .then((resp) =>{
         // for buttons
-        this.handleIndexData()
+        this.handleIndexData();
+        this.handleQueryData(this.companiesQueryStrings);
       })
       .catch((error) => {
         console.log('ERROR in mapping data');
@@ -90,7 +95,7 @@ class AppContainer extends Component {
       }, []);
     }
     if (d[0].product_name !== undefined) {
-      const productButtons = d.reduce((productNames, product) => {
+      const productItemNames = d.reduce((productNames, product) => {
         const { product_name } = product;
         if(this.productsIndex.product_name === undefined) {
           this.productsIndex[product_name] = 1;
@@ -99,10 +104,12 @@ class AppContainer extends Component {
         } else {
           this.productsIndex[product_name]++;
         }
-      }, []);
+      }, []).join('').toLowerCase();
+      this.pushCurrentQueryString(productItemNames);
+      // console.log('query string from a product: ', this.companiesQueryStrings[this.companiesQueryArrayIndex]);
     }
     if (d[0].keyword_name !== undefined) {
-      const keywordButtons = d.reduce((keywordNames, keyword) => {
+      const keywordItemNames = d.reduce((keywordNames, keyword) => {
         const { keyword_name } = keyword;
         if(this.keywordsIndex.keyword_name === undefined) {
           this.keywordsIndex[keyword_name] = 1;
@@ -111,8 +118,12 @@ class AppContainer extends Component {
         } else {
           this.keywordIndex[product_name]++;
         } 
-      }, []);
+      }, []).join('').toLowerCase();
+      // console.log('keywordItemNames TOLOWERCASE(): ', keywordItemNames)
+      this.pushCurrentQueryString(keywordItemNames);
+      // console.log('query string from a keyword: ', this.companiesQueryStrings[this.companiesQueryArrayIndex]);
     }
+    console.log('QUERYSTRINGS: ', this.companiesQueryStrings);
   }
 
   handleIndexData() {
@@ -161,10 +172,11 @@ class AppContainer extends Component {
 
   addCompanyArrayToQueryStrings() {
     if (this.firstCompanyPassedOver) {
-      if (this.companyQueryArrayIndex < this.state.data.length - 1) {
-        this.companyQueryArrayIndex++;
+      if (this.companiesQueryArrayIndex < this.state.data.length - 1) {
+        console.log('INCREMENTED, BITCHES: ', this.companiesQueryArrayIndex);
+        this.companiesQueryArrayIndex++;
       } else {
-        this.companyQueryArrayIndex = 0;
+        this.companiesQueryArrayIndex = 0;
       }
       
     } else {
@@ -175,7 +187,33 @@ class AppContainer extends Component {
       this.companiesQueryStrings.push([]);
     }
     console.log('companiesQueryStrings after pushing: ', this.companiesQueryStrings);
-    console.log('this is the index: ', this.companyQueryArrayIndex);
+    console.log('THIS IS THE INDEXXXX: ', this.companyQueryArrayIndex);
+  }
+
+  pushCurrentQueryString(qstr) {
+    const { companiesQueryArrayIndex } = this;
+    console.log('companiesQueryArrayIndex from pushCurrent Func: ', companiesQueryArrayIndex);
+    this.companiesQueryStrings[companiesQueryArrayIndex].push(qstr);
+    
+  }
+
+  handleQueryData(d) {
+    // cycle through all 20 arrays, join
+    let joinedQueries = d.map(query => query.join('').replace(/\s/g, '')); 
+    console.log('JOINEDQUERIES: ', joinedQueries);
+    // setState
+    this.setState({ companiesQueryStrings: joinedQueries }, (data) => {
+        console.log('companiesQueryStrings after setting state: ', this.state.companiesQueryStrings);
+      }
+    );
+  }
+
+  applySearchFilter() {
+    // if (this.state.searchTerm !== '')
+      // make the particular stringQuery = null;
+      // same with buttons
+    // take most parent data, filter companies according to stringQueryArray
+
   }
 
   render() {
@@ -199,6 +237,7 @@ class AppContainer extends Component {
             state={this.state} 
             updateButtonsData={this.updateButtonsData}
             addCompanyArrayToQueryStrings={this.addCompanyArrayToQueryStrings}
+            pushCurrentQueryString={this.pushCurrentQueryString}
           />}
 
 

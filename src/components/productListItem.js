@@ -14,7 +14,7 @@ const styles = {
   EMPTY: {}
 }
 
-const ProductListItem = ({ product, product_name, product_image_url, updateButtonsData }) => {
+const ProductListItem = ({ product, product_name, product_image_url, updateButtonsData, pushCurrentQueryString }) => {
 
   updateButtonsData(product.keywords); 
 
@@ -40,6 +40,7 @@ const ProductListItem = ({ product, product_name, product_image_url, updateButto
         keyword_country={keyword.keyword_country}
         keyword={keyword}
         colors={colors}
+        pushCurrentQueryString={pushCurrentQueryString}
       />
     );
   });
