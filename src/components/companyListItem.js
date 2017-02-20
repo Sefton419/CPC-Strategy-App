@@ -10,7 +10,10 @@ const styles = {
   EMPTY: {}
 }
 
-const CompanyListItem = ({ company }) => {
+const CompanyListItem = ({ company, updateButtonsData }) => {
+
+  updateButtonsData(company.products);
+
   const products = company.products.map((product) => {
     return (
       <ProductListItem 
@@ -18,6 +21,7 @@ const CompanyListItem = ({ company }) => {
         product_name={product.product_name}
         product_image_url={product.product_image_url}
         product={product}
+        updateButtonsData={updateButtonsData}
       />
     );
   });

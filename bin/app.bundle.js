@@ -27772,6 +27772,10 @@
 	      buttonsLoading: true
 	    };
 
+	    _this.companiesIndex = {};
+	    _this.productsIndex = {};
+	    _this.keywordsIndex = {};
+
 	    _this.updateButtonsData = _this.updateButtonsData.bind(_this);
 
 	    return _this;
@@ -27806,16 +27810,20 @@
 	  }, {
 	    key: 'updateButtonsData',
 	    value: function updateButtonsData(d) {
+	      var _this3 = this;
+
 	      console.log('updateButtonsData envoked');
-	      console.log('this.state.buttons: ', this.state.buttons);
+	      console.log('here is data: ', d);
+	      console.log('this.companiesIndex: ', this.companiesIndex);
+
 	      var index = {};
 	      // check to see whether dealing with companies, products, or keywords
 	      if (d[0].client_name !== undefined) {
 	        var companyButtons = d.reduce(function (clientNames, company) {
 	          var client_name = company.client_name;
 
-	          if (index.client_name === undefined) {
-	            index[client_name] = true;
+	          if (_this3.companiesIndex.client_name === undefined) {
+	            _this3.companiesIndex[client_name] = true;
 	            clientNames.push(client_name);
 	            return clientNames;
 	          }
@@ -27824,38 +27832,40 @@
 	        // this.setState({companyButtons: companyButtons });
 	        // console.log('this is this.state.buttons.companies, fucker: ', this.state.companyButtons)
 	      }
+	      console.log('NEAR PRODUCTS!!!!');
 	      if (d[0].product_name !== undefined) {
+	        console.log('INSIDE PRODUCTS!!!!');
 	        var productButtons = d.reduce(function (productNames, product) {
 	          var product_name = product.product_name;
 
-	          if (index.product_name === undefined) {
-	            index[product_name] = true;
+	          if (_this3.productsIndex.product_name === undefined) {
+	            _this3.productsIndex[product_name] = true;
 	            productNames.push(product_name);
 	            return productNames;
 	          }
 	        }, []);
-	        console.log('productButtons: ', productButtons);
+	        console.log('this.productsIndex: ', this.productsIndex);
 	        // this.setState({/* can I use this const?*/ buttons: productButtons });
 	      }
+	      console.log('NEAR KEYWORDS!!!!');
 	      if (d[0].keyword_name !== undefined) {
+	        console.log('INSIDE KEYWORDS!!!!');
 	        var keywordButtons = d.reduce(function (keywordNames, keyword) {
 	          var keyword_name = keyword.keyword_name;
 
-	          if (index.keyword_name === undefined) {
-	            index[keyword_name] = true;
+	          if (_this3.keywordsIndex.keyword_name === undefined) {
+	            _this3.keywordsIndex[keyword_name] = true;
 	            keywordNames.push(keyword_name);
 	            return keywordNames;
 	          }
 	        }, []);
-	        console.log('keywordButtons: ', keywordButtons);
+	        console.log('this.keywordsIndex: ', this.keywordsIndex);
 	        // this.setState({/* can I use this const?*/ buttons: companyButtons, buttonsLoading: false }); 
 	      }
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-
-	      this.updateButtonsData([{ client_name: 'hello' }, { client_name: 'hello' }, { client_name: 'goodbye' }]);
 
 	      return _react2.default.createElement(
 	        'div',
@@ -29656,14 +29666,15 @@
 
 	  console.log('data in list: ', data);
 
+	  updateButtonsData(data);
+
 	  var companies = data.map(function (company) {
 	    return _react2.default.createElement(_CompanyListItem2.default, {
 	      key: company.client_id,
-	      company: company
+	      company: company,
+	      updateButtonsData: updateButtonsData
 	    });
 	  });
-
-	  updateButtonsData(data);
 
 	  return _react2.default.createElement(
 	    'div',
@@ -29704,13 +29715,18 @@
 
 	var CompanyListItem = function CompanyListItem(_ref) {
 	  var company = _ref.company;
+	  var updateButtonsData = _ref.updateButtonsData;
+
+
+	  updateButtonsData(company.products);
 
 	  var products = company.products.map(function (product) {
 	    return _react2.default.createElement(_productListItem2.default, {
 	      key: product.product_id,
 	      product_name: product.product_name,
 	      product_image_url: product.product_image_url,
-	      product: product
+	      product: product,
+	      updateButtonsData: updateButtonsData
 	    });
 	  });
 
@@ -29811,18 +29827,22 @@
 	  var product = _ref.product;
 	  var product_name = _ref.product_name;
 	  var product_image_url = _ref.product_image_url;
-	  var updateGraphData = _ref.updateGraphData;
+	  var updateButtonsData = _ref.updateButtonsData;
 
+
+	  updateButtonsData(product.keywords);
 
 	  var colors = ['#5068A5', '#F1666D', '#53C453', '#844AA4', '#F5A868', '#C65492'];
 
-	  console.log('product ' + name + ': ', product);
+	  console.log('product aksdhflasd: ', product);
 	  var keywordsDataForGraphs = [];
+	  console.log('keywordsDataForGraphs: ', keywordsDataForGraphs);
 
 	  var keywords = product.keywords.map(function (keyword) {
+	    console.log('INSIDE MAPPING FUNC KEYWORDS');
 	    // this is for the graphs
 	    keywordsDataForGraphs.push([keyword.keyword_name, keyword.ranks]);
-
+	    console.log('Mapping keywordsDataForGraphs: ', keywordsDataForGraphs);
 	    return _react2.default.createElement(_keywordListItem2.default, {
 	      key: keyword.keyword_id,
 	      keyword_name: keyword.keyword_name,
@@ -29849,7 +29869,6 @@
 	      'div',
 	      { className: 'col-xs-5' },
 	      _react2.default.createElement(_ranksGraph2.default, {
-	        updateGraphData: updateGraphData,
 	        ranks: keywordsDataForGraphs,
 	        colors: colors
 	      })

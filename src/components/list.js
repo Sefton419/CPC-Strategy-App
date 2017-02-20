@@ -8,16 +8,17 @@ import Loading from './loading.js'
 const List = ({ data, state, updateButtonsData }) => {
   console.log('data in list: ', data); 
 
+  updateButtonsData(data);
+
   const companies = data.map((company) => {
     return (
       <CompanyListItem 
         key={company.client_id}
         company={company}
+        updateButtonsData={updateButtonsData}
       />
     );
   });
-
-  updateButtonsData(data);
 
   return (
     <div>

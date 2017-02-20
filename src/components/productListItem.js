@@ -14,7 +14,9 @@ const styles = {
   EMPTY: {}
 }
 
-const ProductListItem = ({ product, product_name, product_image_url, updateGraphData }) => {
+const ProductListItem = ({ product, product_name, product_image_url, updateButtonsData }) => {
+
+  updateButtonsData(product.keywords); 
 
   const colors = [
     '#5068A5',
@@ -25,13 +27,15 @@ const ProductListItem = ({ product, product_name, product_image_url, updateGraph
     '#C65492'
   ]
 
-  console.log(`product ${name}: `, product);
+  console.log('product aksdhflasd: ', product);
   const keywordsDataForGraphs = [];
+  console.log('keywordsDataForGraphs: ', keywordsDataForGraphs)
 
   const keywords = product.keywords.map((keyword) => {
+    console.log('INSIDE MAPPING FUNC KEYWORDS')
     // this is for the graphs
     keywordsDataForGraphs.push([keyword.keyword_name, keyword.ranks]);
-
+    console.log('Mapping keywordsDataForGraphs: ', keywordsDataForGraphs)
     return (
       <KeywordListItem 
         key={keyword.keyword_id}
@@ -53,7 +57,6 @@ const ProductListItem = ({ product, product_name, product_image_url, updateGraph
         </div>
         <div className="col-xs-5">
           <RanksGraph 
-            updateGraphData={updateGraphData}
             ranks={keywordsDataForGraphs}
             colors={colors}
         />
