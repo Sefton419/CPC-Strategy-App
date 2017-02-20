@@ -27771,7 +27771,8 @@
 	        products: [],
 	        keywords: []
 	      },
-	      buttonsLoading: true
+	      buttonsLoading: true,
+	      searchTerm: ''
 	    };
 
 	    _this.companiesIndex = {};
@@ -27780,6 +27781,7 @@
 
 	    _this.updateButtonsData = _this.updateButtonsData.bind(_this);
 	    _this.handleIndexData = _this.handleIndexData.bind(_this);
+	    _this.updateSearchTerm = _this.updateSearchTerm.bind(_this);
 
 	    return _this;
 	  }
@@ -27898,6 +27900,14 @@
 	      console.log('--this.state.buttons.keywords: ', this.state.buttons.keywords);
 	    }
 	  }, {
+	    key: 'updateSearchTerm',
+	    value: function updateSearchTerm(term) {
+	      console.log(term + ' button worked!');
+	      this.setState({ searchTerm: term }, function (data) {
+	        console.log('HERE SEARCHTERM IS!!!: ', this.state.searchTerm);
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 
@@ -27912,7 +27922,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'row', id: 'appContainer' },
-	          this.state.buttonsLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_sidebar2.default, { buttonData: this.state.buttons }),
+	          this.state.buttonsLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_sidebar2.default, { buttonData: this.state.buttons, updateSearchTerm: this.updateSearchTerm }),
 	          this.state.dataLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_listContainer2.default, { data: this.state.data, state: this.state, updateButtonsData: this.updateButtonsData })
 	        )
 	      );
@@ -29547,6 +29557,7 @@
 
 	var Sidebar = function Sidebar(_ref) {
 	  var buttonData = _ref.buttonData;
+	  var updateSearchTerm = _ref.updateSearchTerm;
 
 	  console.log('buttonData in SideBar: ', buttonData);
 	  // method and variable go here...
@@ -29554,7 +29565,7 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'col-xs-2', style: styles.sidebar },
-	    _react2.default.createElement(_buttonsContainer2.default, { buttonData: buttonData })
+	    _react2.default.createElement(_buttonsContainer2.default, { buttonData: buttonData, updateSearchTerm: updateSearchTerm })
 	  );
 	};
 
@@ -29596,6 +29607,7 @@
 
 	var ButtonsContainer = function ButtonsContainer(_ref) {
 	  var buttonData = _ref.buttonData;
+	  var updateSearchTerm = _ref.updateSearchTerm;
 
 	  var keyTicker = 1;
 
@@ -29614,6 +29626,9 @@
 	        key: keyTicker++,
 	        className: 'btn btn-default',
 	        id: 'width100',
+	        onClick: function onClick() {
+	          updateSearchTerm(company);
+	        },
 	        style: styles.sidebarButtons
 	      },
 	      company
@@ -29626,6 +29641,9 @@
 	        key: keyTicker++,
 	        className: 'btn btn-default',
 	        id: 'width100',
+	        onClick: function onClick() {
+	          updateSearchTerm(product);
+	        },
 	        style: styles.sidebarButtons
 	      },
 	      product
@@ -29638,6 +29656,9 @@
 	        key: keyTicker++,
 	        className: 'btn btn-default',
 	        id: 'width100',
+	        onClick: function onClick() {
+	          updateSearchTerm(keyword);
+	        },
 	        style: styles.sidebarButtons
 	      },
 	      keyword

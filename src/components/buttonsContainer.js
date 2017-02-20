@@ -11,7 +11,7 @@ const styles = {
 }
 
 
-const ButtonsContainer = ({ buttonData }) => {
+const ButtonsContainer = ({ buttonData, updateSearchTerm }) => {
   let keyTicker = 1;
 
   console.log('buttonData in ButtonsContainer: ', buttonData);
@@ -23,7 +23,10 @@ const ButtonsContainer = ({ buttonData }) => {
     <button 
       key={keyTicker++}
       className="btn btn-default" 
-      id="width100" 
+      id="width100"
+      onClick={() => {
+        updateSearchTerm(company)
+      }} 
       style={styles.sidebarButtons}
     >
       {company}
@@ -33,7 +36,10 @@ const ButtonsContainer = ({ buttonData }) => {
     <button 
       key={keyTicker++}
       className="btn btn-default" 
-      id="width100" 
+      id="width100"
+      onClick={() => {
+        updateSearchTerm(product)
+      }} 
       style={styles.sidebarButtons}
     >
       {product}
@@ -43,7 +49,10 @@ const ButtonsContainer = ({ buttonData }) => {
       <button 
         key={keyTicker++}
         className="btn btn-default" 
-        id="width100" 
+        id="width100"
+        onClick={() => {
+          updateSearchTerm(keyword)
+        }} 
         style={styles.sidebarButtons}
       >
         {keyword}

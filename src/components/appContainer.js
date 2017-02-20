@@ -25,6 +25,7 @@ class AppContainer extends Component {
         keywords: []
       },
       buttonsLoading: true,
+      searchTerm: ''
     }
 
     this.companiesIndex = {};
@@ -33,6 +34,7 @@ class AppContainer extends Component {
 
     this.updateButtonsData = this.updateButtonsData.bind(this);
     this.handleIndexData = this.handleIndexData.bind(this);
+    this.updateSearchTerm = this.updateSearchTerm.bind(this);
     
   }
 
@@ -140,6 +142,13 @@ class AppContainer extends Component {
     console.log('--this.state.buttons.keywords: ', this.state.buttons.keywords); 
   }
 
+  updateSearchTerm(term) {
+    console.log(`${term} button worked!`);
+    this.setState({searchTerm: term}, function(data) {
+      console.log('HERE SEARCHTERM IS!!!: ', this.state.searchTerm)
+    });
+  }
+
   render() {
 
     return (
@@ -148,7 +157,7 @@ class AppContainer extends Component {
           <Header />
         </div>
         <div className="row" id="appContainer">
-          {this.state.buttonsLoading ? <Loading /> : <Sidebar buttonData={this.state.buttons} />}
+          {this.state.buttonsLoading ? <Loading /> : <Sidebar buttonData={this.state.buttons} updateSearchTerm={this.updateSearchTerm} />}
           {this.state.dataLoading ? <Loading /> : <ListContainer data={this.state.data} state={this.state} updateButtonsData={this.updateButtonsData} />}
         </div>
       </div>
