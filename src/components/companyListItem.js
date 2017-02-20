@@ -12,6 +12,8 @@ const styles = {
 
 const CompanyListItem = ({ company, updateButtonsData }) => {
 
+  
+
   updateButtonsData(company.products);
 
   const products = company.products.map((product) => {

@@ -27775,6 +27775,9 @@
 	      searchTerm: ''
 	    };
 
+	    _this.companyQueryArrayIndex = 0;
+	    _this.companiesQueryStrings = [];
+
 	    _this.companiesIndex = {};
 	    _this.productsIndex = {};
 	    _this.keywordsIndex = {};
@@ -27820,10 +27823,9 @@
 	    value: function updateButtonsData(d) {
 	      var _this3 = this;
 
-	      var index = {};
 	      // check to see whether dealing with companies, products, or keywords
 	      if (d[0].client_name !== undefined) {
-	        var companyButtons = d.reduce(function (clientNames, company) {
+	        var companyNames = d.reduce(function (clientNames, company) {
 	          var client_name = company.client_name;
 
 	          if (_this3.companiesIndex.client_name === undefined) {
@@ -27905,6 +27907,7 @@
 	      console.log(term + ' button worked!');
 	      this.setState({ searchTerm: term }, function (data) {
 	        console.log('HERE SEARCHTERM IS!!!: ', this.state.searchTerm);
+	        console.log(data);
 	      });
 	    }
 	  }, {
@@ -27922,8 +27925,13 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'row', id: 'appContainer' },
-	          this.state.buttonsLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_sidebar2.default, { buttonData: this.state.buttons, updateSearchTerm: this.updateSearchTerm }),
-	          this.state.dataLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_listContainer2.default, { data: this.state.data, state: this.state, updateButtonsData: this.updateButtonsData })
+	          this.state.buttonsLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_sidebar2.default, {
+	            buttonData: this.state.buttons,
+	            updateSearchTerm: this.updateSearchTerm }),
+	          this.state.dataLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_listContainer2.default, {
+	            data: this.state.data,
+	            state: this.state,
+	            updateButtonsData: this.updateButtonsData })
 	        )
 	      );
 	    }

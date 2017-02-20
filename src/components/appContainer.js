@@ -28,6 +28,9 @@ class AppContainer extends Component {
       searchTerm: ''
     }
 
+    this.companyQueryArrayIndex = 0;
+    this.companiesQueryStrings = [];
+
     this.companiesIndex = {};
     this.productsIndex = {};
     this.keywordsIndex = {};  
@@ -66,10 +69,9 @@ class AppContainer extends Component {
   }
 
   updateButtonsData(d) {    
-    const index = {};
     // check to see whether dealing with companies, products, or keywords
     if (d[0].client_name !== undefined) {
-      const companyButtons = d.reduce((clientNames, company) => {
+      const companyNames = d.reduce((clientNames, company) => {
         const { client_name } = company;
         if(this.companiesIndex.client_name === undefined) {
           this.companiesIndex[client_name] = 1;
@@ -145,7 +147,8 @@ class AppContainer extends Component {
   updateSearchTerm(term) {
     console.log(`${term} button worked!`);
     this.setState({searchTerm: term}, function(data) {
-      console.log('HERE SEARCHTERM IS!!!: ', this.state.searchTerm)
+      console.log('HERE SEARCHTERM IS!!!: ', this.state.searchTerm);
+      console.log(data)
     });
   }
 
@@ -157,8 +160,17 @@ class AppContainer extends Component {
           <Header />
         </div>
         <div className="row" id="appContainer">
-          {this.state.buttonsLoading ? <Loading /> : <Sidebar buttonData={this.state.buttons} updateSearchTerm={this.updateSearchTerm} />}
-          {this.state.dataLoading ? <Loading /> : <ListContainer data={this.state.data} state={this.state} updateButtonsData={this.updateButtonsData} />}
+          {this.state.buttonsLoading ?
+          <Loading /> :
+          <Sidebar 
+            buttonData={this.state.buttons} 
+            updateSearchTerm={this.updateSearchTerm} />}
+          {this.state.dataLoading ?
+          <Loading /> :
+          <ListContainer 
+            data={this.state.data} 
+            state={this.state} 
+            updateButtonsData={this.updateButtonsData} />}
         </div>
       </div>
     )
