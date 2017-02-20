@@ -49,7 +49,7 @@ const RanksGraph = ({ ranks, updateGraphData, colors }) => {
     });;
 
     
-    console.log(`chartData for ${ranks[0]}: `, chartData);
+    console.log(`chartData: `, chartData);
 
     // your x accessor
     const x = function(d) {

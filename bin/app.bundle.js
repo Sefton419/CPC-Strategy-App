@@ -27766,11 +27766,9 @@
 	      dataLoading: true,
 	      dataUrl: _constants2.default,
 	      graphData: null,
-	      buttons: {
-	        companies: {},
-	        products: {},
-	        keywords: {}
-	      },
+	      companyButtons: {},
+	      productButtons: {},
+	      keywordButtons: {},
 	      buttonsLoading: true
 	    };
 
@@ -27807,24 +27805,57 @@
 	    }
 	  }, {
 	    key: 'updateButtonsData',
-	    value: function updateButtonsData() {
-	      var buttons = this.state.buttons.buttons;
+	    value: function updateButtonsData(d) {
+	      console.log('updateButtonsData envoked');
+	      console.log('this.state.buttons: ', this.state.buttons);
+	      var index = {};
 	      // check to see whether dealing with companies, products, or keywords
-	      // if companies
-	      // companyButtons = (companies.filter)
-	      // this.setState({/* can I use this const?*/ buttons: companyButtons });
-	      // if products
-	      // productButtons = (products.filter)
-	      // this.setState({/* can I use this const?*/ buttons: productButtons });
-	      // if keywords
-	      // companyButtons = (keywords.filter)
-	      // this.setState({/* can I use this const?*/ buttons: companyButtons });
+	      if (d[0].client_name !== undefined) {
+	        var companyButtons = d.reduce(function (clientNames, company) {
+	          var client_name = company.client_name;
+
+	          if (index.client_name === undefined) {
+	            index[client_name] = true;
+	            clientNames.push(client_name);
+	            return clientNames;
+	          }
+	        }, []);
+	        console.log('companyButtons: ', companyButtons);
+	        // this.setState({companyButtons: companyButtons });
+	        // console.log('this is this.state.buttons.companies, fucker: ', this.state.companyButtons)
+	      }
+	      if (d[0].product_name !== undefined) {
+	        var productButtons = d.reduce(function (productNames, product) {
+	          var product_name = product.product_name;
+
+	          if (index.product_name === undefined) {
+	            index[product_name] = true;
+	            productNames.push(product_name);
+	            return productNames;
+	          }
+	        }, []);
+	        console.log('productButtons: ', productButtons);
+	        // this.setState({/* can I use this const?*/ buttons: productButtons });
+	      }
+	      if (d[0].keyword_name !== undefined) {
+	        var keywordButtons = d.reduce(function (keywordNames, keyword) {
+	          var keyword_name = keyword.keyword_name;
+
+	          if (index.keyword_name === undefined) {
+	            index[keyword_name] = true;
+	            keywordNames.push(keyword_name);
+	            return keywordNames;
+	          }
+	        }, []);
+	        console.log('keywordButtons: ', keywordButtons);
+	        // this.setState({/* can I use this const?*/ buttons: companyButtons, buttonsLoading: false }); 
+	      }
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 
-	      console.log('updateGraphData in AppContainer: ', this.updateGraphData);
+	      this.updateButtonsData([{ client_name: 'hello' }, { client_name: 'hello' }, { client_name: 'goodbye' }]);
 
 	      return _react2.default.createElement(
 	        'div',
@@ -27838,7 +27869,7 @@
 	          'div',
 	          { className: 'row' },
 	          this.state.buttonsLoading ? _react2.default.createElement(_sidebar2.default, null) : _react2.default.createElement(_sidebar2.default, { buttonData: this.state.buttons }),
-	          this.state.dataLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_listContainer2.default, { data: this.state.data, updateGraphData: this.updateGraphData })
+	          this.state.dataLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_listContainer2.default, { data: this.state.data, state: this.state, updateButtonsData: this.updateButtonsData })
 	        )
 	      );
 	    }
@@ -29572,6 +29603,8 @@
 
 	var ListContainer = function ListContainer(_ref) {
 	  var data = _ref.data;
+	  var state = _ref.state;
+	  var updateButtonsData = _ref.updateButtonsData;
 
 	  console.log('data in list container: ', data);
 	  return _react2.default.createElement(
@@ -29583,7 +29616,9 @@
 	      'TESTING'
 	    ),
 	    _react2.default.createElement(_list2.default, {
-	      data: data
+	      data: data,
+	      updateButtonsData: updateButtonsData,
+	      state: state
 	    })
 	  );
 	};
@@ -29616,6 +29651,8 @@
 
 	var List = function List(_ref) {
 	  var data = _ref.data;
+	  var state = _ref.state;
+	  var updateButtonsData = _ref.updateButtonsData;
 
 	  console.log('data in list: ', data);
 
@@ -29625,6 +29662,8 @@
 	      company: company
 	    });
 	  });
+
+	  updateButtonsData(data);
 
 	  return _react2.default.createElement(
 	    'div',
@@ -29987,7 +30026,7 @@
 	    return new Date(a.rank_date).getTime() - new Date(b.rank_date).getTime();
 	  });;
 
-	  console.log('chartData for ' + ranks[0] + ': ', chartData);
+	  console.log('chartData: ', chartData);
 
 	  // your x accessor
 	  var x = function x(d) {

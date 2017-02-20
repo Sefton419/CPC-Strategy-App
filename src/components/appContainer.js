@@ -19,11 +19,9 @@ class AppContainer extends Component {
       dataLoading: true,
       dataUrl: DATAURL,
       graphData: null,
-      buttons: {
-        companies: {},
-        products: {},
-        keywords: {}  
-      },
+      companyButtons: {},
+      productButtons: {},
+      keywordButtons: {},  
       buttonsLoading: true,
     }
 
@@ -54,24 +52,53 @@ class AppContainer extends Component {
     }
   }
 
-  updateButtonsData() {
-    const { buttons } = this.state.buttons;
+  updateButtonsData(d) {
+    console.log('updateButtonsData envoked');
+    console.log('this.state.buttons: ', this.state.buttons)
+    const index = {};
     // check to see whether dealing with companies, products, or keywords
-    // if companies
-      // companyButtons = (companies.filter)
-      // this.setState({/* can I use this const?*/ buttons: companyButtons });
-    // if products
-      // productButtons = (products.filter)
+    if (d[0].client_name !== undefined) {
+      const companyButtons = d.reduce((clientNames, company) => {
+        const { client_name } = company;
+        if(index.client_name === undefined) {
+          index[client_name] = true;
+          clientNames.push(client_name);
+          return clientNames;
+        } 
+      }, []);
+      console.log('companyButtons: ', companyButtons);
+      // this.setState({companyButtons: companyButtons });
+      // console.log('this is this.state.buttons.companies, fucker: ', this.state.companyButtons)
+    }
+    if (d[0].product_name !== undefined) {
+      const productButtons = d.reduce((productNames, product) => {
+        const { product_name } = product;
+        if(index.product_name === undefined) {
+          index[product_name] = true;
+          productNames.push(product_name);
+          return productNames;
+        } 
+      }, []);
+      console.log('productButtons: ', productButtons);
       // this.setState({/* can I use this const?*/ buttons: productButtons });
-    // if keywords
-      // companyButtons = (keywords.filter)
-      // this.setState({/* can I use this const?*/ buttons: companyButtons });
-  
+    }
+    if (d[0].keyword_name !== undefined) {
+      const keywordButtons = d.reduce((keywordNames, keyword) => {
+        const { keyword_name } = keyword;
+        if(index.keyword_name === undefined) {
+          index[keyword_name] = true;
+          keywordNames.push(keyword_name);
+          return keywordNames;
+        } 
+      }, []);
+      console.log('keywordButtons: ', keywordButtons);
+      // this.setState({/* can I use this const?*/ buttons: companyButtons, buttonsLoading: false }); 
+    }
   }
 
   render() {
 
-    console.log('updateGraphData in AppContainer: ', this.updateGraphData);
+    this.updateButtonsData([{client_name: 'hello'}, {client_name: 'hello'}, {client_name: 'goodbye'}])
 
     return (
       <div className="container-fluid" style={styles.container}>
@@ -80,7 +107,7 @@ class AppContainer extends Component {
         </div>
         <div className="row">
           {this.state.buttonsLoading ? <Sidebar /> : <Sidebar buttonData={this.state.buttons} />}
-          {this.state.dataLoading ? <Loading /> : <ListContainer data={this.state.data} updateGraphData={this.updateGraphData} />}
+          {this.state.dataLoading ? <Loading /> : <ListContainer data={this.state.data} state={this.state} updateButtonsData={this.updateButtonsData} />}
         </div>
       </div>
     )
