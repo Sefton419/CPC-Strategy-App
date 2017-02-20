@@ -27766,9 +27766,11 @@
 	      dataLoading: true,
 	      dataUrl: _constants2.default,
 	      graphData: null,
-	      companyButtons: {},
-	      productButtons: {},
-	      keywordButtons: {},
+	      buttons: {
+	        companies: [],
+	        products: [],
+	        keywords: []
+	      },
 	      buttonsLoading: true
 	    };
 
@@ -27808,6 +27810,9 @@
 	      }
 	    }
 	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {}
+	  }, {
 	    key: 'updateButtonsData',
 	    value: function updateButtonsData(d) {
 	      var _this3 = this;
@@ -27823,9 +27828,11 @@
 	          var client_name = company.client_name;
 
 	          if (_this3.companiesIndex.client_name === undefined) {
-	            _this3.companiesIndex[client_name] = true;
+	            _this3.companiesIndex[client_name] = 1;
 	            clientNames.push(client_name);
 	            return clientNames;
+	          } else {
+	            _this3.companiesIndex[product_name]++;
 	          }
 	        }, []);
 	        console.log('companyButtons: ', companyButtons);
@@ -27839,9 +27846,11 @@
 	          var product_name = product.product_name;
 
 	          if (_this3.productsIndex.product_name === undefined) {
-	            _this3.productsIndex[product_name] = true;
+	            _this3.productsIndex[product_name] = 1;
 	            productNames.push(product_name);
 	            return productNames;
+	          } else {
+	            _this3.productsIndex[product_name]++;
 	          }
 	        }, []);
 	        console.log('this.productsIndex: ', this.productsIndex);
@@ -27854,9 +27863,11 @@
 	          var keyword_name = keyword.keyword_name;
 
 	          if (_this3.keywordsIndex.keyword_name === undefined) {
-	            _this3.keywordsIndex[keyword_name] = true;
+	            _this3.keywordsIndex[keyword_name] = 1;
 	            keywordNames.push(keyword_name);
 	            return keywordNames;
+	          } else {
+	            _this3.keywordIndex[product_name]++;
 	          }
 	        }, []);
 	        console.log('this.keywordsIndex: ', this.keywordsIndex);

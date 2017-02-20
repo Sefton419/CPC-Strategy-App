@@ -19,9 +19,11 @@ class AppContainer extends Component {
       dataLoading: true,
       dataUrl: DATAURL,
       graphData: null,
-      companyButtons: {},
-      productButtons: {},
-      keywordButtons: {},  
+      buttons: {
+        companies: [],
+        products: [],
+        keywords: []
+      },
       buttonsLoading: true,
     }
 
@@ -56,6 +58,10 @@ class AppContainer extends Component {
     }
   }
 
+  componentDidMount() {
+
+  }
+
   updateButtonsData(d) {
     console.log('updateButtonsData envoked');
     console.log('here is data: ', d)
@@ -67,10 +73,12 @@ class AppContainer extends Component {
       const companyButtons = d.reduce((clientNames, company) => {
         const { client_name } = company;
         if(this.companiesIndex.client_name === undefined) {
-          this.companiesIndex[client_name] = true;
+          this.companiesIndex[client_name] = 1;
           clientNames.push(client_name);
           return clientNames;
-        } 
+        } else {
+          this.companiesIndex[product_name]++;
+        }
       }, []);
       console.log('companyButtons: ', companyButtons);
       // this.setState({companyButtons: companyButtons });
@@ -82,10 +90,12 @@ class AppContainer extends Component {
       const productButtons = d.reduce((productNames, product) => {
         const { product_name } = product;
         if(this.productsIndex.product_name === undefined) {
-          this.productsIndex[product_name] = true;
+          this.productsIndex[product_name] = 1;
           productNames.push(product_name);
           return productNames;
-        } 
+        } else {
+          this.productsIndex[product_name]++;
+        }
       }, []);
       console.log('this.productsIndex: ', this.productsIndex);
       // this.setState({/* can I use this const?*/ buttons: productButtons });
@@ -96,9 +106,11 @@ class AppContainer extends Component {
       const keywordButtons = d.reduce((keywordNames, keyword) => {
         const { keyword_name } = keyword;
         if(this.keywordsIndex.keyword_name === undefined) {
-          this.keywordsIndex[keyword_name] = true;
+          this.keywordsIndex[keyword_name] = 1;
           keywordNames.push(keyword_name);
           return keywordNames;
+        } else {
+          this.keywordIndex[product_name]++;
         } 
       }, []);
       console.log('this.keywordsIndex: ', this.keywordsIndex);
