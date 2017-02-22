@@ -36,16 +36,14 @@ const CompanyListItem = ({ company, updateButtonsData, addCompanyArrayToQueryStr
 
   return (
     <div className="panel panel-default">
-      <h2 className="panel-title" >
+      <h2 className="panel-title">
         {company.client_name} 
-      </h2>      
+      </h2>   
       <div className="panel-body">
-        <div className="row" style={styles.EMPTY}>
+        <div className="row">
           <div className="col-xs-3">Product</div>
           <div className="col-xs-2">Keywords</div>
           <div className="col-xs-7">Chart</div>
-
-          
         </div>
         <div className="row">
           <div className="col-xs-12" style={styles.EMPTY}>

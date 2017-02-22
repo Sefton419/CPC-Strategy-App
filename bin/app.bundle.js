@@ -27725,23 +27725,23 @@
 
 	var _constants2 = _interopRequireDefault(_constants);
 
-	var _data = __webpack_require__(571);
+	var _data = __webpack_require__(482);
 
 	var _data2 = _interopRequireDefault(_data);
 
-	var _header = __webpack_require__(482);
+	var _header = __webpack_require__(483);
 
 	var _header2 = _interopRequireDefault(_header);
 
-	var _sidebar = __webpack_require__(484);
+	var _sidebar = __webpack_require__(485);
 
 	var _sidebar2 = _interopRequireDefault(_sidebar);
 
-	var _listContainer = __webpack_require__(489);
+	var _listContainer = __webpack_require__(490);
 
 	var _listContainer2 = _interopRequireDefault(_listContainer);
 
-	var _loading = __webpack_require__(570);
+	var _loading = __webpack_require__(571);
 
 	var _loading2 = _interopRequireDefault(_loading);
 
@@ -29543,6 +29543,19 @@
 
 /***/ },
 /* 482 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var DATA = JSON.parse('[{"client_id":1,"client_name":"Moen, Hickle and Stehr","products":[{"product_id":1,"product_name":"Ergonomic Cotton Keyboard","product_asin":"cfq35yoyh64i","product_image_url":"https://unsplash.it/310/676","keywords":[{"keyword_id":1,"keyword_name":"nam","keyword_country":"LV","ranks":[{"rank_id":1,"rank_position":214,"rank_page":2,"rank_date":"2016-08-16"},{"rank_id":2,"rank_position":82,"rank_page":3,"rank_date":"2016-11-12"},{"rank_id":3,"rank_position":23,"rank_page":4,"rank_date":"2017-01-19"},{"rank_id":4,"rank_position":304,"rank_page":13,"rank_date":"2016-04-12"},{"rank_id":5,"rank_position":342,"rank_page":17,"rank_date":"2016-08-08"}]},{"keyword_id":2,"keyword_name":"autem","keyword_country":"PW","ranks":[{"rank_id":6,"rank_position":90,"rank_page":1,"rank_date":"2016-12-02"},{"rank_id":7,"rank_position":330,"rank_page":17,"rank_date":"2016-09-14"},{"rank_id":8,"rank_position":341,"rank_page":9,"rank_date":"2016-10-03"},{"rank_id":9,"rank_position":129,"rank_page":12,"rank_date":"2017-01-22"}]}]},{"product_id":2,"product_name":"Small Bronze Shirt","product_asin":"7cb60wolk699","product_image_url":"https://unsplash.it/436/738","keywords":[{"keyword_id":3,"keyword_name":"voluptatem","keyword_country":"UM","ranks":[{"rank_id":10,"rank_position":9,"rank_page":6,"rank_date":"2016-03-14"},{"rank_id":11,"rank_position":88,"rank_page":9,"rank_date":"2016-05-27"},{"rank_id":12,"rank_position":307,"rank_page":1,"rank_date":"2016-10-28"},{"rank_id":13,"rank_position":223,"rank_page":14,"rank_date":"2016-12-26"},{"rank_id":14,"rank_position":384,"rank_page":12,"rank_date":"2016-02-29"},{"rank_id":15,"rank_position":366,"rank_page":11,"rank_date":"2016-09-30"},{"rank_id":16,"rank_position":164,"rank_page":18,"rank_date":"2016-11-20"},{"rank_id":17,"rank_position":259,"rank_page":17,"rank_date":"2016-07-24"},{"rank_id":18,"rank_position":82,"rank_page":9,"rank_date":"2016-10-13"},{"rank_id":19,"rank_position":81,"rank_page":3,"rank_date":"2016-08-01"},{"rank_id":20,"rank_position":258,"rank_page":10,"rank_date":"2016-05-31"},{"rank_id":21,"rank_position":195,"rank_page":10,"rank_date":"2016-10-31"},{"rank_id":22,"rank_position":46,"rank_page":10,"rank_date":"2017-01-24"},{"rank_id":23,"rank_position":353,"rank_page":13,"rank_date":"2016-09-30"},{"rank_id":24,"rank_position":378,"rank_page":3,"rank_date":"2016-08-16"},{"rank_id":25,"rank_position":243,"rank_page":7,"rank_date":"2016-12-19"},{"rank_id":26,"rank_position":167,"rank_page":7,"rank_date":"2016-09-29"},{"rank_id":27,"rank_position":37,"rank_page":17,"rank_date":"2017-01-04"},{"rank_id":28,"rank_position":155,"rank_page":4,"rank_date":"2016-05-09"},{"rank_id":29,"rank_position":152,"rank_page":3,"rank_date":"2016-07-14"}]},{"keyword_id":4,"keyword_name":"impedit","keyword_country":"TW","ranks":[{"rank_id":30,"rank_position":197,"rank_page":17,"rank_date":"2016-10-03"},{"rank_id":31,"rank_position":381,"rank_page":18,"rank_date":"2016-08-24"},{"rank_id":32,"rank_position":150,"rank_page":14,"rank_date":"2017-01-31"},{"rank_id":33,"rank_position":372,"rank_page":18,"rank_date":"2016-07-05"},{"rank_id":34,"rank_position":133,"rank_page":3,"rank_date":"2016-12-20"},{"rank_id":35,"rank_position":67,"rank_page":18,"rank_date":"2016-05-19"},{"rank_id":36,"rank_position":54,"rank_page":7,"rank_date":"2016-09-23"},{"rank_id":37,"rank_position":326,"rank_page":2,"rank_date":"2016-08-07"},{"rank_id":38,"rank_position":386,"rank_page":18,"rank_date":"2016-05-25"},{"rank_id":39,"rank_position":122,"rank_page":3,"rank_date":"2016-04-27"},{"rank_id":40,"rank_position":103,"rank_page":12,"rank_date":"2016-12-12"},{"rank_id":41,"rank_position":86,"rank_page":8,"rank_date":"2016-07-10"},{"rank_id":42,"rank_position":300,"rank_page":3,"rank_date":"2016-02-27"},{"rank_id":43,"rank_position":128,"rank_page":12,"rank_date":"2016-07-02"},{"rank_id":44,"rank_position":376,"rank_page":7,"rank_date":"2016-03-17"},{"rank_id":45,"rank_position":104,"rank_page":17,"rank_date":"2016-10-16"},{"rank_id":46,"rank_position":279,"rank_page":20,"rank_date":"2016-07-16"},{"rank_id":47,"rank_position":80,"rank_page":15,"rank_date":"2016-02-15"},{"rank_id":48,"rank_position":213,"rank_page":6,"rank_date":"2017-01-13"},{"rank_id":49,"rank_position":213,"rank_page":20,"rank_date":"2016-07-09"}]},{"keyword_id":5,"keyword_name":"minima","keyword_country":"BJ","ranks":[{"rank_id":50,"rank_position":270,"rank_page":17,"rank_date":"2016-11-20"},{"rank_id":51,"rank_position":169,"rank_page":3,"rank_date":"2016-12-02"},{"rank_id":52,"rank_position":370,"rank_page":3,"rank_date":"2016-02-13"},{"rank_id":53,"rank_position":59,"rank_page":6,"rank_date":"2016-10-20"},{"rank_id":54,"rank_position":387,"rank_page":7,"rank_date":"2016-04-09"},{"rank_id":55,"rank_position":117,"rank_page":1,"rank_date":"2016-11-27"},{"rank_id":56,"rank_position":81,"rank_page":20,"rank_date":"2016-02-27"},{"rank_id":57,"rank_position":354,"rank_page":10,"rank_date":"2016-04-06"},{"rank_id":58,"rank_position":281,"rank_page":8,"rank_date":"2016-05-21"},{"rank_id":59,"rank_position":128,"rank_page":10,"rank_date":"2016-03-27"},{"rank_id":60,"rank_position":226,"rank_page":9,"rank_date":"2016-10-29"},{"rank_id":61,"rank_position":39,"rank_page":15,"rank_date":"2016-03-31"},{"rank_id":62,"rank_position":100,"rank_page":3,"rank_date":"2016-12-25"},{"rank_id":63,"rank_position":53,"rank_page":9,"rank_date":"2016-12-09"},{"rank_id":64,"rank_position":54,"rank_page":3,"rank_date":"2016-03-23"}]}]},{"product_id":3,"product_name":"Fantastic Steel Watch","product_asin":"urz2xuol8m7o","product_image_url":"https://unsplash.it/269/508","keywords":[{"keyword_id":6,"keyword_name":"et","keyword_country":"TC","ranks":[{"rank_id":65,"rank_position":396,"rank_page":14,"rank_date":"2016-08-30"},{"rank_id":66,"rank_position":349,"rank_page":19,"rank_date":"2016-09-08"},{"rank_id":67,"rank_position":318,"rank_page":11,"rank_date":"2016-05-04"},{"rank_id":68,"rank_position":327,"rank_page":9,"rank_date":"2016-03-22"},{"rank_id":69,"rank_position":50,"rank_page":15,"rank_date":"2017-01-10"},{"rank_id":70,"rank_position":306,"rank_page":12,"rank_date":"2016-11-29"},{"rank_id":71,"rank_position":221,"rank_page":15,"rank_date":"2016-02-08"},{"rank_id":72,"rank_position":312,"rank_page":8,"rank_date":"2016-12-19"},{"rank_id":73,"rank_position":236,"rank_page":11,"rank_date":"2016-03-13"},{"rank_id":74,"rank_position":292,"rank_page":15,"rank_date":"2016-04-03"},{"rank_id":75,"rank_position":222,"rank_page":5,"rank_date":"2016-10-28"},{"rank_id":76,"rank_position":346,"rank_page":17,"rank_date":"2016-08-12"},{"rank_id":77,"rank_position":105,"rank_page":1,"rank_date":"2016-04-27"},{"rank_id":78,"rank_position":63,"rank_page":5,"rank_date":"2016-06-02"},{"rank_id":79,"rank_position":19,"rank_page":20,"rank_date":"2016-12-19"}]}]},{"product_id":4,"product_name":"Intelligent Marble Computer","product_asin":"dn3jsnhcx7hg","product_image_url":"https://unsplash.it/492/408","keywords":[{"keyword_id":7,"keyword_name":"et","keyword_country":"VE","ranks":[{"rank_id":80,"rank_position":63,"rank_page":7,"rank_date":"2016-04-11"},{"rank_id":81,"rank_position":160,"rank_page":17,"rank_date":"2016-12-26"},{"rank_id":82,"rank_position":345,"rank_page":7,"rank_date":"2016-08-21"},{"rank_id":83,"rank_position":310,"rank_page":18,"rank_date":"2016-08-01"},{"rank_id":84,"rank_position":377,"rank_page":10,"rank_date":"2016-12-15"},{"rank_id":85,"rank_position":372,"rank_page":6,"rank_date":"2016-03-16"},{"rank_id":86,"rank_position":246,"rank_page":1,"rank_date":"2016-02-26"},{"rank_id":87,"rank_position":206,"rank_page":15,"rank_date":"2016-11-12"},{"rank_id":88,"rank_position":365,"rank_page":20,"rank_date":"2016-02-04"},{"rank_id":89,"rank_position":90,"rank_page":12,"rank_date":"2016-02-29"},{"rank_id":90,"rank_position":114,"rank_page":15,"rank_date":"2016-08-29"},{"rank_id":91,"rank_position":326,"rank_page":7,"rank_date":"2016-08-23"},{"rank_id":92,"rank_position":136,"rank_page":12,"rank_date":"2016-03-13"},{"rank_id":93,"rank_position":318,"rank_page":2,"rank_date":"2016-04-21"},{"rank_id":94,"rank_position":146,"rank_page":17,"rank_date":"2016-06-09"},{"rank_id":95,"rank_position":184,"rank_page":17,"rank_date":"2016-11-26"},{"rank_id":96,"rank_position":348,"rank_page":5,"rank_date":"2017-01-17"},{"rank_id":97,"rank_position":184,"rank_page":19,"rank_date":"2016-08-06"}]}]}]}]');
+
+	exports.default = DATA;
+
+/***/ },
+/* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29555,7 +29568,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _searchBar = __webpack_require__(483);
+	var _searchBar = __webpack_require__(484);
 
 	var _searchBar2 = _interopRequireDefault(_searchBar);
 
@@ -29587,7 +29600,7 @@
 	exports.default = Header;
 
 /***/ },
-/* 483 */
+/* 484 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29634,7 +29647,7 @@
 	exports.default = SearchBar;
 
 /***/ },
-/* 484 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29647,7 +29660,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _buttonsContainer = __webpack_require__(485);
+	var _buttonsContainer = __webpack_require__(486);
 
 	var _buttonsContainer2 = _interopRequireDefault(_buttonsContainer);
 
@@ -29677,7 +29690,7 @@
 	exports.default = Sidebar;
 
 /***/ },
-/* 485 */
+/* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29690,23 +29703,28 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _companyButton = __webpack_require__(486);
+	var _companyButton = __webpack_require__(487);
 
 	var _companyButton2 = _interopRequireDefault(_companyButton);
 
-	var _productButton = __webpack_require__(487);
+	var _productButton = __webpack_require__(488);
 
 	var _productButton2 = _interopRequireDefault(_productButton);
 
-	var _keywordButton = __webpack_require__(488);
+	var _keywordButton = __webpack_require__(489);
 
 	var _keywordButton2 = _interopRequireDefault(_keywordButton);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 	var styles = {
 	  sidebarButtons: {
 	    width: '100%'
+	  },
+	  button: {
+	    whiteSpace: 'normal'
 	  }
 	};
 
@@ -29727,45 +29745,45 @@
 	  var companyButtons = companies.map(function (company) {
 	    return _react2.default.createElement(
 	      'button',
-	      {
+	      _defineProperty({
 	        key: keyTicker++,
 	        className: 'btn btn-default',
 	        id: 'width100',
+	        style: styles.button,
 	        onClick: function onClick() {
 	          updateSearchTerm(company);
-	        },
-	        style: styles.sidebarButtons
-	      },
+	        }
+	      }, 'style', styles.sidebarButtons),
 	      company
 	    );
 	  });
 	  var productButtons = products.map(function (product) {
 	    return _react2.default.createElement(
 	      'button',
-	      {
+	      _defineProperty({
 	        key: keyTicker++,
 	        className: 'btn btn-default',
 	        id: 'width100',
+	        style: styles.button,
 	        onClick: function onClick() {
 	          updateSearchTerm(product);
-	        },
-	        style: styles.sidebarButtons
-	      },
+	        }
+	      }, 'style', styles.sidebarButtons),
 	      product
 	    );
 	  });
 	  var keywordButtons = keywords.map(function (keyword) {
 	    return _react2.default.createElement(
 	      'button',
-	      {
+	      _defineProperty({
 	        key: keyTicker++,
 	        className: 'btn btn-default',
 	        id: 'width100',
+	        style: styles.button,
 	        onClick: function onClick() {
 	          updateSearchTerm(keyword);
-	        },
-	        style: styles.sidebarButtons
-	      },
+	        }
+	      }, 'style', styles.sidebarButtons),
 	      keyword
 	    );
 	  });
@@ -29810,7 +29828,7 @@
 	exports.default = ButtonsContainer;
 
 /***/ },
-/* 486 */
+/* 487 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29847,7 +29865,7 @@
 	exports.default = CompanyButton;
 
 /***/ },
-/* 487 */
+/* 488 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29884,7 +29902,7 @@
 	exports.default = ProductButton;
 
 /***/ },
-/* 488 */
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29921,7 +29939,7 @@
 	exports.default = KeywordButton;
 
 /***/ },
-/* 489 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29934,7 +29952,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _list = __webpack_require__(490);
+	var _list = __webpack_require__(491);
 
 	var _list2 = _interopRequireDefault(_list);
 
@@ -29954,26 +29972,30 @@
 	  console.log('data in list container: ', data);
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'col-xs-10', style: styles.listContainer },
+	    null,
 	    _react2.default.createElement(
-	      'h4',
-	      null,
-	      'TESTING'
-	    ),
-	    _react2.default.createElement(_list2.default, {
-	      data: data,
-	      state: state,
-	      updateButtonsData: updateButtonsData,
-	      addCompanyArrayToQueryStrings: addCompanyArrayToQueryStrings,
-	      pushCurrentQueryString: pushCurrentQueryString
-	    })
+	      'div',
+	      { className: 'col-xs-10' },
+	      _react2.default.createElement(
+	        'h4',
+	        null,
+	        'TESTING'
+	      ),
+	      _react2.default.createElement(_list2.default, {
+	        data: data,
+	        state: state,
+	        updateButtonsData: updateButtonsData,
+	        addCompanyArrayToQueryStrings: addCompanyArrayToQueryStrings,
+	        pushCurrentQueryString: pushCurrentQueryString
+	      })
+	    )
 	  );
 	};
 
 	exports.default = ListContainer;
 
 /***/ },
-/* 490 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29986,11 +30008,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _CompanyListItem = __webpack_require__(491);
+	var _CompanyListItem = __webpack_require__(492);
 
 	var _CompanyListItem2 = _interopRequireDefault(_CompanyListItem);
 
-	var _loading = __webpack_require__(570);
+	var _loading = __webpack_require__(571);
 
 	var _loading2 = _interopRequireDefault(_loading);
 
@@ -30022,14 +30044,18 @@
 	  return _react2.default.createElement(
 	    'div',
 	    null,
-	    companies
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      companies
+	    )
 	  );
 	};
 
 	exports.default = List;
 
 /***/ },
-/* 491 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30042,7 +30068,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _productListItem = __webpack_require__(492);
+	var _productListItem = __webpack_require__(493);
 
 	var _productListItem2 = _interopRequireDefault(_productListItem);
 
@@ -30096,7 +30122,7 @@
 	      { className: 'panel-body' },
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'row', style: styles.EMPTY },
+	        { className: 'row' },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'col-xs-3' },
@@ -30129,7 +30155,7 @@
 	exports.default = CompanyListItem;
 
 /***/ },
-/* 492 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30142,15 +30168,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _keywordListItem = __webpack_require__(493);
+	var _keywordListItem = __webpack_require__(494);
 
 	var _keywordListItem2 = _interopRequireDefault(_keywordListItem);
 
-	var _rankListItem = __webpack_require__(494);
+	var _rankListItem = __webpack_require__(495);
 
 	var _rankListItem2 = _interopRequireDefault(_rankListItem);
 
-	var _ranksGraph = __webpack_require__(495);
+	var _ranksGraph = __webpack_require__(496);
 
 	var _ranksGraph2 = _interopRequireDefault(_ranksGraph);
 
@@ -30162,7 +30188,7 @@
 	    borderWidth: 0.25
 	  },
 	  margin: {
-	    marginTop: 10
+	    marginBottom: 10
 	  },
 	  offWhite: {
 	    backgroundColor: '#EEEEEE'
@@ -30229,7 +30255,7 @@
 	*/
 
 /***/ },
-/* 493 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30242,7 +30268,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _rankListItem = __webpack_require__(494);
+	var _rankListItem = __webpack_require__(495);
 
 	var _rankListItem2 = _interopRequireDefault(_rankListItem);
 
@@ -30288,7 +30314,7 @@
 	exports.default = KeywordListItem;
 
 /***/ },
-/* 494 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -30325,7 +30351,7 @@
 	exports.default = RankListItem;
 
 /***/ },
-/* 495 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30338,9 +30364,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(496);
+	var _reactD3Core = __webpack_require__(497);
 
-	var _reactD3Basic = __webpack_require__(538);
+	var _reactD3Basic = __webpack_require__(539);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30353,9 +30379,6 @@
 	  },
 	  offWhite: {
 	    backgroundColor: '#EEEEEE'
-	  },
-	  shadow: {
-	    boxShadow: [5, 5, 2.5, '#C7C6C6']
 	  },
 	  EMPTY: {}
 	};
@@ -30383,7 +30406,7 @@
 	      name: rank[0],
 	      color: lineColors[index],
 	      style: {
-	        opacity: 0.5
+	        opacity: 0.75
 	      }
 	    };
 	  });
@@ -30412,6 +30435,7 @@
 	  };
 
 	  var xScale = 'time';
+	  var yTickOrient = 'right';
 
 	  return _react2.default.createElement(
 	    'div',
@@ -30427,7 +30451,8 @@
 	      height: height,
 	      chartSeries: chartSeries,
 	      x: x,
-	      xScale: xScale
+	      xScale: xScale,
+	      yTickOrient: yTickOrient
 	    })
 	  );
 	};
@@ -30435,7 +30460,7 @@
 	exports.default = RanksGraph;
 
 /***/ },
-/* 496 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30444,7 +30469,7 @@
 	  value: true
 	});
 
-	var _svg = __webpack_require__(497);
+	var _svg = __webpack_require__(498);
 
 	Object.defineProperty(exports, 'Svg', {
 	  enumerable: true,
@@ -30453,7 +30478,7 @@
 	  }
 	});
 
-	var _title = __webpack_require__(508);
+	var _title = __webpack_require__(509);
 
 	Object.defineProperty(exports, 'Title', {
 	  enumerable: true,
@@ -30462,7 +30487,7 @@
 	  }
 	});
 
-	var _chartContainer = __webpack_require__(509);
+	var _chartContainer = __webpack_require__(510);
 
 	Object.defineProperty(exports, 'Chart', {
 	  enumerable: true,
@@ -30471,7 +30496,7 @@
 	  }
 	});
 
-	var _axis = __webpack_require__(528);
+	var _axis = __webpack_require__(529);
 
 	Object.defineProperty(exports, 'Axis', {
 	  enumerable: true,
@@ -30480,7 +30505,7 @@
 	  }
 	});
 
-	var _xaxis = __webpack_require__(530);
+	var _xaxis = __webpack_require__(531);
 
 	Object.defineProperty(exports, 'Xaxis', {
 	  enumerable: true,
@@ -30489,7 +30514,7 @@
 	  }
 	});
 
-	var _yaxis = __webpack_require__(532);
+	var _yaxis = __webpack_require__(533);
 
 	Object.defineProperty(exports, 'Yaxis', {
 	  enumerable: true,
@@ -30498,7 +30523,7 @@
 	  }
 	});
 
-	var _label = __webpack_require__(531);
+	var _label = __webpack_require__(532);
 
 	Object.defineProperty(exports, 'Label', {
 	  enumerable: true,
@@ -30507,7 +30532,7 @@
 	  }
 	});
 
-	var _legend = __webpack_require__(510);
+	var _legend = __webpack_require__(511);
 
 	Object.defineProperty(exports, 'Legend', {
 	  enumerable: true,
@@ -30516,7 +30541,7 @@
 	  }
 	});
 
-	var _grid = __webpack_require__(533);
+	var _grid = __webpack_require__(534);
 
 	Object.defineProperty(exports, 'Grid', {
 	  enumerable: true,
@@ -30525,7 +30550,7 @@
 	  }
 	});
 
-	var _xgrid = __webpack_require__(534);
+	var _xgrid = __webpack_require__(535);
 
 	Object.defineProperty(exports, 'Xgrid', {
 	  enumerable: true,
@@ -30534,7 +30559,7 @@
 	  }
 	});
 
-	var _ygrid = __webpack_require__(535);
+	var _ygrid = __webpack_require__(536);
 
 	Object.defineProperty(exports, 'Ygrid', {
 	  enumerable: true,
@@ -30543,7 +30568,7 @@
 	  }
 	});
 
-	var _scale = __webpack_require__(499);
+	var _scale = __webpack_require__(500);
 
 	Object.defineProperty(exports, 'scale', {
 	  enumerable: true,
@@ -30552,7 +30577,7 @@
 	  }
 	});
 
-	var _xDomain = __webpack_require__(536);
+	var _xDomain = __webpack_require__(537);
 
 	Object.defineProperty(exports, 'xDomainCount', {
 	  enumerable: true,
@@ -30561,7 +30586,7 @@
 	  }
 	});
 
-	var _yDomain = __webpack_require__(537);
+	var _yDomain = __webpack_require__(538);
 
 	Object.defineProperty(exports, 'yDomainCount', {
 	  enumerable: true,
@@ -30573,7 +30598,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 497 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -30590,11 +30615,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _commonProps = __webpack_require__(498);
+	var _commonProps = __webpack_require__(499);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
-	var _scale = __webpack_require__(499);
+	var _scale = __webpack_require__(500);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30665,7 +30690,7 @@
 	exports.default = ChartSvg;
 
 /***/ },
-/* 498 */
+/* 499 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -30680,7 +30705,7 @@
 	};
 
 /***/ },
-/* 499 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30690,7 +30715,7 @@
 	});
 	exports.scale = scale;
 
-	var _d3Scale = __webpack_require__(500);
+	var _d3Scale = __webpack_require__(501);
 
 	var _d3Scale2 = _interopRequireDefault(_d3Scale);
 
@@ -30736,11 +30761,11 @@
 	}
 
 /***/ },
-/* 500 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(501), __webpack_require__(502), __webpack_require__(503), __webpack_require__(505), __webpack_require__(506), __webpack_require__(507), __webpack_require__(504)) :
+	   true ? factory(exports, __webpack_require__(502), __webpack_require__(503), __webpack_require__(504), __webpack_require__(506), __webpack_require__(507), __webpack_require__(508), __webpack_require__(505)) :
 	  typeof define === 'function' && define.amd ? define(['exports', 'd3-array', 'd3-collection', 'd3-interpolate', 'd3-format', 'd3-time', 'd3-time-format', 'd3-color'], factory) :
 	  (factory((global.d3_scale = global.d3_scale || {}),global.d3_array,global.d3_collection,global.d3_interpolate,global.d3_format,global.d3_time,global.d3_time_format,global.d3_color));
 	}(this, function (exports,d3Array,d3Collection,d3Interpolate,d3Format,d3Time,d3TimeFormat,d3Color) { 'use strict';
@@ -31670,7 +31695,7 @@
 	}));
 
 /***/ },
-/* 501 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -32144,7 +32169,7 @@
 	}));
 
 /***/ },
-/* 502 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -32373,11 +32398,11 @@
 	}));
 
 /***/ },
-/* 503 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(504)) :
+	   true ? factory(exports, __webpack_require__(505)) :
 	  typeof define === 'function' && define.amd ? define(['exports', 'd3-color'], factory) :
 	  (factory((global.d3_interpolate = global.d3_interpolate || {}),global.d3_color));
 	}(this, function (exports,d3Color) { 'use strict';
@@ -32888,7 +32913,7 @@
 	}));
 
 /***/ },
-/* 504 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -33410,7 +33435,7 @@
 	}));
 
 /***/ },
-/* 505 */
+/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -33917,7 +33942,7 @@
 	}));
 
 /***/ },
-/* 506 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -34271,11 +34296,11 @@
 	}));
 
 /***/ },
-/* 507 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(506)) :
+	   true ? factory(exports, __webpack_require__(507)) :
 	  typeof define === 'function' && define.amd ? define(['exports', 'd3-time'], factory) :
 	  (factory((global.d3_time_format = global.d3_time_format || {}),global.d3_time));
 	}(this, function (exports,d3Time) { 'use strict';
@@ -35109,7 +35134,7 @@
 	}));
 
 /***/ },
-/* 508 */
+/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35126,7 +35151,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _commonProps = __webpack_require__(498);
+	var _commonProps = __webpack_require__(499);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -35189,7 +35214,7 @@
 	exports.default = ChartTitle;
 
 /***/ },
-/* 509 */
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35206,15 +35231,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _svg = __webpack_require__(497);
+	var _svg = __webpack_require__(498);
 
 	var _svg2 = _interopRequireDefault(_svg);
 
-	var _legend = __webpack_require__(510);
+	var _legend = __webpack_require__(511);
 
 	var _legend2 = _interopRequireDefault(_legend);
 
-	var _commonProps = __webpack_require__(498);
+	var _commonProps = __webpack_require__(499);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -35271,7 +35296,7 @@
 	exports.default = ChartContainer;
 
 /***/ },
-/* 510 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35288,19 +35313,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Selection = __webpack_require__(511);
+	var _d3Selection = __webpack_require__(512);
 
 	var _d3Selection2 = _interopRequireDefault(_d3Selection);
 
-	var _d3Scale = __webpack_require__(500);
+	var _d3Scale = __webpack_require__(501);
 
 	var _d3Scale2 = _interopRequireDefault(_d3Scale);
 
-	var _reactFauxDom = __webpack_require__(512);
+	var _reactFauxDom = __webpack_require__(513);
 
 	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
 
-	var _commonProps = __webpack_require__(498);
+	var _commonProps = __webpack_require__(499);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -35421,7 +35446,7 @@
 	exports.default = Legend;
 
 /***/ },
-/* 511 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -36370,13 +36395,13 @@
 	}));
 
 /***/ },
-/* 512 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Element = __webpack_require__(513)
-	var Window = __webpack_require__(525)
-	var core = __webpack_require__(526)
-	var anim = __webpack_require__(527)
+	var Element = __webpack_require__(514)
+	var Window = __webpack_require__(526)
+	var core = __webpack_require__(527)
+	var anim = __webpack_require__(528)
 
 	var ReactFauxDOM = {
 	  Element: Element,
@@ -36404,18 +36429,18 @@
 
 
 /***/ },
-/* 513 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1)
-	var styleAttr = __webpack_require__(514)
-	var querySelectorAll = __webpack_require__(515)
-	var camelCase = __webpack_require__(519)
-	var isString = __webpack_require__(520)
-	var isUndefined = __webpack_require__(521)
-	var assign = __webpack_require__(522)
-	var mapValues = __webpack_require__(523)
-	var styleCamelCase = __webpack_require__(524)
+	var styleAttr = __webpack_require__(515)
+	var querySelectorAll = __webpack_require__(516)
+	var camelCase = __webpack_require__(520)
+	var isString = __webpack_require__(521)
+	var isUndefined = __webpack_require__(522)
+	var assign = __webpack_require__(523)
+	var mapValues = __webpack_require__(524)
+	var styleCamelCase = __webpack_require__(525)
 
 	function Element (nodeName, parentNode) {
 	  this.nodeName = nodeName
@@ -36767,7 +36792,7 @@
 
 
 /***/ },
-/* 514 */
+/* 515 */
 /***/ function(module, exports) {
 
 	
@@ -36879,13 +36904,13 @@
 	module.exports.normalize = normalize;
 
 /***/ },
-/* 515 */
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(516);
+	module.exports = __webpack_require__(517);
 
 /***/ },
-/* 516 */
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -36894,8 +36919,8 @@
 	 * @author yiminghe@gmail.com
 	 */
 
-	var util = __webpack_require__(517);
-	var parser = __webpack_require__(518);
+	var util = __webpack_require__(518);
+	var parser = __webpack_require__(519);
 
 	var EXPANDO_SELECTOR_KEY = '_ks_data_selector_id_',
 	  caches = {},
@@ -37588,7 +37613,7 @@
 	 */
 
 /***/ },
-/* 517 */
+/* 518 */
 /***/ function(module, exports) {
 
 	/**
@@ -37939,7 +37964,7 @@
 	};
 
 /***/ },
-/* 518 */
+/* 519 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -39148,7 +39173,7 @@
 	}
 
 /***/ },
-/* 519 */
+/* 520 */
 /***/ function(module, exports) {
 
 	var hyphenExpression = /\-+([a-z])/gi
@@ -39171,7 +39196,7 @@
 
 
 /***/ },
-/* 520 */
+/* 521 */
 /***/ function(module, exports) {
 
 	function isString (value) {
@@ -39182,7 +39207,7 @@
 
 
 /***/ },
-/* 521 */
+/* 522 */
 /***/ function(module, exports) {
 
 	function isUndefined (value) {
@@ -39193,7 +39218,7 @@
 
 
 /***/ },
-/* 522 */
+/* 523 */
 /***/ function(module, exports) {
 
 	function assign (dest) {
@@ -39215,7 +39240,7 @@
 
 
 /***/ },
-/* 523 */
+/* 524 */
 /***/ function(module, exports) {
 
 	function mapValues (source, fn) {
@@ -39234,10 +39259,10 @@
 
 
 /***/ },
-/* 524 */
+/* 525 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var camelCase = __webpack_require__(519)
+	var camelCase = __webpack_require__(520)
 
 	function styleCamelCase (name) {
 	  var camel = camelCase(name)
@@ -39260,7 +39285,7 @@
 
 
 /***/ },
-/* 525 */
+/* 526 */
 /***/ function(module, exports) {
 
 	var Window = {
@@ -39275,11 +39300,11 @@
 
 
 /***/ },
-/* 526 */
+/* 527 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Element = __webpack_require__(513)
-	var mapValues = __webpack_require__(523)
+	var Element = __webpack_require__(514)
+	var mapValues = __webpack_require__(524)
 
 	var mixin = {
 	  componentWillMount: function () {
@@ -39303,7 +39328,7 @@
 
 
 /***/ },
-/* 527 */
+/* 528 */
 /***/ function(module, exports) {
 
 	var anim = {
@@ -39335,7 +39360,7 @@
 
 
 /***/ },
-/* 528 */
+/* 529 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39350,19 +39375,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Axis = __webpack_require__(529);
+	var _d3Axis = __webpack_require__(530);
 
 	var _d3Axis2 = _interopRequireDefault(_d3Axis);
 
-	var _d3Selection = __webpack_require__(511);
+	var _d3Selection = __webpack_require__(512);
 
 	var _d3Selection2 = _interopRequireDefault(_d3Selection);
 
-	var _reactFauxDom = __webpack_require__(512);
+	var _reactFauxDom = __webpack_require__(513);
 
 	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
 
-	var _scale = __webpack_require__(499);
+	var _scale = __webpack_require__(500);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -39517,7 +39542,7 @@
 	exports.default = Axis;
 
 /***/ },
-/* 529 */
+/* 530 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -39706,7 +39731,7 @@
 	}));
 
 /***/ },
-/* 530 */
+/* 531 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39723,15 +39748,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _axis = __webpack_require__(528);
+	var _axis = __webpack_require__(529);
 
 	var _axis2 = _interopRequireDefault(_axis);
 
-	var _label = __webpack_require__(531);
+	var _label = __webpack_require__(532);
 
 	var _label2 = _interopRequireDefault(_label);
 
-	var _commonProps = __webpack_require__(498);
+	var _commonProps = __webpack_require__(499);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -39888,7 +39913,7 @@
 	exports.default = Xaxis;
 
 /***/ },
-/* 531 */
+/* 532 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39905,15 +39930,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Selection = __webpack_require__(511);
+	var _d3Selection = __webpack_require__(512);
 
 	var _d3Selection2 = _interopRequireDefault(_d3Selection);
 
-	var _reactFauxDom = __webpack_require__(512);
+	var _reactFauxDom = __webpack_require__(513);
 
 	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
 
-	var _commonProps = __webpack_require__(498);
+	var _commonProps = __webpack_require__(499);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -40012,7 +40037,7 @@
 	exports.default = Label;
 
 /***/ },
-/* 532 */
+/* 533 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40029,15 +40054,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _axis = __webpack_require__(528);
+	var _axis = __webpack_require__(529);
 
 	var _axis2 = _interopRequireDefault(_axis);
 
-	var _label = __webpack_require__(531);
+	var _label = __webpack_require__(532);
 
 	var _label2 = _interopRequireDefault(_label);
 
-	var _commonProps = __webpack_require__(498);
+	var _commonProps = __webpack_require__(499);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -40194,7 +40219,7 @@
 	exports.default = Yaxis;
 
 /***/ },
-/* 533 */
+/* 534 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40211,11 +40236,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _axis = __webpack_require__(528);
+	var _axis = __webpack_require__(529);
 
 	var _axis2 = _interopRequireDefault(_axis);
 
-	var _commonProps = __webpack_require__(498);
+	var _commonProps = __webpack_require__(499);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -40376,7 +40401,7 @@
 	exports.default = Grid;
 
 /***/ },
-/* 534 */
+/* 535 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40393,7 +40418,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _grid = __webpack_require__(533);
+	var _grid = __webpack_require__(534);
 
 	var _grid2 = _interopRequireDefault(_grid);
 
@@ -40429,7 +40454,7 @@
 	exports.default = XGrid;
 
 /***/ },
-/* 535 */
+/* 536 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40446,7 +40471,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _grid = __webpack_require__(533);
+	var _grid = __webpack_require__(534);
 
 	var _grid2 = _interopRequireDefault(_grid);
 
@@ -40482,7 +40507,7 @@
 	exports.default = YGrid;
 
 /***/ },
-/* 536 */
+/* 537 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40492,7 +40517,7 @@
 	});
 	exports.xDomain = xDomain;
 
-	var _d3Array = __webpack_require__(501);
+	var _d3Array = __webpack_require__(502);
 
 	var _d3Array2 = _interopRequireDefault(_d3Array);
 
@@ -40560,7 +40585,7 @@
 	}
 
 /***/ },
-/* 537 */
+/* 538 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40570,7 +40595,7 @@
 	});
 	exports.yDomain = yDomain;
 
-	var _d3Array = __webpack_require__(501);
+	var _d3Array = __webpack_require__(502);
 
 	var _d3Array2 = _interopRequireDefault(_d3Array);
 
@@ -40644,7 +40669,7 @@
 	}
 
 /***/ },
-/* 538 */
+/* 539 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40654,47 +40679,47 @@
 	});
 	exports.PieChart = exports.BarStackHorizontalChart = exports.BarStackChart = exports.AreaStackChart = exports.BarGroupHorizontalChart = exports.BarGroupChart = exports.BarHorizontalChart = exports.BarChart = exports.ScatterPlot = exports.AreaChart = exports.LineChart = undefined;
 
-	var _line = __webpack_require__(539);
+	var _line = __webpack_require__(540);
 
 	var _line2 = _interopRequireDefault(_line);
 
-	var _area = __webpack_require__(560);
+	var _area = __webpack_require__(561);
 
 	var _area2 = _interopRequireDefault(_area);
 
-	var _scatter = __webpack_require__(561);
+	var _scatter = __webpack_require__(562);
 
 	var _scatter2 = _interopRequireDefault(_scatter);
 
-	var _bar = __webpack_require__(562);
+	var _bar = __webpack_require__(563);
 
 	var _bar2 = _interopRequireDefault(_bar);
 
-	var _bar_horizontal = __webpack_require__(563);
+	var _bar_horizontal = __webpack_require__(564);
 
 	var _bar_horizontal2 = _interopRequireDefault(_bar_horizontal);
 
-	var _bar_group = __webpack_require__(564);
+	var _bar_group = __webpack_require__(565);
 
 	var _bar_group2 = _interopRequireDefault(_bar_group);
 
-	var _bar_group_horizontal = __webpack_require__(565);
+	var _bar_group_horizontal = __webpack_require__(566);
 
 	var _bar_group_horizontal2 = _interopRequireDefault(_bar_group_horizontal);
 
-	var _area_stack = __webpack_require__(566);
+	var _area_stack = __webpack_require__(567);
 
 	var _area_stack2 = _interopRequireDefault(_area_stack);
 
-	var _bar_stack = __webpack_require__(567);
+	var _bar_stack = __webpack_require__(568);
 
 	var _bar_stack2 = _interopRequireDefault(_bar_stack);
 
-	var _bar_stack_horizontal = __webpack_require__(568);
+	var _bar_stack_horizontal = __webpack_require__(569);
 
 	var _bar_stack_horizontal2 = _interopRequireDefault(_bar_stack_horizontal);
 
-	var _pie = __webpack_require__(569);
+	var _pie = __webpack_require__(570);
 
 	var _pie2 = _interopRequireDefault(_pie);
 
@@ -40714,7 +40739,7 @@
 	exports.PieChart = _pie2.default;
 
 /***/ },
-/* 539 */
+/* 540 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40731,11 +40756,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(496);
+	var _reactD3Core = __webpack_require__(497);
 
-	var _reactD3Shape = __webpack_require__(540);
+	var _reactD3Shape = __webpack_require__(541);
 
-	var _commonProps = __webpack_require__(559);
+	var _commonProps = __webpack_require__(560);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -40823,7 +40848,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 540 */
+/* 541 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40832,7 +40857,7 @@
 	  value: true
 	});
 
-	var _series = __webpack_require__(541);
+	var _series = __webpack_require__(542);
 
 	Object.defineProperty(exports, 'series', {
 	  enumerable: true,
@@ -40841,7 +40866,7 @@
 	  }
 	});
 
-	var _chart = __webpack_require__(543);
+	var _chart = __webpack_require__(544);
 
 	Object.defineProperty(exports, 'Chart', {
 	  enumerable: true,
@@ -40850,7 +40875,7 @@
 	  }
 	});
 
-	var _chartpie = __webpack_require__(545);
+	var _chartpie = __webpack_require__(546);
 
 	Object.defineProperty(exports, 'ChartPie', {
 	  enumerable: true,
@@ -40859,7 +40884,7 @@
 	  }
 	});
 
-	var _line = __webpack_require__(546);
+	var _line = __webpack_require__(547);
 
 	Object.defineProperty(exports, 'Line', {
 	  enumerable: true,
@@ -40868,7 +40893,7 @@
 	  }
 	});
 
-	var _area = __webpack_require__(549);
+	var _area = __webpack_require__(550);
 
 	Object.defineProperty(exports, 'Area', {
 	  enumerable: true,
@@ -40877,7 +40902,7 @@
 	  }
 	});
 
-	var _area_stack = __webpack_require__(550);
+	var _area_stack = __webpack_require__(551);
 
 	Object.defineProperty(exports, 'AreaStack', {
 	  enumerable: true,
@@ -40886,7 +40911,7 @@
 	  }
 	});
 
-	var _bar = __webpack_require__(551);
+	var _bar = __webpack_require__(552);
 
 	Object.defineProperty(exports, 'Bar', {
 	  enumerable: true,
@@ -40895,7 +40920,7 @@
 	  }
 	});
 
-	var _bar_horizontal = __webpack_require__(552);
+	var _bar_horizontal = __webpack_require__(553);
 
 	Object.defineProperty(exports, 'BarHorizontal', {
 	  enumerable: true,
@@ -40904,7 +40929,7 @@
 	  }
 	});
 
-	var _bar_group = __webpack_require__(553);
+	var _bar_group = __webpack_require__(554);
 
 	Object.defineProperty(exports, 'BarGroup', {
 	  enumerable: true,
@@ -40913,7 +40938,7 @@
 	  }
 	});
 
-	var _bar_group_horizontal = __webpack_require__(554);
+	var _bar_group_horizontal = __webpack_require__(555);
 
 	Object.defineProperty(exports, 'BarGroupHorizontal', {
 	  enumerable: true,
@@ -40922,7 +40947,7 @@
 	  }
 	});
 
-	var _bar_stack = __webpack_require__(555);
+	var _bar_stack = __webpack_require__(556);
 
 	Object.defineProperty(exports, 'BarStack', {
 	  enumerable: true,
@@ -40931,7 +40956,7 @@
 	  }
 	});
 
-	var _bar_stack_horizontal = __webpack_require__(556);
+	var _bar_stack_horizontal = __webpack_require__(557);
 
 	Object.defineProperty(exports, 'BarStackHorizontal', {
 	  enumerable: true,
@@ -40940,7 +40965,7 @@
 	  }
 	});
 
-	var _pie = __webpack_require__(557);
+	var _pie = __webpack_require__(558);
 
 	Object.defineProperty(exports, 'Pie', {
 	  enumerable: true,
@@ -40949,7 +40974,7 @@
 	  }
 	});
 
-	var _scatter = __webpack_require__(558);
+	var _scatter = __webpack_require__(559);
 
 	Object.defineProperty(exports, 'Scatter', {
 	  enumerable: true,
@@ -40961,7 +40986,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 541 */
+/* 542 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40971,7 +40996,7 @@
 	});
 	exports.series = series;
 
-	var _d = __webpack_require__(542);
+	var _d = __webpack_require__(543);
 
 	var _d2 = _interopRequireDefault(_d);
 
@@ -41027,7 +41052,7 @@
 	}
 
 /***/ },
-/* 542 */
+/* 543 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;!function() {
@@ -50586,7 +50611,7 @@
 	}();
 
 /***/ },
-/* 543 */
+/* 544 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50603,9 +50628,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(496);
+	var _reactD3Core = __webpack_require__(497);
 
-	var _commonProps = __webpack_require__(544);
+	var _commonProps = __webpack_require__(545);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -50758,7 +50783,7 @@
 	exports.default = ChartSvg;
 
 /***/ },
-/* 544 */
+/* 545 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50768,7 +50793,7 @@
 	});
 	exports.pieProps = undefined;
 
-	var _d3Scale = __webpack_require__(500);
+	var _d3Scale = __webpack_require__(501);
 
 	var _d3Scale2 = _interopRequireDefault(_d3Scale);
 
@@ -50801,7 +50826,7 @@
 	};
 
 /***/ },
-/* 545 */
+/* 546 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50818,9 +50843,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(496);
+	var _reactD3Core = __webpack_require__(497);
 
-	var _commonProps = __webpack_require__(544);
+	var _commonProps = __webpack_require__(545);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -50899,7 +50924,7 @@
 	exports.default = ChartSvg;
 
 /***/ },
-/* 546 */
+/* 547 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50916,15 +50941,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Shape = __webpack_require__(547);
+	var _d3Shape = __webpack_require__(548);
 
 	var _d3Shape2 = _interopRequireDefault(_d3Shape);
 
-	var _commonProps = __webpack_require__(544);
+	var _commonProps = __webpack_require__(545);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
-	var _series = __webpack_require__(541);
+	var _series = __webpack_require__(542);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -51005,11 +51030,11 @@
 	exports.default = Line;
 
 /***/ },
-/* 547 */
+/* 548 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(548)) :
+	   true ? factory(exports, __webpack_require__(549)) :
 	  typeof define === 'function' && define.amd ? define(['exports', 'd3-path'], factory) :
 	  (factory((global.d3_shape = {}),global.d3_path));
 	}(this, function (exports,d3Path) { 'use strict';
@@ -52757,7 +52782,7 @@
 	}));
 
 /***/ },
-/* 548 */
+/* 549 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -52917,7 +52942,7 @@
 	}));
 
 /***/ },
-/* 549 */
+/* 550 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52934,15 +52959,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Shape = __webpack_require__(547);
+	var _d3Shape = __webpack_require__(548);
 
 	var _d3Shape2 = _interopRequireDefault(_d3Shape);
 
-	var _commonProps = __webpack_require__(544);
+	var _commonProps = __webpack_require__(545);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
-	var _series = __webpack_require__(541);
+	var _series = __webpack_require__(542);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53036,7 +53061,7 @@
 	exports.default = Area;
 
 /***/ },
-/* 550 */
+/* 551 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53053,15 +53078,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Shape = __webpack_require__(547);
+	var _d3Shape = __webpack_require__(548);
 
 	var _d3Shape2 = _interopRequireDefault(_d3Shape);
 
-	var _commonProps = __webpack_require__(544);
+	var _commonProps = __webpack_require__(545);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
-	var _series = __webpack_require__(541);
+	var _series = __webpack_require__(542);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53174,7 +53199,7 @@
 	exports.default = AreaStack;
 
 /***/ },
-/* 551 */
+/* 552 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53189,7 +53214,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _series = __webpack_require__(541);
+	var _series = __webpack_require__(542);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53295,7 +53320,7 @@
 	exports.default = Bar;
 
 /***/ },
-/* 552 */
+/* 553 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53310,7 +53335,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _series = __webpack_require__(541);
+	var _series = __webpack_require__(542);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53408,7 +53433,7 @@
 	exports.default = BarHorizontal;
 
 /***/ },
-/* 553 */
+/* 554 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53423,11 +53448,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Scale = __webpack_require__(500);
+	var _d3Scale = __webpack_require__(501);
 
 	var _d3Scale2 = _interopRequireDefault(_d3Scale);
 
-	var _series = __webpack_require__(541);
+	var _series = __webpack_require__(542);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53534,7 +53559,7 @@
 	exports.default = BarGroup;
 
 /***/ },
-/* 554 */
+/* 555 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53549,11 +53574,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Scale = __webpack_require__(500);
+	var _d3Scale = __webpack_require__(501);
 
 	var _d3Scale2 = _interopRequireDefault(_d3Scale);
 
-	var _series = __webpack_require__(541);
+	var _series = __webpack_require__(542);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53666,7 +53691,7 @@
 	exports.default = BarGroupHorizontal;
 
 /***/ },
-/* 555 */
+/* 556 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53681,11 +53706,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d = __webpack_require__(542);
+	var _d = __webpack_require__(543);
 
 	var _d2 = _interopRequireDefault(_d);
 
-	var _series = __webpack_require__(541);
+	var _series = __webpack_require__(542);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53831,7 +53856,7 @@
 	exports.default = BarStack;
 
 /***/ },
-/* 556 */
+/* 557 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53846,11 +53871,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d = __webpack_require__(542);
+	var _d = __webpack_require__(543);
 
 	var _d2 = _interopRequireDefault(_d);
 
-	var _series = __webpack_require__(541);
+	var _series = __webpack_require__(542);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53995,7 +54020,7 @@
 	exports.default = BarStackHorizontal;
 
 /***/ },
-/* 557 */
+/* 558 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54012,11 +54037,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Shape = __webpack_require__(547);
+	var _d3Shape = __webpack_require__(548);
 
 	var _d3Shape2 = _interopRequireDefault(_d3Shape);
 
-	var _commonProps = __webpack_require__(544);
+	var _commonProps = __webpack_require__(545);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -54179,7 +54204,7 @@
 	exports.default = Pie;
 
 /***/ },
-/* 558 */
+/* 559 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54194,11 +54219,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Shape = __webpack_require__(547);
+	var _d3Shape = __webpack_require__(548);
 
 	var _d3Shape2 = _interopRequireDefault(_d3Shape);
 
-	var _series = __webpack_require__(541);
+	var _series = __webpack_require__(542);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -54301,7 +54326,7 @@
 	exports.default = Scatter;
 
 /***/ },
-/* 559 */
+/* 560 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54311,11 +54336,11 @@
 	});
 	exports.pieProps = exports.horizontalProps = undefined;
 
-	var _d3Scale = __webpack_require__(500);
+	var _d3Scale = __webpack_require__(501);
 
 	var _d3Scale2 = _interopRequireDefault(_d3Scale);
 
-	var _d3Array = __webpack_require__(501);
+	var _d3Array = __webpack_require__(502);
 
 	var _d3Array2 = _interopRequireDefault(_d3Array);
 
@@ -54362,7 +54387,7 @@
 	};
 
 /***/ },
-/* 560 */
+/* 561 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54379,11 +54404,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(496);
+	var _reactD3Core = __webpack_require__(497);
 
-	var _reactD3Shape = __webpack_require__(540);
+	var _reactD3Shape = __webpack_require__(541);
 
-	var _commonProps = __webpack_require__(559);
+	var _commonProps = __webpack_require__(560);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -54471,7 +54496,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 561 */
+/* 562 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54488,11 +54513,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(496);
+	var _reactD3Core = __webpack_require__(497);
 
-	var _reactD3Shape = __webpack_require__(540);
+	var _reactD3Shape = __webpack_require__(541);
 
-	var _commonProps = __webpack_require__(559);
+	var _commonProps = __webpack_require__(560);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -54578,7 +54603,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 562 */
+/* 563 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54595,11 +54620,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(496);
+	var _reactD3Core = __webpack_require__(497);
 
-	var _reactD3Shape = __webpack_require__(540);
+	var _reactD3Shape = __webpack_require__(541);
 
-	var _commonProps = __webpack_require__(559);
+	var _commonProps = __webpack_require__(560);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -54688,7 +54713,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 563 */
+/* 564 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54705,11 +54730,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(496);
+	var _reactD3Core = __webpack_require__(497);
 
-	var _reactD3Shape = __webpack_require__(540);
+	var _reactD3Shape = __webpack_require__(541);
 
-	var _commonProps = __webpack_require__(559);
+	var _commonProps = __webpack_require__(560);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -54797,7 +54822,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 564 */
+/* 565 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54814,11 +54839,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(496);
+	var _reactD3Core = __webpack_require__(497);
 
-	var _reactD3Shape = __webpack_require__(540);
+	var _reactD3Shape = __webpack_require__(541);
 
-	var _commonProps = __webpack_require__(559);
+	var _commonProps = __webpack_require__(560);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -54907,7 +54932,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 565 */
+/* 566 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54924,11 +54949,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(496);
+	var _reactD3Core = __webpack_require__(497);
 
-	var _reactD3Shape = __webpack_require__(540);
+	var _reactD3Shape = __webpack_require__(541);
 
-	var _commonProps = __webpack_require__(559);
+	var _commonProps = __webpack_require__(560);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -55016,7 +55041,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 566 */
+/* 567 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -55033,11 +55058,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(496);
+	var _reactD3Core = __webpack_require__(497);
 
-	var _reactD3Shape = __webpack_require__(540);
+	var _reactD3Shape = __webpack_require__(541);
 
-	var _commonProps = __webpack_require__(559);
+	var _commonProps = __webpack_require__(560);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -55124,7 +55149,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 567 */
+/* 568 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -55141,11 +55166,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(496);
+	var _reactD3Core = __webpack_require__(497);
 
-	var _reactD3Shape = __webpack_require__(540);
+	var _reactD3Shape = __webpack_require__(541);
 
-	var _commonProps = __webpack_require__(559);
+	var _commonProps = __webpack_require__(560);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -55235,7 +55260,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 568 */
+/* 569 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -55252,11 +55277,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(496);
+	var _reactD3Core = __webpack_require__(497);
 
-	var _reactD3Shape = __webpack_require__(540);
+	var _reactD3Shape = __webpack_require__(541);
 
-	var _commonProps = __webpack_require__(559);
+	var _commonProps = __webpack_require__(560);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -55345,7 +55370,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 569 */
+/* 570 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -55362,9 +55387,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactD3Core = __webpack_require__(496);
+	var _reactD3Core = __webpack_require__(497);
 
-	var _reactD3Shape = __webpack_require__(540);
+	var _reactD3Shape = __webpack_require__(541);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -55446,7 +55471,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 570 */
+/* 571 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55474,19 +55499,6 @@
 	};
 
 	exports.default = Loading;
-
-/***/ },
-/* 571 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var DATA = JSON.parse('[{"client_id":1,"client_name":"Moen, Hickle and Stehr","products":[{"product_id":1,"product_name":"Ergonomic Cotton Keyboard","product_asin":"cfq35yoyh64i","product_image_url":"https://unsplash.it/310/676","keywords":[{"keyword_id":1,"keyword_name":"nam","keyword_country":"LV","ranks":[{"rank_id":1,"rank_position":214,"rank_page":2,"rank_date":"2016-08-16"},{"rank_id":2,"rank_position":82,"rank_page":3,"rank_date":"2016-11-12"},{"rank_id":3,"rank_position":23,"rank_page":4,"rank_date":"2017-01-19"},{"rank_id":4,"rank_position":304,"rank_page":13,"rank_date":"2016-04-12"},{"rank_id":5,"rank_position":342,"rank_page":17,"rank_date":"2016-08-08"}]},{"keyword_id":2,"keyword_name":"autem","keyword_country":"PW","ranks":[{"rank_id":6,"rank_position":90,"rank_page":1,"rank_date":"2016-12-02"},{"rank_id":7,"rank_position":330,"rank_page":17,"rank_date":"2016-09-14"},{"rank_id":8,"rank_position":341,"rank_page":9,"rank_date":"2016-10-03"},{"rank_id":9,"rank_position":129,"rank_page":12,"rank_date":"2017-01-22"}]}]},{"product_id":2,"product_name":"Small Bronze Shirt","product_asin":"7cb60wolk699","product_image_url":"https://unsplash.it/436/738","keywords":[{"keyword_id":3,"keyword_name":"voluptatem","keyword_country":"UM","ranks":[{"rank_id":10,"rank_position":9,"rank_page":6,"rank_date":"2016-03-14"},{"rank_id":11,"rank_position":88,"rank_page":9,"rank_date":"2016-05-27"},{"rank_id":12,"rank_position":307,"rank_page":1,"rank_date":"2016-10-28"},{"rank_id":13,"rank_position":223,"rank_page":14,"rank_date":"2016-12-26"},{"rank_id":14,"rank_position":384,"rank_page":12,"rank_date":"2016-02-29"},{"rank_id":15,"rank_position":366,"rank_page":11,"rank_date":"2016-09-30"},{"rank_id":16,"rank_position":164,"rank_page":18,"rank_date":"2016-11-20"},{"rank_id":17,"rank_position":259,"rank_page":17,"rank_date":"2016-07-24"},{"rank_id":18,"rank_position":82,"rank_page":9,"rank_date":"2016-10-13"},{"rank_id":19,"rank_position":81,"rank_page":3,"rank_date":"2016-08-01"},{"rank_id":20,"rank_position":258,"rank_page":10,"rank_date":"2016-05-31"},{"rank_id":21,"rank_position":195,"rank_page":10,"rank_date":"2016-10-31"},{"rank_id":22,"rank_position":46,"rank_page":10,"rank_date":"2017-01-24"},{"rank_id":23,"rank_position":353,"rank_page":13,"rank_date":"2016-09-30"},{"rank_id":24,"rank_position":378,"rank_page":3,"rank_date":"2016-08-16"},{"rank_id":25,"rank_position":243,"rank_page":7,"rank_date":"2016-12-19"},{"rank_id":26,"rank_position":167,"rank_page":7,"rank_date":"2016-09-29"},{"rank_id":27,"rank_position":37,"rank_page":17,"rank_date":"2017-01-04"},{"rank_id":28,"rank_position":155,"rank_page":4,"rank_date":"2016-05-09"},{"rank_id":29,"rank_position":152,"rank_page":3,"rank_date":"2016-07-14"}]},{"keyword_id":4,"keyword_name":"impedit","keyword_country":"TW","ranks":[{"rank_id":30,"rank_position":197,"rank_page":17,"rank_date":"2016-10-03"},{"rank_id":31,"rank_position":381,"rank_page":18,"rank_date":"2016-08-24"},{"rank_id":32,"rank_position":150,"rank_page":14,"rank_date":"2017-01-31"},{"rank_id":33,"rank_position":372,"rank_page":18,"rank_date":"2016-07-05"},{"rank_id":34,"rank_position":133,"rank_page":3,"rank_date":"2016-12-20"},{"rank_id":35,"rank_position":67,"rank_page":18,"rank_date":"2016-05-19"},{"rank_id":36,"rank_position":54,"rank_page":7,"rank_date":"2016-09-23"},{"rank_id":37,"rank_position":326,"rank_page":2,"rank_date":"2016-08-07"},{"rank_id":38,"rank_position":386,"rank_page":18,"rank_date":"2016-05-25"},{"rank_id":39,"rank_position":122,"rank_page":3,"rank_date":"2016-04-27"},{"rank_id":40,"rank_position":103,"rank_page":12,"rank_date":"2016-12-12"},{"rank_id":41,"rank_position":86,"rank_page":8,"rank_date":"2016-07-10"},{"rank_id":42,"rank_position":300,"rank_page":3,"rank_date":"2016-02-27"},{"rank_id":43,"rank_position":128,"rank_page":12,"rank_date":"2016-07-02"},{"rank_id":44,"rank_position":376,"rank_page":7,"rank_date":"2016-03-17"},{"rank_id":45,"rank_position":104,"rank_page":17,"rank_date":"2016-10-16"},{"rank_id":46,"rank_position":279,"rank_page":20,"rank_date":"2016-07-16"},{"rank_id":47,"rank_position":80,"rank_page":15,"rank_date":"2016-02-15"},{"rank_id":48,"rank_position":213,"rank_page":6,"rank_date":"2017-01-13"},{"rank_id":49,"rank_position":213,"rank_page":20,"rank_date":"2016-07-09"}]},{"keyword_id":5,"keyword_name":"minima","keyword_country":"BJ","ranks":[{"rank_id":50,"rank_position":270,"rank_page":17,"rank_date":"2016-11-20"},{"rank_id":51,"rank_position":169,"rank_page":3,"rank_date":"2016-12-02"},{"rank_id":52,"rank_position":370,"rank_page":3,"rank_date":"2016-02-13"},{"rank_id":53,"rank_position":59,"rank_page":6,"rank_date":"2016-10-20"},{"rank_id":54,"rank_position":387,"rank_page":7,"rank_date":"2016-04-09"},{"rank_id":55,"rank_position":117,"rank_page":1,"rank_date":"2016-11-27"},{"rank_id":56,"rank_position":81,"rank_page":20,"rank_date":"2016-02-27"},{"rank_id":57,"rank_position":354,"rank_page":10,"rank_date":"2016-04-06"},{"rank_id":58,"rank_position":281,"rank_page":8,"rank_date":"2016-05-21"},{"rank_id":59,"rank_position":128,"rank_page":10,"rank_date":"2016-03-27"},{"rank_id":60,"rank_position":226,"rank_page":9,"rank_date":"2016-10-29"},{"rank_id":61,"rank_position":39,"rank_page":15,"rank_date":"2016-03-31"},{"rank_id":62,"rank_position":100,"rank_page":3,"rank_date":"2016-12-25"},{"rank_id":63,"rank_position":53,"rank_page":9,"rank_date":"2016-12-09"},{"rank_id":64,"rank_position":54,"rank_page":3,"rank_date":"2016-03-23"}]}]},{"product_id":3,"product_name":"Fantastic Steel Watch","product_asin":"urz2xuol8m7o","product_image_url":"https://unsplash.it/269/508","keywords":[{"keyword_id":6,"keyword_name":"et","keyword_country":"TC","ranks":[{"rank_id":65,"rank_position":396,"rank_page":14,"rank_date":"2016-08-30"},{"rank_id":66,"rank_position":349,"rank_page":19,"rank_date":"2016-09-08"},{"rank_id":67,"rank_position":318,"rank_page":11,"rank_date":"2016-05-04"},{"rank_id":68,"rank_position":327,"rank_page":9,"rank_date":"2016-03-22"},{"rank_id":69,"rank_position":50,"rank_page":15,"rank_date":"2017-01-10"},{"rank_id":70,"rank_position":306,"rank_page":12,"rank_date":"2016-11-29"},{"rank_id":71,"rank_position":221,"rank_page":15,"rank_date":"2016-02-08"},{"rank_id":72,"rank_position":312,"rank_page":8,"rank_date":"2016-12-19"},{"rank_id":73,"rank_position":236,"rank_page":11,"rank_date":"2016-03-13"},{"rank_id":74,"rank_position":292,"rank_page":15,"rank_date":"2016-04-03"},{"rank_id":75,"rank_position":222,"rank_page":5,"rank_date":"2016-10-28"},{"rank_id":76,"rank_position":346,"rank_page":17,"rank_date":"2016-08-12"},{"rank_id":77,"rank_position":105,"rank_page":1,"rank_date":"2016-04-27"},{"rank_id":78,"rank_position":63,"rank_page":5,"rank_date":"2016-06-02"},{"rank_id":79,"rank_position":19,"rank_page":20,"rank_date":"2016-12-19"}]}]},{"product_id":4,"product_name":"Intelligent Marble Computer","product_asin":"dn3jsnhcx7hg","product_image_url":"https://unsplash.it/492/408","keywords":[{"keyword_id":7,"keyword_name":"et","keyword_country":"VE","ranks":[{"rank_id":80,"rank_position":63,"rank_page":7,"rank_date":"2016-04-11"},{"rank_id":81,"rank_position":160,"rank_page":17,"rank_date":"2016-12-26"},{"rank_id":82,"rank_position":345,"rank_page":7,"rank_date":"2016-08-21"},{"rank_id":83,"rank_position":310,"rank_page":18,"rank_date":"2016-08-01"},{"rank_id":84,"rank_position":377,"rank_page":10,"rank_date":"2016-12-15"},{"rank_id":85,"rank_position":372,"rank_page":6,"rank_date":"2016-03-16"},{"rank_id":86,"rank_position":246,"rank_page":1,"rank_date":"2016-02-26"},{"rank_id":87,"rank_position":206,"rank_page":15,"rank_date":"2016-11-12"},{"rank_id":88,"rank_position":365,"rank_page":20,"rank_date":"2016-02-04"},{"rank_id":89,"rank_position":90,"rank_page":12,"rank_date":"2016-02-29"},{"rank_id":90,"rank_position":114,"rank_page":15,"rank_date":"2016-08-29"},{"rank_id":91,"rank_position":326,"rank_page":7,"rank_date":"2016-08-23"},{"rank_id":92,"rank_position":136,"rank_page":12,"rank_date":"2016-03-13"},{"rank_id":93,"rank_position":318,"rank_page":2,"rank_date":"2016-04-21"},{"rank_id":94,"rank_position":146,"rank_page":17,"rank_date":"2016-06-09"},{"rank_id":95,"rank_position":184,"rank_page":17,"rank_date":"2016-11-26"},{"rank_id":96,"rank_position":348,"rank_page":5,"rank_date":"2017-01-17"},{"rank_id":97,"rank_position":184,"rank_page":19,"rank_date":"2016-08-06"}]}]}]}]');
-
-	exports.default = DATA;
 
 /***/ }
 /******/ ]);

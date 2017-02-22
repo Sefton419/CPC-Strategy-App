@@ -26,7 +26,9 @@ const List = ({ data, state, updateButtonsData, addCompanyArrayToQueryStrings, p
 
   return (
     <div>
-      {companies}
+      <div>
+        {companies}
+      </div> 
     </div>
   )
 }

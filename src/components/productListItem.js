@@ -12,7 +12,7 @@ const styles = {
     borderWidth: 0.25
   },
   margin: {
-    marginTop: 10
+    marginBottom: 10
   },
   offWhite: {
     backgroundColor:'#EEEEEE',

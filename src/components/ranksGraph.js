@@ -10,9 +10,6 @@ const styles = {
   offWhite: {
     backgroundColor:'#EEEEEE',
   },
-  shadow: {
-    boxShadow: [5, 5, 2.5, '#C7C6C6']
-  },
   EMPTY: {}
 }
 
@@ -35,7 +32,7 @@ const RanksGraph = ({ ranks, updateGraphData, lineColors }) => {
         name: rank[0],
         color: lineColors[index],
         style: {
-          opacity: 0.5
+          opacity: 0.75
         }    
       }
     ));
@@ -67,6 +64,7 @@ const RanksGraph = ({ ranks, updateGraphData, lineColors }) => {
     };
 
     const xScale = 'time';
+    const yTickOrient = 'right';
 
 
   return (
@@ -83,6 +81,7 @@ const RanksGraph = ({ ranks, updateGraphData, lineColors }) => {
         chartSeries={chartSeries}
         x={x}
         xScale={xScale}
+        yTickOrient={yTickOrient}
       />
     </div>
   );

@@ -7,6 +7,9 @@ import KeywordButton from './keywordButton.js';
 const styles = {
   sidebarButtons: {
     width: '100%', 
+  },
+  button: {
+    whiteSpace: 'normal'
   }
 }
 
@@ -24,6 +27,7 @@ const ButtonsContainer = ({ buttonData, updateSearchTerm }) => {
       key={keyTicker++}
       className="btn btn-default" 
       id="width100"
+      style={styles.button}
       onClick={() => {
         updateSearchTerm(company)
       }} 
@@ -37,6 +41,7 @@ const ButtonsContainer = ({ buttonData, updateSearchTerm }) => {
       key={keyTicker++}
       className="btn btn-default" 
       id="width100"
+      style={styles.button}
       onClick={() => {
         updateSearchTerm(product)
       }} 
@@ -46,17 +51,18 @@ const ButtonsContainer = ({ buttonData, updateSearchTerm }) => {
     </button> 
   ));
   const keywordButtons = keywords.map(keyword => (
-      <button 
-        key={keyTicker++}
-        className="btn btn-default" 
-        id="width100"
-        onClick={() => {
-          updateSearchTerm(keyword)
-        }} 
-        style={styles.sidebarButtons}
-      >
-        {keyword}
-      </button> 
+    <button 
+      key={keyTicker++}
+      className="btn btn-default" 
+      id="width100"
+      style={styles.button}
+      onClick={() => {
+        updateSearchTerm(keyword)
+      }} 
+      style={styles.sidebarButtons}
+    >  
+      {keyword}
+    </button> 
   ));
 
   // method and variables pertaining to clicking buttons in child components
