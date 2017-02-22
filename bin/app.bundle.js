@@ -27857,10 +27857,12 @@
 	          var client_name = company.client_name;
 
 	          if (_this3.companiesIndex.client_name === undefined) {
+	            // side effect
 	            _this3.companiesIndex[client_name] = 1;
 	            clientNames.push(client_name);
 	            return clientNames;
 	          } else {
+	            // side effect
 	            _this3.companiesIndex[product_name]++;
 	          }
 	        }, []);
@@ -27870,14 +27872,16 @@
 	          var product_name = product.product_name;
 
 	          if (_this3.productsIndex.product_name === undefined) {
+	            // side effect
 	            _this3.productsIndex[product_name] = 1;
 	            productNames.push(product_name);
 	            return productNames;
 	          } else {
+	            // side effect
 	            _this3.productsIndex[product_name]++;
 	          }
-	        }, []).join('').toLowerCase();
-	        this.pushCurrentQueryString(productItemNames);
+	        }, []).join(' ').toLowerCase();
+	        this.pushCurrentQueryString(productItemNames + ' ');
 	        // console.log('query string from a product: ', this.companiesQueryStrings[this.companiesQueryArrayIndex]);
 	      }
 	      if (d[0].keyword_name !== undefined) {
@@ -27891,9 +27895,9 @@
 	          } else {
 	            _this3.keywordIndex[product_name]++;
 	          }
-	        }, []).join('').toLowerCase();
+	        }, []).join(' ').toLowerCase();
 	        // console.log('keywordItemNames TOLOWERCASE(): ', keywordItemNames)
-	        this.pushCurrentQueryString(keywordItemNames);
+	        this.pushCurrentQueryString(keywordItemNames + ' ');
 	        // console.log('query string from a keyword: ', this.companiesQueryStrings[this.companiesQueryArrayIndex]);
 	      }
 	      console.log('QUERYSTRINGS: ', this.companiesQueryStrings);
@@ -27959,7 +27963,7 @@
 	      }
 
 	      if (this.companiesQueryStrings.length < this.state.data.length) {
-	        this.companiesQueryStrings.push([companyName.toLowerCase()]);
+	        this.companiesQueryStrings.push([' ' + companyName.toLowerCase() + ' ']);
 	      }
 	      console.log('companiesQueryStrings after pushing: ', this.companiesQueryStrings);
 	      console.log('THIS IS THE INDEXXXX: ', this.companyQueryArrayIndex);
@@ -27989,22 +27993,23 @@
 	    }
 	  }, {
 	    key: 'applySearchFilter',
-	    value: function applySearchFilter(d) {
-	      var _this5 = this;
+	    value: function applySearchFilter(d) {}
 
-	      var newQueryStrings = [];
-	      if (this.state.searchTerm !== '') {
-	        var newData = d.reduce(function (newDataArray, company, index) {
-	          if (_this5.companiesQueryStrings[index].includes(_this5.state.searchTerm)) {
-	            newDataArray.push(company);
-	            newQueryStrings.push(_this5.companiesQueryStrings[index]);
-	          }
-	          return newDataArray;
-	        });
-	        console.log('filteredData: ', newData);
-	        this.setState({ data: newData });
-	      }
-	    }
+	    // Must re-write. Cannot setState here, since componentWillUpdate is calling this function (infinite loop!)
+
+	    // let newQueryStrings = [];
+	    // if (this.state.searchTerm !== '') {
+	    //   const newData = d.reduce((newDataArray, company, index) => {
+	    //     if (this.companiesQueryStrings[index].includes(this.state.searchTerm)) {
+	    //       newDataArray.push(company);
+	    //       newQueryStrings.push(this.companiesQueryStrings[index]);
+	    //     }
+	    //     return newDataArray;
+	    //   });
+	    //   console.log('filteredData: ', newData)
+	    //   this.setState({ data: newData })
+	    // }
+
 	    // take most parent data, filter companies according to stringQueryArray
 
 	  }, {

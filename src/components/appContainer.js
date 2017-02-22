@@ -98,10 +98,12 @@ class AppContainer extends Component {
       const companyNames = d.reduce((clientNames, company) => {
         const { client_name } = company;
         if(this.companiesIndex.client_name === undefined) {
+          // side effect
           this.companiesIndex[client_name] = 1;
           clientNames.push(client_name);
           return clientNames;
         } else {
+          // side effect
           this.companiesIndex[product_name]++;
         }
       }, []);
@@ -110,14 +112,16 @@ class AppContainer extends Component {
       const productItemNames = d.reduce((productNames, product) => {
         const { product_name } = product;
         if(this.productsIndex.product_name === undefined) {
+          // side effect
           this.productsIndex[product_name] = 1;
           productNames.push(product_name);
           return productNames;
         } else {
+          // side effect
           this.productsIndex[product_name]++;
         }
-      }, []).join('').toLowerCase();
-      this.pushCurrentQueryString(productItemNames);
+      }, []).join(' ').toLowerCase();
+      this.pushCurrentQueryString(`${productItemNames} `);
       // console.log('query string from a product: ', this.companiesQueryStrings[this.companiesQueryArrayIndex]);
     }
     if (d[0].keyword_name !== undefined) {
@@ -130,9 +134,9 @@ class AppContainer extends Component {
         } else {
           this.keywordIndex[product_name]++;
         } 
-      }, []).join('').toLowerCase();
+      }, []).join(' ').toLowerCase();
       // console.log('keywordItemNames TOLOWERCASE(): ', keywordItemNames)
-      this.pushCurrentQueryString(keywordItemNames);
+      this.pushCurrentQueryString(`${keywordItemNames} `);
       // console.log('query string from a keyword: ', this.companiesQueryStrings[this.companiesQueryArrayIndex]);
     }
     console.log('QUERYSTRINGS: ', this.companiesQueryStrings);
@@ -196,7 +200,7 @@ class AppContainer extends Component {
     }
 
     if (this.companiesQueryStrings.length < this.state.data.length) {
-      this.companiesQueryStrings.push([companyName.toLowerCase()]);
+      this.companiesQueryStrings.push([` ${companyName.toLowerCase()} `]);
     }
     console.log('companiesQueryStrings after pushing: ', this.companiesQueryStrings);
     console.log('THIS IS THE INDEXXXX: ', this.companyQueryArrayIndex);
@@ -221,18 +225,21 @@ class AppContainer extends Component {
   }
 
   applySearchFilter(d) {
-    let newQueryStrings = [];
-    if (this.state.searchTerm !== '') {
-      const newData = d.reduce((newDataArray, company, index) => {
-        if (this.companiesQueryStrings[index].includes(this.state.searchTerm)) {
-          newDataArray.push(company);
-          newQueryStrings.push(this.companiesQueryStrings[index]);
-        }
-        return newDataArray;
-      });
-      console.log('filteredData: ', newData)
-      this.setState({ data: newData })
-    }
+
+    // Must re-write. Cannot setState here, since componentWillUpdate is calling this function (infinite loop!)
+
+    // let newQueryStrings = [];
+    // if (this.state.searchTerm !== '') {
+    //   const newData = d.reduce((newDataArray, company, index) => {
+    //     if (this.companiesQueryStrings[index].includes(this.state.searchTerm)) {
+    //       newDataArray.push(company);
+    //       newQueryStrings.push(this.companiesQueryStrings[index]);
+    //     }
+    //     return newDataArray;
+    //   });
+    //   console.log('filteredData: ', newData)
+    //   this.setState({ data: newData })
+    // }
   }
     // take most parent data, filter companies according to stringQueryArray
 
