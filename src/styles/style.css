@@ -5,3 +5,7 @@
 #appContainer {
 	height: 100%;
 }
+
+#shadow-box {
+	box-shadow: 5px 5px 2.5px #C7C6C6;
+}

@@ -27721,15 +27721,19 @@
 
 	var _axios2 = _interopRequireDefault(_axios);
 
-	var _constants = __webpack_require__(484);
+	var _constants = __webpack_require__(481);
 
 	var _constants2 = _interopRequireDefault(_constants);
 
-	var _header = __webpack_require__(485);
+	var _data = __webpack_require__(571);
+
+	var _data2 = _interopRequireDefault(_data);
+
+	var _header = __webpack_require__(482);
 
 	var _header2 = _interopRequireDefault(_header);
 
-	var _sidebar = __webpack_require__(487);
+	var _sidebar = __webpack_require__(484);
 
 	var _sidebar2 = _interopRequireDefault(_sidebar);
 
@@ -28014,7 +28018,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'row', id: 'appContainer' },
-	          this.state.buttonsLoading ? _react2.default.createElement(_loading2.default, null) : _react2.default.createElement(_sidebar2.default, {
+	          this.state.buttonsLoading ? _react2.default.createElement('div', null) : _react2.default.createElement(_sidebar2.default, {
 	            buttonData: this.state.buttons,
 	            updateSearchTerm: this.updateSearchTerm
 	          }),
@@ -29525,10 +29529,7 @@
 
 
 /***/ },
-/* 481 */,
-/* 482 */,
-/* 483 */,
-/* 484 */
+/* 481 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29541,7 +29542,7 @@
 	exports.default = DATAURL;
 
 /***/ },
-/* 485 */
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29554,7 +29555,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _searchBar = __webpack_require__(486);
+	var _searchBar = __webpack_require__(483);
 
 	var _searchBar2 = _interopRequireDefault(_searchBar);
 
@@ -29586,7 +29587,7 @@
 	exports.default = Header;
 
 /***/ },
-/* 486 */
+/* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29633,7 +29634,7 @@
 	exports.default = SearchBar;
 
 /***/ },
-/* 487 */
+/* 484 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29646,7 +29647,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _buttonsContainer = __webpack_require__(488);
+	var _buttonsContainer = __webpack_require__(485);
 
 	var _buttonsContainer2 = _interopRequireDefault(_buttonsContainer);
 
@@ -29673,7 +29674,7 @@
 	exports.default = Sidebar;
 
 /***/ },
-/* 488 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29686,15 +29687,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _companyButton = __webpack_require__(574);
+	var _companyButton = __webpack_require__(486);
 
 	var _companyButton2 = _interopRequireDefault(_companyButton);
 
-	var _productButton = __webpack_require__(576);
+	var _productButton = __webpack_require__(487);
 
 	var _productButton2 = _interopRequireDefault(_productButton);
 
-	var _keywordButton = __webpack_require__(575);
+	var _keywordButton = __webpack_require__(488);
 
 	var _keywordButton2 = _interopRequireDefault(_keywordButton);
 
@@ -29804,6 +29805,117 @@
 	};
 
 	exports.default = ButtonsContainer;
+
+/***/ },
+/* 486 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var styles = {
+	  sidebarButtons: {
+	    width: '100%'
+	  }
+	};
+
+	var CompanyButton = function CompanyButton(_ref) {
+	  var company = _ref.company;
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      company
+	    )
+	  );
+	};
+
+	exports.default = CompanyButton;
+
+/***/ },
+/* 487 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var styles = {
+	  sidebarButtons: {
+	    width: '100%'
+	  }
+	};
+
+	var ProductButton = function ProductButton(_ref) {
+	  var product = _ref.product;
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      product
+	    )
+	  );
+	};
+
+	exports.default = ProductButton;
+
+/***/ },
+/* 488 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var styles = {
+	  sidebarButtons: {
+	    width: '100%'
+	  }
+	};
+
+	var KeywordButton = function KeywordButton(_ref) {
+	  var keyword = _ref.keyword;
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
+	      keyword
+	    )
+	  );
+	};
+
+	exports.default = KeywordButton;
 
 /***/ },
 /* 489 */
@@ -29994,18 +30106,8 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'col-xs-3' },
-	          'Ranks'
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'col-xs-2' },
-	          'Progress'
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'col-xs-2' },
-	          'Total Avg Score'
+	          { className: 'col-xs-7' },
+	          'Chart'
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -30056,6 +30158,12 @@
 	    borderStyle: 'solid',
 	    borderWidth: 0.25
 	  },
+	  margin: {
+	    marginTop: 10
+	  },
+	  offWhite: {
+	    backgroundColor: '#EEEEEE'
+	  },
 	  EMPTY: {}
 	};
 
@@ -30069,9 +30177,8 @@
 
 	  updateButtonsData(product.keywords);
 
-	  var colors = ['#5068A5', '#F1666D', '#53C453', '#844AA4', '#F5A868', '#C65492'];
+	  var lineColors = ['#5068A5', '#F1666D', '#53C453', '#844AA4', '#F5A868', '#C65492'];
 
-	  console.log('product: ', product);
 	  var keywordsDataForGraphs = [];
 
 	  var keywords = product.keywords.map(function (keyword) {
@@ -30082,14 +30189,13 @@
 	      keyword_name: keyword.keyword_name,
 	      keyword_country: keyword.keyword_country,
 	      keyword: keyword,
-	      colors: colors,
 	      pushCurrentQueryString: pushCurrentQueryString
 	    });
 	  });
 
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'row', style: styles.EMPTY },
+	    { className: 'row', style: styles.margin },
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'col-xs-3', style: styles.EMPTY },
@@ -30105,13 +30211,19 @@
 	      { className: 'col-xs-5' },
 	      _react2.default.createElement(_ranksGraph2.default, {
 	        ranks: keywordsDataForGraphs,
-	        colors: colors
+	        lineColors: lineColors
 	      })
 	    )
 	  );
 	};
 
 	exports.default = ProductListItem;
+
+	/*
+
+
+
+	*/
 
 /***/ },
 /* 493 */
@@ -30145,7 +30257,6 @@
 	  var keyword = _ref.keyword;
 	  var keyword_name = _ref.keyword_name;
 	  var keyword_country = _ref.keyword_country;
-	  var colors = _ref.colors;
 
 	  // console.log('state: ', this.state);
 
@@ -30237,13 +30348,16 @@
 	    borderStyle: 'solid',
 	    borderWidth: 0.25
 	  },
+	  offWhite: {
+	    backgroundColor: '#EEEEEE'
+	  },
 	  EMPTY: {}
 	};
 
 	var RanksGraph = function RanksGraph(_ref) {
 	  var ranks = _ref.ranks;
 	  var updateGraphData = _ref.updateGraphData;
-	  var colors = _ref.colors;
+	  var lineColors = _ref.lineColors;
 
 	  console.log('ranks in RanksGraph: ', ranks);
 	  console.log('ranks function: ', updateGraphData);
@@ -30261,7 +30375,10 @@
 	    return {
 	      field: 'rank_position',
 	      name: rank[0],
-	      color: colors[index]
+	      color: lineColors[index],
+	      style: {
+	        opacity: 0.5
+	      }
 	    };
 	  });
 
@@ -30292,8 +30409,12 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    { style: styles.TE },
+	    {
+	      style: styles.offWhite,
+	      id: 'shadow-box'
+	    },
 	    _react2.default.createElement(_reactD3Basic.LineChart, {
+
 	      showXGrid: true,
 	      showYGrid: true,
 	      margins: margins,
@@ -55352,118 +55473,17 @@
 	exports.default = Loading;
 
 /***/ },
-/* 571 */,
-/* 572 */,
-/* 573 */,
-/* 574 */
-/***/ function(module, exports, __webpack_require__) {
+/* 571 */
+/***/ function(module, exports) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	var DATA = JSON.parse('[{"client_id":1,"client_name":"Moen, Hickle and Stehr","products":[{"product_id":1,"product_name":"Ergonomic Cotton Keyboard","product_asin":"cfq35yoyh64i","product_image_url":"https://unsplash.it/310/676","keywords":[{"keyword_id":1,"keyword_name":"nam","keyword_country":"LV","ranks":[{"rank_id":1,"rank_position":214,"rank_page":2,"rank_date":"2016-08-16"},{"rank_id":2,"rank_position":82,"rank_page":3,"rank_date":"2016-11-12"},{"rank_id":3,"rank_position":23,"rank_page":4,"rank_date":"2017-01-19"},{"rank_id":4,"rank_position":304,"rank_page":13,"rank_date":"2016-04-12"},{"rank_id":5,"rank_position":342,"rank_page":17,"rank_date":"2016-08-08"}]},{"keyword_id":2,"keyword_name":"autem","keyword_country":"PW","ranks":[{"rank_id":6,"rank_position":90,"rank_page":1,"rank_date":"2016-12-02"},{"rank_id":7,"rank_position":330,"rank_page":17,"rank_date":"2016-09-14"},{"rank_id":8,"rank_position":341,"rank_page":9,"rank_date":"2016-10-03"},{"rank_id":9,"rank_position":129,"rank_page":12,"rank_date":"2017-01-22"}]}]},{"product_id":2,"product_name":"Small Bronze Shirt","product_asin":"7cb60wolk699","product_image_url":"https://unsplash.it/436/738","keywords":[{"keyword_id":3,"keyword_name":"voluptatem","keyword_country":"UM","ranks":[{"rank_id":10,"rank_position":9,"rank_page":6,"rank_date":"2016-03-14"},{"rank_id":11,"rank_position":88,"rank_page":9,"rank_date":"2016-05-27"},{"rank_id":12,"rank_position":307,"rank_page":1,"rank_date":"2016-10-28"},{"rank_id":13,"rank_position":223,"rank_page":14,"rank_date":"2016-12-26"},{"rank_id":14,"rank_position":384,"rank_page":12,"rank_date":"2016-02-29"},{"rank_id":15,"rank_position":366,"rank_page":11,"rank_date":"2016-09-30"},{"rank_id":16,"rank_position":164,"rank_page":18,"rank_date":"2016-11-20"},{"rank_id":17,"rank_position":259,"rank_page":17,"rank_date":"2016-07-24"},{"rank_id":18,"rank_position":82,"rank_page":9,"rank_date":"2016-10-13"},{"rank_id":19,"rank_position":81,"rank_page":3,"rank_date":"2016-08-01"},{"rank_id":20,"rank_position":258,"rank_page":10,"rank_date":"2016-05-31"},{"rank_id":21,"rank_position":195,"rank_page":10,"rank_date":"2016-10-31"},{"rank_id":22,"rank_position":46,"rank_page":10,"rank_date":"2017-01-24"},{"rank_id":23,"rank_position":353,"rank_page":13,"rank_date":"2016-09-30"},{"rank_id":24,"rank_position":378,"rank_page":3,"rank_date":"2016-08-16"},{"rank_id":25,"rank_position":243,"rank_page":7,"rank_date":"2016-12-19"},{"rank_id":26,"rank_position":167,"rank_page":7,"rank_date":"2016-09-29"},{"rank_id":27,"rank_position":37,"rank_page":17,"rank_date":"2017-01-04"},{"rank_id":28,"rank_position":155,"rank_page":4,"rank_date":"2016-05-09"},{"rank_id":29,"rank_position":152,"rank_page":3,"rank_date":"2016-07-14"}]},{"keyword_id":4,"keyword_name":"impedit","keyword_country":"TW","ranks":[{"rank_id":30,"rank_position":197,"rank_page":17,"rank_date":"2016-10-03"},{"rank_id":31,"rank_position":381,"rank_page":18,"rank_date":"2016-08-24"},{"rank_id":32,"rank_position":150,"rank_page":14,"rank_date":"2017-01-31"},{"rank_id":33,"rank_position":372,"rank_page":18,"rank_date":"2016-07-05"},{"rank_id":34,"rank_position":133,"rank_page":3,"rank_date":"2016-12-20"},{"rank_id":35,"rank_position":67,"rank_page":18,"rank_date":"2016-05-19"},{"rank_id":36,"rank_position":54,"rank_page":7,"rank_date":"2016-09-23"},{"rank_id":37,"rank_position":326,"rank_page":2,"rank_date":"2016-08-07"},{"rank_id":38,"rank_position":386,"rank_page":18,"rank_date":"2016-05-25"},{"rank_id":39,"rank_position":122,"rank_page":3,"rank_date":"2016-04-27"},{"rank_id":40,"rank_position":103,"rank_page":12,"rank_date":"2016-12-12"},{"rank_id":41,"rank_position":86,"rank_page":8,"rank_date":"2016-07-10"},{"rank_id":42,"rank_position":300,"rank_page":3,"rank_date":"2016-02-27"},{"rank_id":43,"rank_position":128,"rank_page":12,"rank_date":"2016-07-02"},{"rank_id":44,"rank_position":376,"rank_page":7,"rank_date":"2016-03-17"},{"rank_id":45,"rank_position":104,"rank_page":17,"rank_date":"2016-10-16"},{"rank_id":46,"rank_position":279,"rank_page":20,"rank_date":"2016-07-16"},{"rank_id":47,"rank_position":80,"rank_page":15,"rank_date":"2016-02-15"},{"rank_id":48,"rank_position":213,"rank_page":6,"rank_date":"2017-01-13"},{"rank_id":49,"rank_position":213,"rank_page":20,"rank_date":"2016-07-09"}]},{"keyword_id":5,"keyword_name":"minima","keyword_country":"BJ","ranks":[{"rank_id":50,"rank_position":270,"rank_page":17,"rank_date":"2016-11-20"},{"rank_id":51,"rank_position":169,"rank_page":3,"rank_date":"2016-12-02"},{"rank_id":52,"rank_position":370,"rank_page":3,"rank_date":"2016-02-13"},{"rank_id":53,"rank_position":59,"rank_page":6,"rank_date":"2016-10-20"},{"rank_id":54,"rank_position":387,"rank_page":7,"rank_date":"2016-04-09"},{"rank_id":55,"rank_position":117,"rank_page":1,"rank_date":"2016-11-27"},{"rank_id":56,"rank_position":81,"rank_page":20,"rank_date":"2016-02-27"},{"rank_id":57,"rank_position":354,"rank_page":10,"rank_date":"2016-04-06"},{"rank_id":58,"rank_position":281,"rank_page":8,"rank_date":"2016-05-21"},{"rank_id":59,"rank_position":128,"rank_page":10,"rank_date":"2016-03-27"},{"rank_id":60,"rank_position":226,"rank_page":9,"rank_date":"2016-10-29"},{"rank_id":61,"rank_position":39,"rank_page":15,"rank_date":"2016-03-31"},{"rank_id":62,"rank_position":100,"rank_page":3,"rank_date":"2016-12-25"},{"rank_id":63,"rank_position":53,"rank_page":9,"rank_date":"2016-12-09"},{"rank_id":64,"rank_position":54,"rank_page":3,"rank_date":"2016-03-23"}]}]},{"product_id":3,"product_name":"Fantastic Steel Watch","product_asin":"urz2xuol8m7o","product_image_url":"https://unsplash.it/269/508","keywords":[{"keyword_id":6,"keyword_name":"et","keyword_country":"TC","ranks":[{"rank_id":65,"rank_position":396,"rank_page":14,"rank_date":"2016-08-30"},{"rank_id":66,"rank_position":349,"rank_page":19,"rank_date":"2016-09-08"},{"rank_id":67,"rank_position":318,"rank_page":11,"rank_date":"2016-05-04"},{"rank_id":68,"rank_position":327,"rank_page":9,"rank_date":"2016-03-22"},{"rank_id":69,"rank_position":50,"rank_page":15,"rank_date":"2017-01-10"},{"rank_id":70,"rank_position":306,"rank_page":12,"rank_date":"2016-11-29"},{"rank_id":71,"rank_position":221,"rank_page":15,"rank_date":"2016-02-08"},{"rank_id":72,"rank_position":312,"rank_page":8,"rank_date":"2016-12-19"},{"rank_id":73,"rank_position":236,"rank_page":11,"rank_date":"2016-03-13"},{"rank_id":74,"rank_position":292,"rank_page":15,"rank_date":"2016-04-03"},{"rank_id":75,"rank_position":222,"rank_page":5,"rank_date":"2016-10-28"},{"rank_id":76,"rank_position":346,"rank_page":17,"rank_date":"2016-08-12"},{"rank_id":77,"rank_position":105,"rank_page":1,"rank_date":"2016-04-27"},{"rank_id":78,"rank_position":63,"rank_page":5,"rank_date":"2016-06-02"},{"rank_id":79,"rank_position":19,"rank_page":20,"rank_date":"2016-12-19"}]}]},{"product_id":4,"product_name":"Intelligent Marble Computer","product_asin":"dn3jsnhcx7hg","product_image_url":"https://unsplash.it/492/408","keywords":[{"keyword_id":7,"keyword_name":"et","keyword_country":"VE","ranks":[{"rank_id":80,"rank_position":63,"rank_page":7,"rank_date":"2016-04-11"},{"rank_id":81,"rank_position":160,"rank_page":17,"rank_date":"2016-12-26"},{"rank_id":82,"rank_position":345,"rank_page":7,"rank_date":"2016-08-21"},{"rank_id":83,"rank_position":310,"rank_page":18,"rank_date":"2016-08-01"},{"rank_id":84,"rank_position":377,"rank_page":10,"rank_date":"2016-12-15"},{"rank_id":85,"rank_position":372,"rank_page":6,"rank_date":"2016-03-16"},{"rank_id":86,"rank_position":246,"rank_page":1,"rank_date":"2016-02-26"},{"rank_id":87,"rank_position":206,"rank_page":15,"rank_date":"2016-11-12"},{"rank_id":88,"rank_position":365,"rank_page":20,"rank_date":"2016-02-04"},{"rank_id":89,"rank_position":90,"rank_page":12,"rank_date":"2016-02-29"},{"rank_id":90,"rank_position":114,"rank_page":15,"rank_date":"2016-08-29"},{"rank_id":91,"rank_position":326,"rank_page":7,"rank_date":"2016-08-23"},{"rank_id":92,"rank_position":136,"rank_page":12,"rank_date":"2016-03-13"},{"rank_id":93,"rank_position":318,"rank_page":2,"rank_date":"2016-04-21"},{"rank_id":94,"rank_position":146,"rank_page":17,"rank_date":"2016-06-09"},{"rank_id":95,"rank_position":184,"rank_page":17,"rank_date":"2016-11-26"},{"rank_id":96,"rank_position":348,"rank_page":5,"rank_date":"2017-01-17"},{"rank_id":97,"rank_position":184,"rank_page":19,"rank_date":"2016-08-06"}]}]}]}]');
 
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var styles = {
-	  sidebarButtons: {
-	    width: '100%'
-	  }
-	};
-
-	var CompanyButton = function CompanyButton(_ref) {
-	  var company = _ref.company;
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      company
-	    )
-	  );
-	};
-
-	exports.default = CompanyButton;
-
-/***/ },
-/* 575 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var styles = {
-	  sidebarButtons: {
-	    width: '100%'
-	  }
-	};
-
-	var KeywordButton = function KeywordButton(_ref) {
-	  var keyword = _ref.keyword;
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      keyword
-	    )
-	  );
-	};
-
-	exports.default = KeywordButton;
-
-/***/ },
-/* 576 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var styles = {
-	  sidebarButtons: {
-	    width: '100%'
-	  }
-	};
-
-	var ProductButton = function ProductButton(_ref) {
-	  var product = _ref.product;
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'btn btn-default', id: 'width100', style: styles.sidebarButtons },
-	      product
-	    )
-	  );
-	};
-
-	exports.default = ProductButton;
+	exports.default = DATA;
 
 /***/ }
 /******/ ]);

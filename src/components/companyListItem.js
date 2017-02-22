@@ -43,9 +43,9 @@ const CompanyListItem = ({ company, updateButtonsData, addCompanyArrayToQueryStr
         <div className="row" style={styles.EMPTY}>
           <div className="col-xs-3">Product</div>
           <div className="col-xs-2">Keywords</div>
-          <div className="col-xs-3">Ranks</div>
-          <div className="col-xs-2">Progress</div>
-          <div className="col-xs-2">Total Avg Score</div>
+          <div className="col-xs-7">Chart</div>
+
+          
         </div>
         <div className="row">
           <div className="col-xs-12" style={styles.EMPTY}>

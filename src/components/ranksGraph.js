@@ -7,10 +7,13 @@ const styles = {
     borderStyle: 'solid',
     borderWidth: 0.25
   },
+  offWhite: {
+    backgroundColor:'#EEEEEE',
+  },
   EMPTY: {}
 }
 
-const RanksGraph = ({ ranks, updateGraphData, colors }) => {
+const RanksGraph = ({ ranks, updateGraphData, lineColors }) => {
   console.log('ranks in RanksGraph: ', ranks);
   console.log('ranks function: ', updateGraphData);
 
@@ -27,7 +30,10 @@ const RanksGraph = ({ ranks, updateGraphData, colors }) => {
       {
         field: 'rank_position',
         name: rank[0],
-        color: colors[index]       
+        color: lineColors[index],
+        style: {
+          opacity: 0.5
+        }    
       }
     ));
 
@@ -61,19 +67,23 @@ const RanksGraph = ({ ranks, updateGraphData, colors }) => {
 
 
   return (
-    <div style={styles.TE}>
-        <LineChart
-          showXGrid= {true}
-          showYGrid= {true}
-          margins= {margins}
-          title={title}
-          data={chartData}
-          width={width}
-          height={height}
-          chartSeries={chartSeries}
-          x={x}
-          xScale={xScale}
-        />
+    <div 
+      style={styles.offWhite}
+      id="shadow-box"
+    >
+      <LineChart
+        
+        showXGrid= {true}
+        showYGrid= {true}
+        margins= {margins}
+        title={title}
+        data={chartData}
+        width={width}
+        height={height}
+        chartSeries={chartSeries}
+        x={x}
+        xScale={xScale}
+      />
     </div>
   );
 };

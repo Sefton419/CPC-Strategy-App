@@ -11,6 +11,12 @@ const styles = {
     borderStyle: 'solid',
     borderWidth: 0.25
   },
+  margin: {
+    marginTop: 10
+  },
+  offWhite: {
+    backgroundColor:'#EEEEEE',
+  },
   EMPTY: {}
 }
 
@@ -18,7 +24,7 @@ const ProductListItem = ({ product, product_name, product_image_url, updateButto
 
   updateButtonsData(product.keywords); 
 
-  const colors = [
+  const lineColors = [
     '#5068A5',
     '#F1666D',
     '#53C453',
@@ -27,7 +33,6 @@ const ProductListItem = ({ product, product_name, product_image_url, updateButto
     '#C65492'
   ]
 
-  console.log('product: ', product);
   const keywordsDataForGraphs = [];
 
   const keywords = product.keywords.map((keyword) => {
@@ -39,14 +44,13 @@ const ProductListItem = ({ product, product_name, product_image_url, updateButto
         keyword_name={keyword.keyword_name}
         keyword_country={keyword.keyword_country}
         keyword={keyword}
-        colors={colors}
         pushCurrentQueryString={pushCurrentQueryString}
       />
     );
   });
 
   return (
-    <div className="row" style={styles.EMPTY}>
+    <div className="row" style={styles.margin}>
         <div className="col-xs-3" style={styles.EMPTY}>
           {product_name}
         </div>
@@ -56,7 +60,7 @@ const ProductListItem = ({ product, product_name, product_image_url, updateButto
         <div className="col-xs-5">
           <RanksGraph 
             ranks={keywordsDataForGraphs}
-            colors={colors}
+            lineColors={lineColors}
         />
         </div>
     </div>
@@ -64,3 +68,10 @@ const ProductListItem = ({ product, product_name, product_image_url, updateButto
 };
 
 export default ProductListItem;
+
+
+/*
+
+
+
+*/

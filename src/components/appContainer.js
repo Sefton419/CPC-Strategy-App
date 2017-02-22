@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 
 import DATAURL from '../constants/constants.js'
+import DATA from '../constants/data.js'
 import Header from './header.js';
 import Sidebar from './sidebar.js';
 import ListContainer from './listContainer.js';
@@ -241,7 +242,7 @@ class AppContainer extends Component {
         </div>
         <div className="row" id="appContainer">
           {this.state.buttonsLoading ?
-          <Loading /> :
+          <div /> :
           <Sidebar 
             buttonData={this.state.buttons} 
             updateSearchTerm={this.updateSearchTerm} 
