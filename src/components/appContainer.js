@@ -76,6 +76,9 @@ class AppContainer extends Component {
         this.handleIndexData();
         this.handleQueryData(this.companiesQueryStrings);
       })
+      // .then((resp) => {
+
+      // })
       .catch((error) => {
         console.log('ERROR in mapping data');
       });
@@ -102,6 +105,7 @@ class AppContainer extends Component {
           this.companiesIndex[product_name]++;
         }
       }, []);
+      this.companiesIndex = {};
     }
     if (d[0].product_name !== undefined) {
       const productItemNames = d.reduce((productNames, product) => {
@@ -114,6 +118,7 @@ class AppContainer extends Component {
           this.productsIndex[product_name]++;
         }
       }, []).join('').toLowerCase();
+      this.productsIndex = {};
       this.pushCurrentQueryString(productItemNames);
       // console.log('query string from a product: ', this.companiesQueryStrings[this.companiesQueryArrayIndex]);
     }
@@ -128,6 +133,7 @@ class AppContainer extends Component {
           this.keywordIndex[product_name]++;
         } 
       }, []).join('').toLowerCase();
+      this.keywordIndex = {};
       // console.log('keywordItemNames TOLOWERCASE(): ', keywordItemNames)
       this.pushCurrentQueryString(keywordItemNames);
       // console.log('query string from a keyword: ', this.companiesQueryStrings[this.companiesQueryArrayIndex]);
@@ -234,7 +240,6 @@ class AppContainer extends Component {
     // take most parent data, filter companies according to stringQueryArray
 
   render() {
-
     return (
       <div className="container-fluid" id="appContainer" style={styles.container}>
         <div className="row">
@@ -256,8 +261,6 @@ class AppContainer extends Component {
             addCompanyArrayToQueryStrings={this.addCompanyArrayToQueryStrings}
             pushCurrentQueryString={this.pushCurrentQueryString}
           />}
-
-
         </div>
       </div>
     )

@@ -37,7 +37,7 @@ const CompanyListItem = ({ company, updateButtonsData, addCompanyArrayToQueryStr
   return (
     <div className="panel panel-default">
       <h2 className="panel-title">
-        {company.client_name} 
+      {company.client_name} 
       </h2>   
       <div className="panel-body">
         <div className="row">
@@ -47,7 +47,7 @@ const CompanyListItem = ({ company, updateButtonsData, addCompanyArrayToQueryStr
         </div>
         <div className="row">
           <div className="col-xs-12" style={styles.EMPTY}>
-            {products}
+          {products}
           </div>
         </div>
       </div>

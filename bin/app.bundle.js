@@ -27829,7 +27829,11 @@
 	          // for buttons
 	          _this2.handleIndexData();
 	          _this2.handleQueryData(_this2.companiesQueryStrings);
-	        }).catch(function (error) {
+	        })
+	        // .then((resp) => {
+
+	        // })
+	        .catch(function (error) {
 	          console.log('ERROR in mapping data');
 	        });
 	      }
@@ -27860,6 +27864,7 @@
 	            _this3.companiesIndex[product_name]++;
 	          }
 	        }, []);
+	        this.companiesIndex = {};
 	      }
 	      if (d[0].product_name !== undefined) {
 	        var productItemNames = d.reduce(function (productNames, product) {
@@ -27873,6 +27878,7 @@
 	            _this3.productsIndex[product_name]++;
 	          }
 	        }, []).join('').toLowerCase();
+	        this.productsIndex = {};
 	        this.pushCurrentQueryString(productItemNames);
 	        // console.log('query string from a product: ', this.companiesQueryStrings[this.companiesQueryArrayIndex]);
 	      }
@@ -27888,6 +27894,7 @@
 	            _this3.keywordIndex[product_name]++;
 	          }
 	        }, []).join('').toLowerCase();
+	        this.keywordIndex = {};
 	        // console.log('keywordItemNames TOLOWERCASE(): ', keywordItemNames)
 	        this.pushCurrentQueryString(keywordItemNames);
 	        // console.log('query string from a keyword: ', this.companiesQueryStrings[this.companiesQueryArrayIndex]);
@@ -28006,7 +28013,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'container-fluid', id: 'appContainer', style: styles.container },
