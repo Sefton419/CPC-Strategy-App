@@ -12,7 +12,10 @@ const Sidebar = ({ buttonData, updateSearchTerm }) => {
   
   return (
     <div className="col-xs-2" style={styles.sidebar}>
-      <ButtonsContainer buttonData={buttonData} updateSearchTerm={updateSearchTerm} />
+      <ButtonsContainer 
+        buttonData={buttonData} 
+        updateSearchTerm={updateSearchTerm} 
+      />
     </div>
   )
 }

@@ -29667,7 +29667,10 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'col-xs-2', style: styles.sidebar },
-	    _react2.default.createElement(_buttonsContainer2.default, { buttonData: buttonData, updateSearchTerm: updateSearchTerm })
+	    _react2.default.createElement(_buttonsContainer2.default, {
+	      buttonData: buttonData,
+	      updateSearchTerm: updateSearchTerm
+	    })
 	  );
 	};
 
@@ -30351,6 +30354,9 @@
 	  offWhite: {
 	    backgroundColor: '#EEEEEE'
 	  },
+	  shadow: {
+	    boxShadow: [5, 5, 2.5, '#C7C6C6']
+	  },
 	  EMPTY: {}
 	};
 
@@ -30409,12 +30415,9 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    {
-	      style: styles.offWhite,
-	      id: 'shadow-box'
-	    },
+	    null,
 	    _react2.default.createElement(_reactD3Basic.LineChart, {
-
+	      id: 'shadow-box',
 	      showXGrid: true,
 	      showYGrid: true,
 	      margins: margins,

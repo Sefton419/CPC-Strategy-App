@@ -10,6 +10,9 @@ const styles = {
   offWhite: {
     backgroundColor:'#EEEEEE',
   },
+  shadow: {
+    boxShadow: [5, 5, 2.5, '#C7C6C6']
+  },
   EMPTY: {}
 }
 
@@ -67,12 +70,9 @@ const RanksGraph = ({ ranks, updateGraphData, lineColors }) => {
 
 
   return (
-    <div 
-      style={styles.offWhite}
-      id="shadow-box"
-    >
+    <div>
       <LineChart
-        
+        id="shadow-box"
         showXGrid= {true}
         showYGrid= {true}
         margins= {margins}
