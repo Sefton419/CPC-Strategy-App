@@ -105,7 +105,6 @@ class AppContainer extends Component {
           this.companiesIndex[product_name]++;
         }
       }, []);
-      this.companiesIndex = {};
     }
     if (d[0].product_name !== undefined) {
       const productItemNames = d.reduce((productNames, product) => {
@@ -118,7 +117,6 @@ class AppContainer extends Component {
           this.productsIndex[product_name]++;
         }
       }, []).join('').toLowerCase();
-      this.productsIndex = {};
       this.pushCurrentQueryString(productItemNames);
       // console.log('query string from a product: ', this.companiesQueryStrings[this.companiesQueryArrayIndex]);
     }
@@ -133,7 +131,6 @@ class AppContainer extends Component {
           this.keywordIndex[product_name]++;
         } 
       }, []).join('').toLowerCase();
-      this.keywordIndex = {};
       // console.log('keywordItemNames TOLOWERCASE(): ', keywordItemNames)
       this.pushCurrentQueryString(keywordItemNames);
       // console.log('query string from a keyword: ', this.companiesQueryStrings[this.companiesQueryArrayIndex]);
