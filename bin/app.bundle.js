@@ -27796,6 +27796,7 @@
 	    _this.addCompanyArrayToQueryStrings = _this.addCompanyArrayToQueryStrings.bind(_this);
 	    _this.pushCurrentQueryString = _this.pushCurrentQueryString.bind(_this);
 	    _this.handleQueryData = _this.handleQueryData.bind(_this);
+	    _this.updateSearchTermFromSearchBar = _this.updateSearchTermFromSearchBar.bind(_this);
 
 	    return _this;
 	  }
@@ -27968,6 +27969,13 @@
 	      });
 	    }
 	  }, {
+	    key: 'updateSearchTermFromSearchBar',
+	    value: function updateSearchTermFromSearchBar(event) {
+	      this.setState({ searchTerm: event.target.value.toLowerCase() }, function (data) {
+	        console.log('HERE SEARCHTERM IS!!!: ', this.state.searchTerm);
+	      });
+	    }
+	  }, {
 	    key: 'addCompanyArrayToQueryStrings',
 	    value: function addCompanyArrayToQueryStrings(companyName) {
 	      if (this.firstCompanyPassedOver) {
@@ -28021,7 +28029,10 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'row' },
-	          _react2.default.createElement(_header2.default, null)
+	          _react2.default.createElement(_header2.default, {
+	            state: this.state,
+	            updateSearchTermFromSearchBar: this.updateSearchTermFromSearchBar
+	          })
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -29590,7 +29601,10 @@
 	  }
 	};
 
-	var Header = function Header() {
+	var Header = function Header(_ref) {
+	  var state = _ref.state;
+	  var updateSearchTermFromSearchBar = _ref.updateSearchTermFromSearchBar;
+
 	  // methods and variables go here...
 	  return _react2.default.createElement(
 	    'div',
@@ -29601,7 +29615,10 @@
 	      'CPC Strategy'
 	    ),
 	    _react2.default.createElement('div', { className: 'row' }),
-	    _react2.default.createElement(_searchBar2.default, null)
+	    _react2.default.createElement(_searchBar2.default, {
+	      state: state,
+	      updateSearchTermFromSearchBar: updateSearchTermFromSearchBar
+	    })
 	  );
 	};
 
@@ -29611,7 +29628,7 @@
 /* 484 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -29624,29 +29641,37 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var SearchBar = function SearchBar(_ref) {
-	  var props = _ref.props;
+	  var updateSearchTermFromSearchBar = _ref.updateSearchTermFromSearchBar;
+	  var state = _ref.state;
 
+
+	  var searching = '';
 
 	  return _react2.default.createElement(
-	    "div",
-	    { className: "row" },
-	    _react2.default.createElement("div", { className: "col-md-2" }),
+	    'div',
+	    { className: 'row' },
+	    _react2.default.createElement('div', { className: 'col-md-2' }),
 	    _react2.default.createElement(
-	      "div",
-	      { className: "col-lg-4" },
+	      'div',
+	      { className: 'col-lg-4' },
 	      _react2.default.createElement(
-	        "div",
-	        { className: "input-group" },
+	        'div',
+	        { className: 'input-group' },
 	        _react2.default.createElement(
-	          "span",
-	          { className: "input-group-btn" },
+	          'span',
+	          { className: 'input-group-btn' },
 	          _react2.default.createElement(
-	            "button",
-	            { className: "btn btn-default", type: "button" },
-	            "Go!"
+	            'button',
+	            { className: 'btn btn-default', type: 'button' },
+	            'Go!'
 	          )
 	        ),
-	        _react2.default.createElement("input", { type: "text", className: "form-control", placeholder: "Search for..." })
+	        _react2.default.createElement('input', {
+	          type: 'text',
+	          className: 'form-control',
+	          placeholder: 'Search for...',
+	          onChange: updateSearchTermFromSearchBar.bind(undefined)
+	        })
 	      )
 	    )
 	  );

@@ -9,7 +9,7 @@ const styles = {
   }
 }
 
-const Header = () => {
+const Header = ({ state, updateSearchTermFromSearchBar }) => {
   // methods and variables go here...
   return (
     <div className="col-md-12" style={styles.header}>
@@ -17,7 +17,10 @@ const Header = () => {
         CPC Strategy
       </div>
       <div className="row" />
-     <SearchBar />
+      <SearchBar
+        state={state}
+        updateSearchTermFromSearchBar={updateSearchTermFromSearchBar}
+      />
     </div>
 
   );

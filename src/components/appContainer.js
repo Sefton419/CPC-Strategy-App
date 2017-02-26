@@ -46,6 +46,7 @@ class AppContainer extends Component {
     this.addCompanyArrayToQueryStrings = this.addCompanyArrayToQueryStrings.bind(this);
     this.pushCurrentQueryString = this.pushCurrentQueryString.bind(this);
     this.handleQueryData = this.handleQueryData.bind(this);
+    this.updateSearchTermFromSearchBar = this.updateSearchTermFromSearchBar.bind(this);
     
   }
 
@@ -209,6 +210,12 @@ class AppContainer extends Component {
     
   }
 
+  updateSearchTermFromSearchBar(event) {
+    this.setState({searchTerm: event.target.value.toLowerCase()}, function(data) {
+      console.log('HERE SEARCHTERM IS!!!: ', this.state.searchTerm);
+    });
+  }
+
   addCompanyArrayToQueryStrings(companyName) {
     if (this.firstCompanyPassedOver) {
       if (this.companiesQueryArrayIndex < this.state.data.length - 1) {
@@ -254,7 +261,10 @@ class AppContainer extends Component {
     return (
       <div className="container-fluid" id="appContainer" style={styles.container}>
         <div className="row">
-          <Header />
+          <Header
+            state={this.state}
+            updateSearchTermFromSearchBar={this.updateSearchTermFromSearchBar}
+          />
         </div>
         <div className="row" id="appContainer">
           {this.state.buttonsLoading ?
