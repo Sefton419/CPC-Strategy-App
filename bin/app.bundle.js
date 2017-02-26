@@ -27964,16 +27964,12 @@
 	    key: 'updateSearchTerm',
 	    value: function updateSearchTerm(term) {
 	      // console.log(`${term} button worked!`);
-	      this.setState({ searchTerm: term.toLowerCase() }, function (data) {
-	        console.log('HERE SEARCHTERM IS!!!: ', this.state.searchTerm);
-	      });
+	      this.setState({ searchTerm: term.toLowerCase() });
 	    }
 	  }, {
 	    key: 'updateSearchTermFromSearchBar',
 	    value: function updateSearchTermFromSearchBar(event) {
-	      this.setState({ searchTerm: event.target.value.toLowerCase() }, function (data) {
-	        console.log('HERE SEARCHTERM IS!!!: ', this.state.searchTerm);
-	      });
+	      this.setState({ searchTerm: event.target.value.toLowerCase() });
 	    }
 	  }, {
 	    key: 'addCompanyArrayToQueryStrings',

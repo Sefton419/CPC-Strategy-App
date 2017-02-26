@@ -204,16 +204,12 @@ class AppContainer extends Component {
 
   updateSearchTerm(term) {
     // console.log(`${term} button worked!`);
-    this.setState({searchTerm: term.toLowerCase()}, function(data) {
-      console.log('HERE SEARCHTERM IS!!!: ', this.state.searchTerm);
-    });
+    this.setState({searchTerm: term.toLowerCase()});
     
   }
 
   updateSearchTermFromSearchBar(event) {
-    this.setState({searchTerm: event.target.value.toLowerCase()}, function(data) {
-      console.log('HERE SEARCHTERM IS!!!: ', this.state.searchTerm);
-    });
+    this.setState({searchTerm: event.target.value.toLowerCase()});
   }
 
   addCompanyArrayToQueryStrings(companyName) {
