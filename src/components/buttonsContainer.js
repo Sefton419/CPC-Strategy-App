@@ -69,14 +69,38 @@ const ButtonsContainer = ({ buttonData, updateSearchTerm }) => {
     <div>
       <h4>Companies</h4>
       <div className="btn-group-vertical" id="width100">
+        <button
+          className="btn btn-default" 
+          id="width100"
+          onClick={() => {
+            const accurateKeyword = '';
+            updateSearchTerm(accurateKeyword);
+          }}
+        >All Companies</button>
         {companyButtons}
       </div>
       <h4>Products</h4>
       <div className="btn-group-vertical" id="width100">
+      <button
+        className="btn btn-default" 
+        id="width100"
+        onClick={() => {
+          const accurateKeyword = '';
+          updateSearchTerm(accurateKeyword);
+        }}
+      >All Products</button>
         {productButtons}
       </div>
       <h4>Keywords</h4>
       <div className="btn-group-vertical" id="width100">
+      <button
+        className="btn btn-default" 
+        id="width100"
+        onClick={() => {
+          const accurateKeyword = '';
+          updateSearchTerm(accurateKeyword);
+        }}
+      >All Keywords</button>
         {keywordButtons}
       </div>
     </div>    

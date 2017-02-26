@@ -27984,8 +27984,6 @@
 	      if (this.companiesQueryStrings.length < this.state.data.length) {
 	        this.companiesQueryStrings.push([' ' + companyName.toLowerCase() + ' ']);
 	      }
-	      // console.log('companiesQueryStrings after pushing: ', this.companiesQueryStrings);
-	      // console.log('THIS IS THE INDEXXXX: ', this.companyQueryArrayIndex);
 	    }
 	  }, {
 	    key: 'pushCurrentQueryString',
@@ -28006,14 +28004,12 @@
 	      // setState
 	      var dataWithQueryStrings = this.state.data.map(function (company, index) {
 	        company.queryString = joinedQueries[index];
-	        console.log('company ' + index + ': ', company);
 	        return company;
 	      });
 	      this.setState({
 	        dataWithQueryStrings: dataWithQueryStrings,
 	        companiesQueryStrings: joinedQueries
 	      });
-
 	      console.log('this.state.dataWithQueryStrings: ', this.state.dataWithQueryStrings);
 	    }
 	  }, {
@@ -29802,6 +29798,18 @@
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'btn-group-vertical', id: 'width100' },
+	      _react2.default.createElement(
+	        'button',
+	        {
+	          className: 'btn btn-default',
+	          id: 'width100',
+	          onClick: function onClick() {
+	            var accurateKeyword = '';
+	            updateSearchTerm(accurateKeyword);
+	          }
+	        },
+	        'All Companies'
+	      ),
 	      companyButtons
 	    ),
 	    _react2.default.createElement(
@@ -29812,6 +29820,18 @@
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'btn-group-vertical', id: 'width100' },
+	      _react2.default.createElement(
+	        'button',
+	        {
+	          className: 'btn btn-default',
+	          id: 'width100',
+	          onClick: function onClick() {
+	            var accurateKeyword = '';
+	            updateSearchTerm(accurateKeyword);
+	          }
+	        },
+	        'All Products'
+	      ),
 	      productButtons
 	    ),
 	    _react2.default.createElement(
@@ -29822,6 +29842,18 @@
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'btn-group-vertical', id: 'width100' },
+	      _react2.default.createElement(
+	        'button',
+	        {
+	          className: 'btn btn-default',
+	          id: 'width100',
+	          onClick: function onClick() {
+	            var accurateKeyword = '';
+	            updateSearchTerm(accurateKeyword);
+	          }
+	        },
+	        'All Keywords'
+	      ),
 	      keywordButtons
 	    )
 	  );

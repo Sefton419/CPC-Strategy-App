@@ -225,8 +225,6 @@ class AppContainer extends Component {
     if (this.companiesQueryStrings.length < this.state.data.length) {
       this.companiesQueryStrings.push([` ${companyName.toLowerCase()} `]);
     }
-    // console.log('companiesQueryStrings after pushing: ', this.companiesQueryStrings);
-    // console.log('THIS IS THE INDEXXXX: ', this.companyQueryArrayIndex);
   }
 
   pushCurrentQueryString(qstr) {
@@ -243,16 +241,13 @@ class AppContainer extends Component {
     // setState
     const dataWithQueryStrings = this.state.data.map((company, index) => {
       company.queryString = joinedQueries[index];
-      console.log(`company ${index}: `, company);
       return company;
     });
     this.setState({ 
       dataWithQueryStrings: dataWithQueryStrings,
       companiesQueryStrings: joinedQueries 
     });
-
-    console.log('this.state.dataWithQueryStrings: ', this.state.dataWithQueryStrings);
-
+  console.log('this.state.dataWithQueryStrings: ', this.state.dataWithQueryStrings);
   }
 
   render() {
