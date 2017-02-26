@@ -1,9 +1,5 @@
 import React from 'react';
 
-import CompanyButton from './companyButton.js';
-import ProductButton from './productButton.js';
-import KeywordButton from './keywordButton.js';
-
 const styles = {
   sidebarButtons: {
     width: '100%', 
@@ -17,10 +13,10 @@ const styles = {
 const ButtonsContainer = ({ buttonData, updateSearchTerm }) => {
   let keyTicker = 1;
 
-  console.log('buttonData in ButtonsContainer: ', buttonData);
+  // console.log('buttonData in ButtonsContainer: ', buttonData);
 
   const { companies, products, keywords } = buttonData;
-  console.log('companies destructured: ', companies);
+  // console.log('companies destructured: ', companies);
 
   const companyButtons = companies.map(company => (
     <button 
@@ -29,7 +25,8 @@ const ButtonsContainer = ({ buttonData, updateSearchTerm }) => {
       id="width100"
       style={styles.button}
       onClick={() => {
-        updateSearchTerm(company)
+        const accurateCompany = ` ${company} `
+        updateSearchTerm(accurateCompany)
       }} 
       style={styles.sidebarButtons}
     >
@@ -43,7 +40,8 @@ const ButtonsContainer = ({ buttonData, updateSearchTerm }) => {
       id="width100"
       style={styles.button}
       onClick={() => {
-        updateSearchTerm(product)
+        const accurateProduct = ` ${product} `
+        updateSearchTerm(accurateProduct)
       }} 
       style={styles.sidebarButtons}
     >
@@ -57,7 +55,8 @@ const ButtonsContainer = ({ buttonData, updateSearchTerm }) => {
       id="width100"
       style={styles.button}
       onClick={() => {
-        updateSearchTerm(keyword)
+        const accurateKeyword = ` ${keyword} `
+        updateSearchTerm(accurateKeyword)
       }} 
       style={styles.sidebarButtons}
     >  

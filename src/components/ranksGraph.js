@@ -14,8 +14,8 @@ const styles = {
 }
 
 const RanksGraph = ({ ranks, updateGraphData, lineColors }) => {
-  console.log('ranks in RanksGraph: ', ranks);
-  console.log('ranks function: ', updateGraphData);
+  // console.log('ranks in RanksGraph: ', ranks);
+  // console.log('ranks function: ', updateGraphData);
 
   const width = 350*(1.5),
     height = 150*(1.5),
@@ -37,7 +37,7 @@ const RanksGraph = ({ ranks, updateGraphData, lineColors }) => {
       }
     ));
 
-    console.log(`chartSeries for ${ranks[0]}: `, chartSeries);
+    // console.log(`chartSeries for ${ranks[0]}: `, chartSeries);
 
     const parseDate = d3.time.format("%Y-%m-%d").parse;
 
@@ -55,7 +55,7 @@ const RanksGraph = ({ ranks, updateGraphData, lineColors }) => {
     });;
 
     
-    console.log(`chartData: `, chartData);
+    // console.log(`chartData: `, chartData);
 
     // your x accessor
     const x = function(d) {

@@ -7,7 +7,7 @@ const styles = {
 }
 
 const Sidebar = ({ buttonData, updateSearchTerm }) => {
-  console.log('buttonData in SideBar: ', buttonData);
+  // console.log('buttonData in SideBar: ', buttonData);
   // method and variable go here...
   
   return (

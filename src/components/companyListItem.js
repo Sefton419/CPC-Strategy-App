@@ -11,10 +11,10 @@ const styles = {
 }
 
 const CompanyListItem = ({ company, updateButtonsData, addCompanyArrayToQueryStrings, pushCurrentQueryString }) => {
-  console.log('inside companyListItem');
+  // console.log('inside companyListItem');
   addCompanyArrayToQueryStrings(company.client_name);
 
-  console.log('addCompanyArrayToQueryStrings envoked')
+  // console.log('addCompanyArrayToQueryStrings envoked')
 
   updateButtonsData(company.products);
   // pushCurrentQueryString();
@@ -32,7 +32,7 @@ const CompanyListItem = ({ company, updateButtonsData, addCompanyArrayToQueryStr
     );
   });
 
-  console.log(`Products for ${company.client_name}: `, products);
+  // console.log(`Products for ${company.client_name}: `, products);
 
   return (
     <div className="panel panel-default">

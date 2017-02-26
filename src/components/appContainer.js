@@ -17,16 +17,16 @@ class AppContainer extends Component {
     super(props);
     this.state = {
       data: null,
+      dataWithQueryStrings: null,
       dataLoading: true,
       dataUrl: DATAURL,
-      graphData: null,
       buttons: {
         companies: [],
         products: [],
         keywords: []
       },
       buttonsLoading: true,
-      searchTerm: null,
+      searchTerm: '',
       companiesQueryStrings: null
     }
 
@@ -38,17 +38,18 @@ class AppContainer extends Component {
     this.productsIndex = {};
     this.keywordsIndex = {};  
 
+    this.dataWithQueryStrings = null;
+
     this.updateButtonsData = this.updateButtonsData.bind(this);
     this.handleIndexData = this.handleIndexData.bind(this);
     this.updateSearchTerm = this.updateSearchTerm.bind(this);
     this.addCompanyArrayToQueryStrings = this.addCompanyArrayToQueryStrings.bind(this);
     this.pushCurrentQueryString = this.pushCurrentQueryString.bind(this);
     this.handleQueryData = this.handleQueryData.bind(this);
-    this.applySearchFilter = this.applySearchFilter.bind(this);
     
   }
 
-  componentWillMount() {
+  componentDidMount() {
     // axios GET call to retrieve data and set to state
     const { dataUrl, data } = this.state;
 
@@ -62,8 +63,8 @@ class AppContainer extends Component {
 
     if (data === null) {
       this.state.data = axios.get(dataUrl)
-      .then((resp) => {
-        this.state.data = resp.data;
+      .then((resp) => {  
+        this.setState({data: resp.data});
       })
       .then((resp) => {
         console.log('data mapped to state: ', this.state.data);
@@ -76,20 +77,42 @@ class AppContainer extends Component {
         this.handleIndexData();
         this.handleQueryData(this.companiesQueryStrings);
       })
-      // .then((resp) => {
-
-      // })
       .catch((error) => {
         console.log('ERROR in mapping data');
       });
-    }
+    } 
   }
 
   componentWillUpdate() {
-    if (this.state.searchTerm !== null) {
-      this.applySearchFilter(this.state.data)
-    }
-    console.log('COMPONENT UPDATED: ', this.state.data);
+    // if (this.state.searchTerm !== null) {
+    //   this.applySearchFilter(this.state.data)
+    // }
+    // console.log('COMPONENT UPDATED: ', this.state.data);
+
+
+
+
+    // console.log('WE ARE IN ELSE LAND!!!');
+    // // map queryData to data if it does not already exist on data 
+    // console.log('??? ', this.state.dataLoading === false);
+    // if (this.state.dataLoading === false) {
+    //   console.log('??? ', this.state.data);
+    //   if (this.state.data[0].queryString === undefined) {
+    //     console.log('WE ARE MAPPING QUERYSTRINGS NOW!!!');
+    //     this.state.data.forEach((company, index) => {
+    //       company.queryString = this.companiesQueryStrings[index];
+    //     });
+    //   }
+    //   // create this.filteredData if searchTerm is not empty
+    //   if (this.state.searchTerm !== '') {
+    //     console.log('WE ARE FILTERING VIA QUERYSTRINGS NOW!!!');
+    //     this.filteredData = this.state.data.filter(company => {
+    //       return company.queryString.includes(this.state.searchTerm);
+    //     });
+    //     this.setState({ filteredData: this.filteredData });
+
+    //   }
+    // }
   }
 
   updateButtonsData(d) {    
@@ -139,7 +162,7 @@ class AppContainer extends Component {
       this.pushCurrentQueryString(`${keywordItemNames} `);
       // console.log('query string from a keyword: ', this.companiesQueryStrings[this.companiesQueryArrayIndex]);
     }
-    console.log('QUERYSTRINGS: ', this.companiesQueryStrings);
+    // console.log('QUERYSTRINGS: ', this.companiesQueryStrings);
   }
 
   handleIndexData() {
@@ -179,17 +202,17 @@ class AppContainer extends Component {
   }
 
   updateSearchTerm(term) {
-    console.log(`${term} button worked!`);
-    this.setState({searchTerm: term}, function(data) {
+    // console.log(`${term} button worked!`);
+    this.setState({searchTerm: term.toLowerCase()}, function(data) {
       console.log('HERE SEARCHTERM IS!!!: ', this.state.searchTerm);
-      console.log(data)
     });
+    
   }
 
   addCompanyArrayToQueryStrings(companyName) {
     if (this.firstCompanyPassedOver) {
       if (this.companiesQueryArrayIndex < this.state.data.length - 1) {
-        console.log('INCREMENTED, BITCHES: ', this.companiesQueryArrayIndex);
+        // console.log('INCREMENTED: ', this.companiesQueryArrayIndex);
         this.companiesQueryArrayIndex++;
       } else {
         this.companiesQueryArrayIndex = 0;
@@ -202,13 +225,13 @@ class AppContainer extends Component {
     if (this.companiesQueryStrings.length < this.state.data.length) {
       this.companiesQueryStrings.push([` ${companyName.toLowerCase()} `]);
     }
-    console.log('companiesQueryStrings after pushing: ', this.companiesQueryStrings);
-    console.log('THIS IS THE INDEXXXX: ', this.companyQueryArrayIndex);
+    // console.log('companiesQueryStrings after pushing: ', this.companiesQueryStrings);
+    // console.log('THIS IS THE INDEXXXX: ', this.companyQueryArrayIndex);
   }
 
   pushCurrentQueryString(qstr) {
     const { companiesQueryArrayIndex } = this;
-    console.log('companiesQueryArrayIndex from pushCurrent Func: ', companiesQueryArrayIndex);
+    // console.log('companiesQueryArrayIndex from pushCurrent Func: ', companiesQueryArrayIndex);
     this.companiesQueryStrings[companiesQueryArrayIndex].push(qstr);
     
   }
@@ -218,30 +241,19 @@ class AppContainer extends Component {
     let joinedQueries = d.map(query => query.join('')); 
     console.log('JOINEDQUERIES: ', joinedQueries);
     // setState
-    this.setState({ companiesQueryStrings: joinedQueries }, (data) => {
-        console.log('companiesQueryStrings after setting state: ', this.state.companiesQueryStrings);
-      }
-    );
+    const dataWithQueryStrings = this.state.data.map((company, index) => {
+      company.queryString = joinedQueries[index];
+      console.log(`company ${index}: `, company);
+      return company;
+    });
+    this.setState({ 
+      dataWithQueryStrings: dataWithQueryStrings,
+      companiesQueryStrings: joinedQueries 
+    });
+
+    console.log('this.state.dataWithQueryStrings: ', this.state.dataWithQueryStrings);
+
   }
-
-  applySearchFilter(d) {
-
-    // Must re-write. Cannot setState here, since componentWillUpdate is calling this function (infinite loop!)
-
-    // let newQueryStrings = [];
-    // if (this.state.searchTerm !== '') {
-    //   const newData = d.reduce((newDataArray, company, index) => {
-    //     if (this.companiesQueryStrings[index].includes(this.state.searchTerm)) {
-    //       newDataArray.push(company);
-    //       newQueryStrings.push(this.companiesQueryStrings[index]);
-    //     }
-    //     return newDataArray;
-    //   });
-    //   console.log('filteredData: ', newData)
-    //   this.setState({ data: newData })
-    // }
-  }
-    // take most parent data, filter companies according to stringQueryArray
 
   render() {
     return (
@@ -259,7 +271,7 @@ class AppContainer extends Component {
           {this.state.dataLoading ?
           <Loading /> :
           <ListContainer 
-            data={this.state.data} 
+            data={this.state.dataWithQueryStrings || this.state.data} 
             state={this.state} 
             updateButtonsData={this.updateButtonsData}
             addCompanyArrayToQueryStrings={this.addCompanyArrayToQueryStrings}
