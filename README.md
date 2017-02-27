@@ -17,8 +17,6 @@ Deliverable:
 
 Submit your demo front-end application at the link below. Please include an explanation of the design and functionality decisions that you made. 
 
-Please submit here: http://app.greenhouse.io/tests/e0a44d6b197459300ce3669c2b308f61
-
 - - - - - - - - 
 
 #Goals
