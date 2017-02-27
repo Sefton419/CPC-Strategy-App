@@ -60,18 +60,13 @@ class AppContainer extends Component {
     this.firstCompanyPassedOver = false;
     
 
-    console.log('This is data initially: ', data)
-
     if (data === null) {
       this.state.data = axios.get(dataUrl)
       .then((resp) => {  
         this.setState({data: resp.data});
       })
       .then((resp) => {
-        console.log('data mapped to state: ', this.state.data);
-        console.log('length of data: ', this.state.data.length);
         this.setState({ dataLoading: false });
-        console.log('dataLoading is now... ', this.state.dataLoading);
       })
       .then((resp) =>{
         // for buttons

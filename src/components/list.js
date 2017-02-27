@@ -13,6 +13,7 @@ const List = ({ data, state, updateButtonsData, addCompanyArrayToQueryStrings, p
 
   const companies = data.map((company) => {
     // console.log('mapping in list: ', company.client_id);
+    
     // FILTERING FOR SEARCH TERM
 
     if (state.searchTerm === '') {
