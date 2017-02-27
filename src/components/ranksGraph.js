@@ -1,56 +1,89 @@
 import React from 'react';
-import { Chart, LineChart }  from 'react-d3-core';
+import { Chart }  from 'react-d3-core';
+import { LineChart } from 'react-d3-basic';
 
+const styles = {
+  TE: {
+    borderStyle: 'solid',
+    borderWidth: 0.25
+  },
+  offWhite: {
+    backgroundColor:'#EEEEEE',
+  },
+  EMPTY: {}
+}
 
+const RanksGraph = ({ ranks, updateGraphData, lineColors }) => {
+  // console.log('ranks in RanksGraph: ', ranks);
+  // console.log('ranks function: ', updateGraphData);
 
-
-const RanksGraph = ({ graphData }) => {
-
-  const width = 700,
-    height = 300,
-    margins = {left: 100, right: 100, top: 50, bottom: 50},
-    title = "User sample",
+  const width = 350*(1.5),
+    height = 150*(1.5),
+    margins = {left: 50, right: 50, top: 25, bottom: 25},
+    title = "User sample";
     // chart series,
     // field: is what field your data want to be selected
     // name: the name of the field that display in legend
     // color: what color is the line
-    chartSeries = [
+
+    const chartSeries = ranks.map((rank, index) => (
       {
-        field: 'BMI',
-        name: 'BMI',
-        color: '#ff7f0e'
+        field: 'rank_position',
+        name: rank[0],
+        color: lineColors[index],
+        style: {
+          opacity: 0.75
+        }    
       }
-    ],
+    ));
+
+    // console.log(`chartSeries for ${ranks[0]}: `, chartSeries);
+
+    const parseDate = d3.time.format("%Y-%m-%d").parse;
+
+    const chartData = ranks.map((tuple) => {
+      return tuple[1].map((rank) => {
+        rank.keyword_name = tuple[0];
+        return rank;
+      });
+    })
+    .reduce((arr, rank) => {
+      return [...arr, ...rank];
+    }, [])
+    .sort((a, b) => {
+      return new Date(a.rank_date).getTime() - new Date(b.rank_date).getTime();
+    });;
+
+    
+    // console.log(`chartData: `, chartData);
+
     // your x accessor
-    x = function(d) {
-      return d.index;
-    }
+    const x = function(d) {
+      const date = parseDate(d.rank_date);
+        return date;
+    };
 
-    /*
-<Chart
-  title={title}
-  width={width}
-  height={height}
-  margins= {margins}
-  >
-  <LineChart
-    showXGrid= {false}
-    showYGrid= {false}
-    margins= {margins}
-    title={title}
-    data={chartData}
-    width={width}
-    height={height}
-    chartSeries={chartSeries}
-    x={x}
-  />
-</Chart>
-    */
+    const xScale = 'time';
+    const yTickOrient = 'right';
 
-  console.log('graphData in graph component: ', graphData);
 
   return (
-    <div>We're cool</div>
+    <div>
+      <LineChart
+        id="shadow-box"
+        showXGrid= {true}
+        showYGrid= {true}
+        margins= {margins}
+        title={title}
+        data={chartData}
+        width={width}
+        height={height}
+        chartSeries={chartSeries}
+        x={x}
+        xScale={xScale}
+        yTickOrient={yTickOrient}
+      />
+    </div>
   );
 };
 

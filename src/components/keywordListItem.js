@@ -1,7 +1,6 @@
 import React from 'react';
 
 import RankListItem from './rankListItem.js';
-import RanksGraph from './ranksGraph.js'
 
 const styles = {
   TE: {
@@ -12,8 +11,8 @@ const styles = {
 }
 
 const KeywordListItem = ({ keyword, keyword_name, keyword_country }) => {
-  const graphData = keyword.ranks.map(rank => rank);
-  console.log('this is mapped graphData: ', graphData)
+  // console.log('state: ', this.state);
+
   // const ranks = keyword.ranks.map((rank) => {
   //   return (
   //     <RankListItem 

@@ -10,39 +10,44 @@ const styles = {
   EMPTY: {}
 }
 
-const CompanyListItem = ({ company }) => {
+const CompanyListItem = ({ company, updateButtonsData, addCompanyArrayToQueryStrings, pushCurrentQueryString }) => {
+  // console.log('inside companyListItem');
+  addCompanyArrayToQueryStrings(company.client_name);
 
-  console.log('data in CompanyListItem: ', company);
+  // console.log('addCompanyArrayToQueryStrings envoked')
+
+  updateButtonsData(company.products);
+  // pushCurrentQueryString();
+  
   const products = company.products.map((product) => {
-    console.log(`iterating, product: `, product)
     return (
       <ProductListItem 
         key={product.product_id}
         product_name={product.product_name}
         product_image_url={product.product_image_url}
         product={product}
+        updateButtonsData={updateButtonsData}
+        pushCurrentQueryString={pushCurrentQueryString}
       />
     );
   });
 
-  console.log(`Products for ${company.client_name}: `, products);
+  // console.log(`Products for ${company.client_name}: `, products);
 
   return (
     <div className="panel panel-default">
-      <h2 className="panel-title" >
+      <h2 className="panel-title">
         {company.client_name} 
-      </h2>      
+      </h2>   
       <div className="panel-body">
-        <div className="row" style={styles.EMPTY}>
+        <div className="row">
           <div className="col-xs-3">Product</div>
           <div className="col-xs-2">Keywords</div>
-          <div className="col-xs-3">Ranks</div>
-          <div className="col-xs-2">Progress</div>
-          <div className="col-xs-2">Total Avg Score</div>
+          <div className="col-xs-7">Chart</div>
         </div>
         <div className="row">
-          <div className="col-xs-5">
-            {products}
+          <div className="col-xs-12" style={styles.EMPTY}>
+          {products}
           </div>
         </div>
       </div>
