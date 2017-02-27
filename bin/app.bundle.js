@@ -27837,37 +27837,6 @@
 	      }
 	    }
 	  }, {
-	    key: 'componentWillUpdate',
-	    value: function componentWillUpdate() {
-	      // if (this.state.searchTerm !== null) {
-	      //   this.applySearchFilter(this.state.data)
-	      // }
-	      // console.log('COMPONENT UPDATED: ', this.state.data);
-
-
-	      // console.log('WE ARE IN ELSE LAND!!!');
-	      // // map queryData to data if it does not already exist on data 
-	      // console.log('??? ', this.state.dataLoading === false);
-	      // if (this.state.dataLoading === false) {
-	      //   console.log('??? ', this.state.data);
-	      //   if (this.state.data[0].queryString === undefined) {
-	      //     console.log('WE ARE MAPPING QUERYSTRINGS NOW!!!');
-	      //     this.state.data.forEach((company, index) => {
-	      //       company.queryString = this.companiesQueryStrings[index];
-	      //     });
-	      //   }
-	      //   // create this.filteredData if searchTerm is not empty
-	      //   if (this.state.searchTerm !== '') {
-	      //     console.log('WE ARE FILTERING VIA QUERYSTRINGS NOW!!!');
-	      //     this.filteredData = this.state.data.filter(company => {
-	      //       return company.queryString.includes(this.state.searchTerm);
-	      //     });
-	      //     this.setState({ filteredData: this.filteredData });
-
-	      //   }
-	      // }
-	    }
-	  }, {
 	    key: 'updateButtonsData',
 	    value: function updateButtonsData(d) {
 	      var _this3 = this;
