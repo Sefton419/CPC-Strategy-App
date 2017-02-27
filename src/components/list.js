@@ -1,20 +1,50 @@
 import React, { Component } from 'react';
 
 import CompanyListItem from './CompanyListItem.js'
-import ProductListItem from './ProductListItem.js'
-import KeywordListItem from './KeywordListItem.js'
 import Loading from './loading.js'
 
-const List = () => {
 
-  // Methods and variables go here...
+
+const List = ({ data, state, updateButtonsData, addCompanyArrayToQueryStrings, pushCurrentQueryString }) => {
+  console.log('data in list: ', data); 
+
+  updateButtonsData(data);
+  // console.log('updateButtonsData envoked');
+
+  const companies = data.map((company) => {
+    // console.log('mapping in list: ', company.client_id);
+    // FILTERING FOR SEARCH TERM
+
+    if (state.searchTerm === '') {
+      return (
+        <CompanyListItem 
+          key={company.client_id}
+          company={company}
+          updateButtonsData={updateButtonsData}
+          addCompanyArrayToQueryStrings={addCompanyArrayToQueryStrings}
+          pushCurrentQueryString={pushCurrentQueryString}
+        />
+      );
+    } else {
+      if (company.queryString.includes(state.searchTerm)) {
+        return (
+          <CompanyListItem 
+            key={company.client_id}
+            company={company}
+            updateButtonsData={updateButtonsData}
+            addCompanyArrayToQueryStrings={addCompanyArrayToQueryStrings}
+            pushCurrentQueryString={pushCurrentQueryString}
+          />
+        );
+      }
+    }
+  });
 
   return (
     <div>
-      <CompanyListItem />
-      <ProductListItem />
-      <KeywordListItem />
-      <Loading />
+      <div>
+        {companies}
+      </div> 
     </div>
   )
 }

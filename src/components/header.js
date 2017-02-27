@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchBar from './searchBar.js'
 
 const styles = {
   header: {
@@ -8,15 +9,21 @@ const styles = {
   }
 }
 
-const Header = () => {
-
+const Header = ({ state, updateSearchTermFromSearchBar }) => {
   // methods and variables go here...
-
   return (
     <div className="col-md-12" style={styles.header}>
-      CPC Strategy
+      <div className="col-md-12">
+        CPC Strategy
+      </div>
+      <div className="row" />
+      <SearchBar
+        state={state}
+        updateSearchTermFromSearchBar={updateSearchTermFromSearchBar}
+      />
     </div>
-  )
-}
+
+  );
+};
 
 export default Header;

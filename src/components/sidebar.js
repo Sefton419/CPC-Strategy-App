@@ -3,18 +3,19 @@ import React, { Component } from 'react';
 import ButtonsContainer from './buttonsContainer.js'
 
 const styles = {
-  'sidebar': {
-    backgroundColor: '#f7f7f9'
-  }
+  'sidebar': {}
 }
 
-const Sidebar = (props) => {
-
+const Sidebar = ({ buttonData, updateSearchTerm }) => {
+  // console.log('buttonData in SideBar: ', buttonData);
   // method and variable go here...
   
   return (
-    <div className="col-md-2" style={styles.sidebar}>
-      <ButtonsContainer />
+    <div className="col-xs-2" style={styles.sidebar}>
+      <ButtonsContainer 
+        buttonData={buttonData} 
+        updateSearchTerm={updateSearchTerm} 
+      />
     </div>
   )
 }

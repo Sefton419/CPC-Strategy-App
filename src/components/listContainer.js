@@ -6,12 +6,20 @@ const styles = {
   listContainer: {}
 }
 
-const ListContainer = (props) => {
-
+const ListContainer = ({ data, state, updateButtonsData, addCompanyArrayToQueryStrings, pushCurrentQueryString }) => {
+  console.log('data in list container: ', data);
   return (
-    <div className="col-md-8" id="listContainer" style={styles.listContainer}>
-      <div></div>
-      <List data={props}/>
+    <div>
+      <div className="col-xs-10">
+        <h4>TESTING</h4>
+        <List
+          data={data}
+          state={state}
+          updateButtonsData={updateButtonsData}
+          addCompanyArrayToQueryStrings={addCompanyArrayToQueryStrings}
+          pushCurrentQueryString={pushCurrentQueryString}
+        />
+      </div>
     </div>
   );
 };
