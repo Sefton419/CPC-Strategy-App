@@ -6,13 +6,16 @@ const styles = {
   'sidebar': {}
 }
 
-const Sidebar = (props) => {
-
+const Sidebar = ({ buttonData, updateSearchTerm }) => {
+  // console.log('buttonData in SideBar: ', buttonData);
   // method and variable go here...
   
   return (
     <div className="col-xs-2" style={styles.sidebar}>
-      <ButtonsContainer />
+      <ButtonsContainer 
+        buttonData={buttonData} 
+        updateSearchTerm={updateSearchTerm} 
+      />
     </div>
   )
 }

@@ -7,12 +7,15 @@ const styles = {
     borderStyle: 'solid',
     borderWidth: 0.25
   },
+  offWhite: {
+    backgroundColor:'#EEEEEE',
+  },
   EMPTY: {}
 }
 
-const RanksGraph = ({ ranks, updateGraphData, colors }) => {
-  console.log('ranks in RanksGraph: ', ranks);
-  console.log('ranks function: ', updateGraphData);
+const RanksGraph = ({ ranks, updateGraphData, lineColors }) => {
+  // console.log('ranks in RanksGraph: ', ranks);
+  // console.log('ranks function: ', updateGraphData);
 
   const width = 350*(1.5),
     height = 150*(1.5),
@@ -27,17 +30,16 @@ const RanksGraph = ({ ranks, updateGraphData, colors }) => {
       {
         field: 'rank_position',
         name: rank[0],
-        color: colors[index]       
+        color: lineColors[index],
+        style: {
+          opacity: 0.75
+        }    
       }
     ));
 
-    console.log('chartSeries: ', chartSeries);
+    // console.log(`chartSeries for ${ranks[0]}: `, chartSeries);
 
     const parseDate = d3.time.format("%Y-%m-%d").parse;
-    console.log('I think parseDate is a function: ', parseDate)
-
-    var abc = parseDate("2010-05-22");
-    console.log('abc: ', abc);
 
     const chartData = ranks.map((tuple) => {
       return tuple[1].map((rank) => {
@@ -53,32 +55,34 @@ const RanksGraph = ({ ranks, updateGraphData, colors }) => {
     });;
 
     
-    console.log('chartData: ', chartData);
+    // console.log(`chartData: `, chartData);
 
     // your x accessor
     const x = function(d) {
       const date = parseDate(d.rank_date);
-      console.log('how date looks: ', date);
         return date;
     };
 
     const xScale = 'time';
+    const yTickOrient = 'right';
 
 
   return (
-    <div style={styles.TE}>
-        <LineChart
-          showXGrid= {true}
-          showYGrid= {true}
-          margins= {margins}
-          title={title}
-          data={chartData}
-          width={width}
-          height={height}
-          chartSeries={chartSeries}
-          x={x}
-          xScale={xScale}
-        />
+    <div>
+      <LineChart
+        id="shadow-box"
+        showXGrid= {true}
+        showYGrid= {true}
+        margins= {margins}
+        title={title}
+        data={chartData}
+        width={width}
+        height={height}
+        chartSeries={chartSeries}
+        x={x}
+        xScale={xScale}
+        yTickOrient={yTickOrient}
+      />
     </div>
   );
 };

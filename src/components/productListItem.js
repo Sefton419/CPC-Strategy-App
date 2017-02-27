@@ -11,12 +11,20 @@ const styles = {
     borderStyle: 'solid',
     borderWidth: 0.25
   },
+  margin: {
+    marginBottom: 10
+  },
+  offWhite: {
+    backgroundColor:'#EEEEEE',
+  },
   EMPTY: {}
 }
 
-const ProductListItem = ({ product, product_name, product_image_url, updateGraphData }) => {
+const ProductListItem = ({ product, product_name, product_image_url, updateButtonsData, pushCurrentQueryString }) => {
 
-  const colors = [
+  updateButtonsData(product.keywords); 
+
+  const lineColors = [
     '#5068A5',
     '#F1666D',
     '#53C453',
@@ -25,30 +33,24 @@ const ProductListItem = ({ product, product_name, product_image_url, updateGraph
     '#C65492'
   ]
 
-  console.log(`product ${name}: `, product);
   const keywordsDataForGraphs = [];
 
   const keywords = product.keywords.map((keyword) => {
-
     // this is for the graphs
-
     keywordsDataForGraphs.push([keyword.keyword_name, keyword.ranks]);
-
     return (
       <KeywordListItem 
         key={keyword.keyword_id}
         keyword_name={keyword.keyword_name}
         keyword_country={keyword.keyword_country}
         keyword={keyword}
-        colors={colors}
+        pushCurrentQueryString={pushCurrentQueryString}
       />
     );
   });
 
-  console.log('going to ranksgraph', keywordsDataForGraphs);
-
   return (
-    <div className="row" style={styles.EMPTY}>
+    <div className="row" style={styles.margin}>
         <div className="col-xs-3" style={styles.EMPTY}>
           {product_name}
         </div>
@@ -57,9 +59,8 @@ const ProductListItem = ({ product, product_name, product_image_url, updateGraph
         </div>
         <div className="col-xs-5">
           <RanksGraph 
-            updateGraphData={updateGraphData}
             ranks={keywordsDataForGraphs}
-            colors={colors}
+            lineColors={lineColors}
         />
         </div>
     </div>
@@ -67,3 +68,10 @@ const ProductListItem = ({ product, product_name, product_image_url, updateGraph
 };
 
 export default ProductListItem;
+
+
+/*
+
+
+
+*/
