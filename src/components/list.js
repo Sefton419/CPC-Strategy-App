@@ -6,14 +6,13 @@ import Loading from './loading.js'
 
 
 const List = ({ data, state, updateButtonsData, addCompanyArrayToQueryStrings, pushCurrentQueryString }) => {
-  console.log('data in list: ', data); 
 
   updateButtonsData(data);
   // console.log('updateButtonsData envoked');
 
   const companies = data.map((company) => {
     // console.log('mapping in list: ', company.client_id);
-    
+
     // FILTERING FOR SEARCH TERM
 
     if (state.searchTerm === '') {

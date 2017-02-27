@@ -14,8 +14,6 @@ const CompanyListItem = ({ company, updateButtonsData, addCompanyArrayToQueryStr
   // console.log('inside companyListItem');
   addCompanyArrayToQueryStrings(company.client_name);
 
-  console.log('addCompanyArrayToQueryStrings envoked')
-
   updateButtonsData(company.products);
   
   const products = company.products.map((product) => {

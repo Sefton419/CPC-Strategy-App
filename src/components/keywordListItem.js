@@ -20,21 +20,17 @@ const styles = {
 const KeywordListItem = ({ keyword, keyword_name, keyword_country }) => {
 
   let recentRankDifference = 0;
-  console.log('keyword.ranks: ', keyword.ranks)
+  
   const sortedRanks = keyword.ranks.sort((a, b) => {
-    console.log('iterating inside sortedRanks')
       return new Date(a.rank_date).getTime() - new Date(b.rank_date).getTime();
     });
-
-  console.log('sortedRanks: ', sortedRanks);
 
   let lastInd = sortedRanks.length - 1;
 
   if (sortedRanks.length > 1) {
     recentRankDifference = sortedRanks[lastInd - 1].rank_position - sortedRanks[lastInd].rank_position;
   }
-  
-  console.log(`for keyword ${keyword_name}, recent rank difference is ${recentRankDifference}`);
+
 
   let numberStyle = styles.neutral;
 
